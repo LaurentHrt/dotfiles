@@ -1,0 +1,35 @@
+[gcloud]
+disabled = false
+format = '[ $project]($style) '
+
+[gcloud.project_aliases]
+very-long-project-name = 'vlpn'
+
+[package]
+display_private = true
+format = "[ $version](208 bold) "
+
+[nodejs]
+format = "[ $version](bold green) "
+
+[git_status]
+format = '([$all_status$ahead_behind]($style) )'
+
+[git_branch]
+format = "[$symbol$branch(:$remote_branch)]($style) "
+
+[helm]
+format = '[⎈ $version](bold white) '
+
+[kubernetes]
+disabled = false
+detect_files = ['k8s']
+
+[docker_context]
+format = '[ $context](blue bold)'
+
+[cmd_duration]
+format = '[ $duration](bold yellow)'
+
+[lua]
+format = '[$symbol($version )](bold yellow)'

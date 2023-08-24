@@ -1,0 +1,9 @@
+github.com:
+    user: LaurentHrt
+    git_protocol: ssh
+github-qa.sidel.com:
+    user: laurent-hirth
+    git_protocol: ssh
+github-prod.sidel.com:
+    user: laurent-hirth
+    git_protocol: ssh
