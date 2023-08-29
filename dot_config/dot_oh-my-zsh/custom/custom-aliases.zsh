@@ -1,4 +1,6 @@
 alias sudo='sudo '
+alias c="clear"
+alias q="exit"
 # alias h="history"
 alias ws="webstorm"
 alias edit="open -e"
@@ -21,7 +23,7 @@ alias raspissh='sshraspi'
 alias sshraspiw='ssh laurent@jupiter3.duckdns.org -p 22001 -i ~/.ssh/id_ed25519.raspi'
 alias exa="exa --icons --group-directories-first -hg --git"
 alias ls='exa'
-alias la='exa -a'
+alias la='exa -al'
 alias lla='exa -al'
 alias l='exa -l'
 alias lt='exa -T --git-ignore --level=2 --group-directories-first'
@@ -54,3 +56,14 @@ alias hun="helm uninstall"
 
 # fnm nvm
 alias nvm="fnm"
+
+# fuzzy
+alias vf='nvim $(fzf)'
+
+# nnn
+alias n='nnn -de'
+
+# tmux
+alias t='tmux'
+alias ta='tmux attach -t'
+alias tl='tmux ls'
