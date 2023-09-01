@@ -1,5 +1,5 @@
 [gcloud]
-disabled = false
+disabled = true
 format = '[ $project]($style) '
 
 [gcloud.project_aliases]

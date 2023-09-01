@@ -12,6 +12,8 @@ end
 
 -- This is where you actually apply your config choices
 config.color_scheme = "tokyonight"
+config.enable_tab_bar = false
+config.window_decorations = "RESIZE"
 
 -- and finally, return the configuration to wezterm
 return config
