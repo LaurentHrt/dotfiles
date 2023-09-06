@@ -1,0 +1,28 @@
+pane	general	1	1	:*	1	Laurents-MacBook-Pro.local	:/Users/laurenthirth/.config	1	zsh	:
+pane	general	2	0	:-	1	Laurents-MacBook-Pro.local	:/Users/laurenthirth	1	nnn	:nnn -de Downloads
+pane	general	3	0	:	1	Laurents-MacBook-Pro.local	:/Users/laurenthirth	1	zsh	:
+pane	intouchable	1	1	:*	1	Laurents-MBP.lan	:/Users/laurenthirth/workspace/personal/damarispuireux	1	zsh	:
+pane	intouchable	1	1	:*	2	Laurents-MBP.lan	:/Users/laurenthirth/workspace/personal/damarispuireux	0	zsh	:
+pane	intouchable	1	1	:*	3	Laurents-MBP.lan	:/Users/laurenthirth/workspace/personal/damarispuireux	0	zsh	:
+pane	intouchable	2	0	:-	1	Laurents-MacBook-Pro.local	:/Users/laurenthirth/workspace/personal/intouchablecrew	1	zsh	:
+pane	intouchable	2	0	:-	2	Laurents-MacBook-Pro.local	:/Users/laurenthirth/workspace/personal/intouchablecrew	0	zsh	:
+pane	intouchable	2	0	:-	3	Laurents-MacBook-Pro.local	:/Users/laurenthirth/workspace/personal/intouchablecrew	0	zsh	:
+pane	sidel	1	0	:	1	Laurents-MacBook-Pro.local	:/Users/laurenthirth/workspace/sidel	1	zsh	:
+pane	sidel	2	0	:	1	Laurents-MacBook-Pro.local	:/Users/laurenthirth/.config/gcloud	1	zsh	:
+pane	sidel	2	0	:	2	Laurents-MacBook-Pro.local	:/Users/laurenthirth	0	zsh	:
+pane	sidel	3	0	:	1	Laurents-MacBook-Pro.local	:/Users/laurenthirth/workspace/sidel/helm-charts	1	zsh	:
+pane	sidel	4	0	:-	1	Laurents-MacBook-Pro.local	:/Users/laurenthirth/workspace/sidel/sidel-sql	1	zsh	:
+pane	sidel	4	0	:-	2	Laurents-MacBook-Pro.local	:/Users/laurenthirth/workspace/sidel/sidel-sql	0	Python	:/opt/homebrew/Cellar/python@3.11/3.11.4_1/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python /opt/homebrew/bin/mycli -u root -h localhost -P 3366 eit_v7 -p root
+pane	sidel	5	1	:*	1	Laurents-MBP.lan	:/Users/laurenthirth/workspace/sidel/sidel-iot-library	1	nvim	:nvim .
+pane	sidel	5	1	:*	2	Laurents-MacBook-Pro.local	:/Users/laurenthirth/workspace/sidel/sidel-iot-library	0	zsh	:
+window	general	1	:config	1	:*	befe,318x82,0,0,1	off
+window	general	2	:files	0	:-	beff,318x82,0,0,2	off
+window	general	3	:general	0	:	ce00,187x57,0,0,3	off
+window	intouchable	1	:damarispuireux	1	:*	bb43,318x82,0,0{189x82,0,0,4,128x82,190,0[128x42,190,0,5,128x39,190,43,6]}	off
+window	intouchable	2	:intouchablecrew	0	:-	44af,318x82,0,0{204x82,0,0,7,113x82,205,0[113x42,205,0,8,113x39,205,43,9]}	off
+window	sidel	1	:general	0	:	672f,187x57,0,0,10	off
+window	sidel	2	:gcp	0	:	fb3d,318x82,0,0{177x82,0,0,11,140x82,178,0,12}	off
+window	sidel	3	:helm	0	:	5fb2,318x82,0,0,13	off
+window	sidel	4	:sql	0	:-	a38e,318x82,0,0{214x82,0,0,14,103x82,215,0,20}	off
+window	sidel	5	:lib	1	:*	be19,318x82,0,0{239x82,0,0,15,78x82,240,0,21}	off
+state	sidel	intouchable
