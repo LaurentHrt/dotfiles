@@ -12,6 +12,7 @@ alias createsql='(\cd ~/workspace/sidel/sidel-sql && docker run -d --name mysql-
 alias run-sql-migration='(\cd ~/workspace/sidel/sidel-sql && docker start mysql-onprem && docker build -t sidel-migration-tool -f migration_tool/build/Dockerfile-macos . && docker run --rm -it -e MYSQL_USER=root -e MYSQL_PASSWORD=root -e MYSQL_HOST=mysql -e MYSQL_PORT=3306 -e API_BACK_PASSWORD=api_back -e DTM_LIVE_LOCAL_PASSWORD=dtm_live_local --name sidel-migration-tool --network sidel-sql sidel-migration-tool)'
 alias buildsql='(\cd ~/workspace/sidel/sidel-sql && docker build -t sidel-migration-tool -f migration_tool/build/Dockerfile-macos .)'
 alias connectsql='mycli -u root -h localhost -P 3366 -p root'
+alias connectsqldev='mycli -u API_BACK -h localhost -P 3307 -p dBycsDKwmg8hCA9q2ZT4NUeP7MD5wn2V'
 alias connectsqleit='mycli -u root -h localhost -P 3366 eit_v7 -p root'
 alias checklocalmigration='mycli -u root -h localhost -P 3366 eit_v7 -p root -e "select * from _migrations order by id desc limit 5" | column -t'
 alias checkdevmigration='mycli -u API_BACK -h localhost -P 3307 SIDEL_IOT_DEV -p dBycsDKwmg8hCA9q2ZT4NUeP7MD5wn2V -e "select * from _migrations order by id desc limit 5" | column -t'
