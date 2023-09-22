@@ -142,3 +142,9 @@ eval "$(fnm env --use-on-cd)"
 
 # Influxdb autocompletion
 source <(influx completion zsh)
+
+# bun completions
+[ -s "/opt/homebrew/Cellar/bun/1.0.0/share/zsh/site-functions/_bun" ] && source "/opt/homebrew/Cellar/bun/1.0.0/share/zsh/site-functions/_bun"
+
+# Some mycli users like to disable line wrapping.
+export LESS="-SRXF"

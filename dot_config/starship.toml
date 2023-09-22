@@ -10,6 +10,9 @@ display_private = true
 format = "[ $version](208 bold) "
 
 [nodejs]
+detect_extensions = []
+detect_folders = []
+detect_files = [".nvmrc", ".node_version"]
 format = "[ $version](bold green) "
 
 [git_status]
@@ -33,3 +36,7 @@ format = '[ $duration](bold yellow)'
 
 [lua]
 format = '[$symbol($version )](bold yellow)'
+
+[bun]
+format = '[$symbol($version )]($style)'
+style = 'fg:179'
