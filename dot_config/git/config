@@ -6,6 +6,9 @@
 	# path = ~/.config/git/config-ouidou
 	path = ~/.config/git/config-sidel
 
+[includeIf "gitdir:~/workspace/komportementalist/"]
+	path = ~/.config/git/config-komp
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

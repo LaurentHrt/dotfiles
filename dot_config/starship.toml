@@ -1,3 +1,5 @@
+command_timeout = 750
+
 [gcloud]
 disabled = true
 format = '[ $project]($style) '
@@ -29,14 +31,14 @@ disabled = false
 detect_files = ['k8s']
 
 [docker_context]
-format = '[ $context](blue bold)'
+format = '[ $context](blue bold) '
 
 [cmd_duration]
-format = '[ $duration](bold yellow)'
+format = '[ $duration](bold yellow) '
 
 [lua]
-format = '[$symbol($version )](bold yellow)'
+format = '[$symbol($version )](bold yellow) '
 
 [bun]
-format = '[$symbol($version )]($style)'
+format = '[$symbol($version )]($style) '
 style = 'fg:179'

@@ -9,7 +9,10 @@ pager: delta
 # Aliases allow you to create nicknames for gh commands
 aliases:
     co: pr checkout
+    prl: pr list --json number,title,headRefName,author,createdAt --template '{{range .}}{{tablerow (printf "#%v" .number | autocolor "green") .title (.headRefName | color "cyan") (.author.login | color "yellow")  (timeago .createdAt)  }}{{end}}'
+    prf: pr view  --json files --jq '.files.[].path'
 # The path to a unix socket through which send HTTP connections. If blank, HTTP traffic will be handled by net/http.DefaultTransport.
 http_unix_socket:
 # What web browser gh should use when opening URLs. If blank, will refer to environment.
 browser:
+version: "1"

@@ -6,3 +6,5 @@ project = deve-back
 zone = europe-west2-a
 region = europe-west2
 
+[functions]
+region = europe-west2

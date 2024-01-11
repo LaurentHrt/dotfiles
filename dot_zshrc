@@ -148,3 +148,6 @@ source <(influx completion zsh)
 
 # Some mycli users like to disable line wrapping.
 export LESS="-SRXF"
+
+# Docker CLI 
+export PATH="$HOME/.docker/bin:$PATH"

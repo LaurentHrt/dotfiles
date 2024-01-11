@@ -33,8 +33,6 @@ alias lT='eza -T --git-ignore --level=4 --group-directories-first'
 # alias backup-dot-files='(cd ~/workspace/personal/my-dotfiles && ./backup.sh)'
 # alias vim=nvim
 alias vi=nvim
-alias pdm=podman
-alias pdmms='podman machine stop'
 alias rip='rip --graveyard ~/.Trash/'
 alias wrapon='tput rmam'
 alias wrapoff='tput smam'
@@ -67,3 +65,15 @@ alias n='nnn -de'
 alias t='tmux'
 alias ta='tmux attach -t'
 alias tl='tmux ls'
+
+# GCP
+alias gcloudloglast='gcloud builds log --stream $(gcloud builds list --ongoing --format=yaml | yq '.id' | head -n 1)'
+
+# Komportementalist
+alias sshvmstage='ssh root@34.65.74.225 -i ~/workspace/komportementalist/vm_staging_key'
+alias sshvmprod='ssh root@34.155.121.82 -i ~/workspace/komportementalist/vm_prod_key'
+alias checkvmprod="sshvmprod 'docker ps --format \"table {{.Names}}\t{{.Status}}\t{{.RunningFor}}\"'"
+alias checkvmstage="sshvmstage 'docker ps --format \"table {{.Names}}\t{{.Status}}\t{{.RunningFor}}\"'"
+
+# Github
+alias gpl="gh pr list"

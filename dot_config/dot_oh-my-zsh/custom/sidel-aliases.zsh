@@ -1,13 +1,12 @@
-alias editsidelalias='vim ~/.config/.oh-my-zsh/custom/sidel-aliases.zsh'
+alias editsidelalias='nvim ~/.config/.oh-my-zsh/custom/sidel-aliases.zsh'
 
 # Connections
 alias sshvmlaval='ssh administrator@172.26.223.82 -i ~/.ssh/id_rsa.vmlaval'
 
 # Database
-alias docker=podman
-alias stoppdm='podman machine stop'
-alias startsql='pdmmachinestart ; podman container start mysql-onprem'
-alias startinfluxdb='pdmmachinestart ; podman container start influxdb'
+alias startsql='docker container start mysql-onprem'
+alias stopsql='docker container stop mysql-onprem'
+alias startinfluxdb='docker container start influxdb'
 alias createsql='(\cd ~/workspace/sidel/sidel-sql && docker run -d --name mysql-onprem -e MYSQL_ROOT_PASSWORD=root -p 3366:3306 --network sidel-sql --network-alias mysql biarms/mysql:5.7 --sql_mode="ONLY_FULL_GROUP_BY" --default-time-zone="+00:00")'
 alias runsqlmigration='(\cd ~/workspace/sidel/sidel-sql && docker start mysql-onprem && docker build -t sidel-migration-tool -f migration_tool/build/Dockerfile-macos . && docker run --rm -it -e MYSQL_USER=root -e MYSQL_PASSWORD=root -e MYSQL_HOST=mysql -e MYSQL_PORT=3306 -e API_BACK_PASSWORD=api_back -e DTM_LIVE_LOCAL_PASSWORD=dtm_live_local --name sidel-migration-tool --network sidel-sql sidel-migration-tool)'
 alias buildsql='(\cd ~/workspace/sidel/sidel-sql && docker build -t sidel-migration-tool -f migration_tool/build/Dockerfile-macos .)'
@@ -16,6 +15,10 @@ alias connectsqldev='mycli -u API_BACK -h localhost -P 3307 SIDEL_IOT_DEV -p dBy
 alias connectsqllocaleit='mycli -u root -h localhost -P 3366 eit_v7 -p root'
 alias checklocalmigration='mycli -u root -h localhost -P 3366 eit_v7 -p root -e "select * from _migrations order by id desc limit 5" | column -t'
 alias checkdevmigration='mycli -u API_BACK -h localhost -P 3307 SIDEL_IOT_DEV -p dBycsDKwmg8hCA9q2ZT4NUeP7MD5wn2V -e "select * from _migrations order by id desc limit 5" | column -t'
+
+# GCP
+alias gcpdeve="gcloud config configurations activate sidel-deve-back"
+alias gcpprod="gcloud config configurations activate sidel-prod-back"
 
 # gita
 alias pullall='gita super sidel-all pull'
@@ -27,15 +30,15 @@ alias resetsideldev='swdall && pullall'
 alias resetsideldevhard='gita super sidel-all restore . && swdall && pullall'
 
 # podman machine
-pdmmachinestart() {
+# pdmmachinestart() {
 	# Check if podman machine is already running
-	machineState=$(pdm machine info --format=json | jq '.Host.MachineState')
-	if [[ $machineState = '"Running"' ]] then
-		echo "Podman machine already running"
-	else 
-    podman machine start
-	fi
-}
+# 	machineState=$(pdm machine info --format=json | jq '.Host.MachineState')
+# 	if [[ $machineState = '"Running"' ]] then
+# 		echo "Podman machine already running"
+# 	else 
+#     podman machine start
+# 	fi
+# }
 
 # env management
 setcloudenv() {
@@ -70,6 +73,9 @@ alias stopproxyprod='pm2 stop proxy-prod > /dev/null'
 alias stopall='pm2 stop all > /dev/null ; closeprosys'
 alias stoprecovery='pm2 stop sidel-recovery-machine > /dev/null'
 alias stopscheduler='pm2 stop task-scheduler > /dev/null'
+
+alias pmrf='pm2 restart sidel-front'
+alias pmrb='pm2 restart sidel-back'
 
 startsidelfront() {
 	if [[ -z $(pm2 pid sidel-front) ]] then
