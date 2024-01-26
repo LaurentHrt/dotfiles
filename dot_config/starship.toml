@@ -31,6 +31,7 @@ disabled = false
 detect_files = ['k8s']
 
 [docker_context]
+disabled = true
 format = '[ $context](blue bold) '
 
 [cmd_duration]

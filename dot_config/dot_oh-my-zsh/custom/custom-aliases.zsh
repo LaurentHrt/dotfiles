@@ -59,7 +59,7 @@ alias nvm="fnm"
 alias vf='nvim $(fzf)'
 
 # nnn
-alias n='nnn -de'
+alias n='nnn -e'
 
 # tmux
 alias t='tmux'
@@ -77,3 +77,7 @@ alias checkvmstage="sshvmstage 'docker ps --format \"table {{.Names}}\t{{.Status
 
 # Github
 alias gpl="gh pr list"
+
+# Git 
+alias deletemerged="git branch --merged | egrep -v '(^\*|master|main|developpement)' | xargs git branch -d"
+alias lg="lazygit"

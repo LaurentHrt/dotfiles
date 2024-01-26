@@ -123,7 +123,7 @@ eval "$(starship init zsh)"
 export PATH="$PATH:/Users/laurenthirth/Library/Python/3.9/bin"
 
 # nnn
-export PATH="$PATH:/Users/laurenthirth/.local/bin"
+# export PATH="$PATH:/Users/laurenthirth/.local/bin"
 
 # ATUIN (must be after set vi mode)
 export ATUIN_NOBIND="true"
@@ -151,3 +151,4 @@ export LESS="-SRXF"
 
 # Docker CLI 
 export PATH="$HOME/.docker/bin:$PATH"
+

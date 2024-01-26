@@ -4,7 +4,7 @@ alias editsidelalias='nvim ~/.config/.oh-my-zsh/custom/sidel-aliases.zsh'
 alias sshvmlaval='ssh administrator@172.26.223.82 -i ~/.ssh/id_rsa.vmlaval'
 
 # Database
-alias startsql='docker container start mysql-onprem'
+alias startsql='open -a OrbStask && docker container start mysql-onprem'
 alias stopsql='docker container stop mysql-onprem'
 alias startinfluxdb='docker container start influxdb'
 alias createsql='(\cd ~/workspace/sidel/sidel-sql && docker run -d --name mysql-onprem -e MYSQL_ROOT_PASSWORD=root -p 3366:3306 --network sidel-sql --network-alias mysql biarms/mysql:5.7 --sql_mode="ONLY_FULL_GROUP_BY" --default-time-zone="+00:00")'

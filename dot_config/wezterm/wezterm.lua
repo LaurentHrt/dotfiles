@@ -14,6 +14,9 @@ end
 config.color_scheme = "tokyonight"
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
-
+config.window_background_image = '/Users/laurenthirth/Downloads/aloy-4k-horizon-zero-dawn-m9.jpeg'
+config.window_background_image_hsb = {
+	brightness = 0.3,
+}
 -- and finally, return the configuration to wezterm
 return config
