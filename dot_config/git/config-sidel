@@ -1,9 +1,0 @@
-[user]
-email = laurent.hirth.external@sidel.com
-name = Laurent Hirth
- 
-[github]
-user = "259428"
- 
-[core]
-sshCommand = "ssh -i ~/.ssh/id_ed25519.githubSidel"
