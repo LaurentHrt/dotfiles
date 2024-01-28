@@ -1,0 +1,4 @@
+sidel-all:dtm-live dtm-live-front dtm-software-seeder evo-excel-generator helm-charts sidel-back sidel-cloud-functions sidel-front sidel-iot-library sidel-recovery-machine sidel-sql task-scheduler:
+sidel-fbe:evo-excel-generator sidel-back sidel-front:
+sidel-fb:sidel-back sidel-front:
+sidel-dtm:dtm-live dtm-live-front:

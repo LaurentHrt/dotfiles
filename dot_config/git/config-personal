@@ -1,0 +1,9 @@
+[user]
+email = laurent.hirth.68@icloud.com
+name = Laurent Hirth
+ 
+[github]
+user = "LaurentHrt"
+ 
+[core]
+sshCommand = "ssh -i ~/.ssh/id_ed25519.githubPerso"
