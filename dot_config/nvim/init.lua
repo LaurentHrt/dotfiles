@@ -212,6 +212,10 @@ vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
+vim.o.expandtab = true
+vim.o.tabstop = 2
+vim.o.softtabstop = 2
+vim.o.shiftwidth = 2
 
 -- [[ Basic Keymaps ]]
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
@@ -225,12 +229,6 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous dia
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 -- vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
-
--- Move to window using the <ctrl> hjkl keys
-vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Go to left window', remap = true })
-vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Go to lower window', remap = true })
-vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Go to upper window', noremap = true })
-vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Go to right window', remap = true })
 
 -- Center after moving
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
@@ -247,13 +245,6 @@ vim.keymap.set('n', '<leader>bp', '<cmd>bprevious<cr>', { desc = '[P]revious [B]
 
 -- Git
 vim.keymap.set('n', '<leader>gb', '<cmd>Git blame<cr>', { desc = '[G]it [B]lame' })
-
--- Remove mapping of arrow keys while learning to use hjkl
-vim.keymap.set('n', '<Up>', '<Nop>')
-vim.keymap.set('n', '<Down>', '<Nop>')
-vim.keymap.set('n', '<Left>', '<Nop>')
-vim.keymap.set('n', '<Right>', '<Nop>')
-
 
 -- [[ Highlight on yank ]]
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })

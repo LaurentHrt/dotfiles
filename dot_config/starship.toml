@@ -9,13 +9,16 @@ very-long-project-name = 'vlpn'
 
 [package]
 display_private = true
-format = "[ $version](208 bold) "
+format = "[📦 $version](208 bold) "
 
 [nodejs]
 detect_extensions = []
 detect_folders = []
 detect_files = [".nvmrc", ".node_version"]
-format = "[ $version](bold green) "
+format = "[ $version ](bold green) "
+
+[rust]
+format = "[$symbol($version )]($style)"
 
 [git_status]
 format = '([$all_status$ahead_behind]($style) )'

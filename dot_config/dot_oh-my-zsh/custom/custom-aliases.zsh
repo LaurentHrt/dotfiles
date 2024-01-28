@@ -32,7 +32,7 @@ alias llat='eza -alT --git-ignore --level=2 --group-directories-first'
 alias lT='eza -T --git-ignore --level=4 --group-directories-first'
 # alias backup-dot-files='(cd ~/workspace/personal/my-dotfiles && ./backup.sh)'
 # alias vim=nvim
-alias vi=nvim
+alias v=nvim
 alias rip='rip --graveyard ~/.Trash/'
 alias wrapon='tput rmam'
 alias wrapoff='tput smam'
