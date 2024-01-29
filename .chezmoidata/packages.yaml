@@ -75,3 +75,13 @@ packages:
     - orbstack
     - raycast
     - wezterm
+  apts:
+    - exa
+    - fzf
+    - git
+    - jq
+    - ripgrep
+    - tmux
+    - neovim
+    - zsh
+

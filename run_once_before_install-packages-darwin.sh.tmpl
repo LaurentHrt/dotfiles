@@ -2,6 +2,7 @@
 
 # MACOS ------------------------------
 {{ if eq .chezmoi.os "darwin" -}}
+
 export HOMEBREW_INSTALL_FROM_API=1
 alias brew=/opt/homebrew/bin/brew
 brew bundle --no-lock --file=/dev/stdin <<EOF
@@ -18,5 +19,8 @@ EOF
 
 # LINUX ------------------------------
 {{ else if eq .chezmoi.os "linux" -}}
+{{ if eq .chezmoi.osRelease.idLike "debian" -}}
+sudo apt update && sudo apt install -y {{ range .packages.apts -}} {{ . }} {{ end -}} ;
 
+{{ end -}}
 {{ end -}}
