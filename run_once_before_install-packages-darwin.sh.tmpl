@@ -2,16 +2,19 @@
 
 # MACOS ------------------------------
 {{ if eq .chezmoi.os "darwin" -}}
-  export HOMEBREW_INSTALL_FROM_API=1
-  alias brew=/opt/homebrew/bin/brew
-  brew bundle --no-lock --file=/dev/stdin <<EOF
-  {{ range .packages.brews -}}
-    brew {{ . | quote }}
-  {{ end -}}
-  {{ range .packages.casks -}}
-    cask {{ . | quote }}
-  {{ end -}}
-  EOF
+export HOMEBREW_INSTALL_FROM_API=1
+alias brew=/opt/homebrew/bin/brew
+brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range .packages.taps -}}
+tap {{ . | quote }}
+{{ end -}}
+{{ range .packages.brews -}}
+brew {{ . | quote }}
+{{ end -}}
+{{ range .packages.casks -}}
+cask {{ . | quote }}
+{{ end -}}
+EOF
 
 # LINUX ------------------------------
 {{ else if eq .chezmoi.os "linux" -}}
