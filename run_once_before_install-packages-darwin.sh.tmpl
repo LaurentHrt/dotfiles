@@ -5,9 +5,6 @@
   export HOMEBREW_INSTALL_FROM_API=1
   alias brew=/opt/homebrew/bin/brew
   brew bundle --no-lock --file=/dev/stdin <<EOF
-  {{ range .packages.taps -}}
-    tap {{ . | quote }}
-  {{ end -}}
   {{ range .packages.brews -}}
     brew {{ . | quote }}
   {{ end -}}
