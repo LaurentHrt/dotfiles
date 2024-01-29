@@ -1,4 +1,6 @@
 {{- if eq .chezmoi.os "darwin" -}}
-#!/bin/bash
+#!/bin/eash
  
+brew bundle --no-lock --file=dot_config/Brewfile
 
+{{ end -}}

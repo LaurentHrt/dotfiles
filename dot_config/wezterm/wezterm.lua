@@ -19,7 +19,7 @@ config.background = {
 	{
 		source = { File = '/Users/laurenthirth/Pictures/wallpapers/aloy-4k-horizon-zero-dawn-m9.jpeg' },
 		hsb = {
-			brightness = 0.4,
+			brightness = 0.25,
 		},
 	},
 }
