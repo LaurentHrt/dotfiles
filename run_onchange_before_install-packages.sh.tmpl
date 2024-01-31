@@ -23,7 +23,7 @@ EOF
 sudo apt update && sudo apt install -y {{ range .packages.apts -}} {{ . }} {{ end -}} ;
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 curl -sS https://starship.rs/install.sh | sh
-curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+brew install zoxide
 brew install atuin
 
 {{ end -}}
