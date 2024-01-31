@@ -63,4 +63,7 @@ packages:
     - neovim
     - zsh
     - curl
+    - starship
+    - atuin
+    - zoxide
 
