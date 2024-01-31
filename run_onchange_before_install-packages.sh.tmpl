@@ -24,7 +24,7 @@ sudo apt update && sudo apt install -y {{ range .packages.apts -}} {{ . }} {{ en
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 curl -sS https://starship.rs/install.sh | sh
 curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
-curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh | bash
+brew install atuin
 
 {{ end -}}
 {{ end -}}
