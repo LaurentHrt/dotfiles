@@ -5,5 +5,3 @@ user = "ExterneKomp"
 email = "externe@komportementalist.net"
 name = "Externe Komportementalist"
  
-[core]
-sshCommand = "ssh -i ~/.ssh/id_ed25519.githubKomp"

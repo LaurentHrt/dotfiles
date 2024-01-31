@@ -16,14 +16,12 @@ brew {{ . | quote }}
 cask {{ . | quote }}
 {{ end -}}
 EOF
-git clone https://github.com/LaurentHrt/kickstart.nvim.git ~/.config/nvim
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # LINUX ------------------------------
 {{ else if eq .chezmoi.os "linux" -}}
 {{ if eq .chezmoi.osRelease.id "debian" -}}
 sudo apt update && sudo apt install -y {{ range .packages.apts -}} {{ . }} {{ end -}} ;
-git clone https://github.com/LaurentHrt/kickstart.nvim.git ~/.config/nvim
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 {{ end -}}

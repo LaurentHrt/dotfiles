@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/.config ~/workspace/personal ~/workspace ~/workspace/sidel ~/workspace/komportementalist -mindepth 1 -maxdepth 1 -type d | fzf)
+    selected=$(find ~/.config ~/workspace/personal ~/workspace ~/workspace/sidel ~/workspace/komp -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then

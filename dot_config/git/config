@@ -1,13 +1,11 @@
 [include]
 	path = ~/.config/git/config-personal
 
-# Overwrite config if in workspace/sidel
 [includeIf "gitdir:~/workspace/sidel/"]
-	# path = ~/.config/git/config-ouidou
 	path = ~/.config/git/config-sidel
 
-[includeIf "gitdir:~/workspace/komportementalist/"]
-	path = ~/.config/git/config-komp
+; [includeIf "gitdir:~/workspace/komp/"]
+; 	path = ~/.config/git/config-komp
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
@@ -52,3 +50,8 @@
 	hunk-header-file-style = red
 	hunk-header-line-number-style = "#067a00"
 	hunk-header-style = file line-number syntax
+[credential]
+	helper = 
+	helper = /usr/local/share/gcm-core/git-credential-manager
+[credential "https://dev.azure.com"]
+	useHttpPath = true
