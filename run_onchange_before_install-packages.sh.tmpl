@@ -21,10 +21,6 @@ EOF
 {{ else if eq .chezmoi.os "linux" -}}
 {{ if eq .chezmoi.osRelease.id "debian" -}}
 sudo apt update && sudo apt install -y {{ range .packages.apts -}} {{ . }} {{ end -}} ;
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)";
-curl -sS https://starship.rs/install.sh | sh;
-brew install zoxide;
-brew install atuin;
 
 {{ end -}}
 {{ end -}}
