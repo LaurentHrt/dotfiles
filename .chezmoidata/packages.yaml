@@ -4,18 +4,15 @@ packages:
     - homebrew/bundle
     - homebrew/cask
     - homebrew/cask-fonts
-    - homebrew/core
     - homebrew/services
     - jesseduffield/lazydocker
     - jesseduffield/lazygit
     - koekeishiya/formulae
-    - oven-sh/bun
   brews:
     - atuin
     - bat
     - bitwarden-cli
     - btop
-    - chezmoi
     - eza
     - fd
     - fnm
@@ -24,9 +21,9 @@ packages:
     - git
     - git-delta
     - httpie
+    - jesseduffield/lazydocker/lazydocker
+    - jesseduffield/lazygit/lazygit
     - jq
-    - k9s
-    - kubernetes-cli
     - mycli
     - neovim
     - nnn
@@ -34,18 +31,14 @@ packages:
     - ripgrep
     - rm-improved
     - starship
-    - stylua
     - tmux
     - viddy
     - watch
     - yq
     - zoxide
     - zsh
-    - zsh-completions
-    - jesseduffield/lazydocker/lazydocker
-    - jesseduffield/lazygit/lazygit
-    - oven-sh/bun/bun
     - zsh-autosuggestions
+    - zsh-completions
     - zsh-syntax-highlighting
   casks:
     - font-caskaydia-cove-nerd-font
@@ -56,20 +49,17 @@ packages:
     - raycast
     - wezterm
   apts:
-    - exa
+    - build-essential
+    - curl
     - fzf
+    - gcc
     - git
     - jq
+    - neovim
     - ripgrep
     - tmux
-    - neovim
-    - zsh
-    - curl
     - wget
-    - build-essential
-    - gcc
-    - zsh-syntax-highlighting
+    - zsh
     - zsh-autosuggestions
-    - gpg
-
+    - zsh-syntax-highlighting
 
