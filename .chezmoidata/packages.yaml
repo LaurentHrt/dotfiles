@@ -45,6 +45,8 @@ packages:
     - jesseduffield/lazydocker/lazydocker
     - jesseduffield/lazygit/lazygit
     - oven-sh/bun/bun
+    - zsh-autosuggestions
+    - zsh-syntax-highlighting
   casks:
     - font-caskaydia-cove-nerd-font
     - font-fira-code-nerd-font
