@@ -65,4 +65,11 @@ packages:
     - neovim
     - zsh
     - curl
+    - wget
+    - build-essential
+    - gcc
+    - zsh-syntax-highlighting
+    - zsh-autosuggestions
+    - gpg
+
 

@@ -25,6 +25,10 @@ case `uname` in
     export PATH="/Users/laurenthirth/Library/Application Support/fnm:$PATH"
     eval "$(fnm env --use-on-cd)"
   ;;
+  Debian)
+    # homebrew
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  ;;
 esac
 
 # highlight tab suggestions 
