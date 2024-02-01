@@ -1,4 +1,4 @@
-["nvim"]
+[".config/nvim"]
     type = "git-repo"
     url = "https://github.com/LaurentHrt/kickstart.nvim.git"
     exact = true
