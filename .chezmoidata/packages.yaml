@@ -55,7 +55,6 @@ packages:
     - gcc
     - git
     - jq
-    - neovim
     - ripgrep
     - tmux
     - wget
