@@ -1,5 +1,7 @@
-
-# TODO: install neovim eza atuin starship wezterm
-# TODO: make .zshrc not fail if commands not installed
-# TODO: find how to make clipboard work on linux/tmux/neovim
-# TODO: make identity files have the same name everywhere
+# TODOS:
+- install neovim eza atuin starship wezterm
+- make .zshrc not fail if commands not installed
+- find how to make clipboard work on linux/tmux/neovim
+- make identity files have the same name everywhere
+- Make zsh default
+- Add wezterm bachground

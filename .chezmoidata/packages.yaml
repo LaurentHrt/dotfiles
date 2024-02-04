@@ -35,7 +35,6 @@ packages:
     - viddy
     - watch
     - yq
-    - zoxide
     - zsh
     - zsh-autosuggestions
     - zsh-completions
@@ -61,5 +60,4 @@ packages:
     - zsh
     - zsh-autosuggestions
     - zsh-syntax-highlighting
-    - zoxide
 
