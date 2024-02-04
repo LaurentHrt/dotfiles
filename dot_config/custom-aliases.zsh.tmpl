@@ -3,9 +3,16 @@ alias c="clear"
 alias q="exit"
 alias ws="webstorm"
 alias edit="open -e"
+
+{{ if eq .chezmoi.os "linux" -}}
+{{ if eq .chezmoi.osRelease.id "debian" -}}
+alias cat=batcat
+{{ end -}}
+{{ else -}}
 alias cat='bat'
+{{ end -}}
+
 alias als='alias | grep'
-alias omzr='omz reload'
 alias aliasedit='nvim ~/.config/custom-aliases.zsh'
 alias editalias='aliasedit'
 alias zshconfig='nvim ~/.zshrc'
@@ -25,8 +32,6 @@ alias llat='eza -alT --git-ignore --level=2 --group-directories-first'
 alias lT='eza -T --git-ignore --level=4 --group-directories-first'
 alias v=nvim
 alias rip='rip --graveyard ~/.Trash/'
-alias wrapon='tput rmam'
-alias wrapoff='tput smam'
 alias npr='npm run'
 alias nprd='nvm use; npm run dev'
 alias nvmu='nvm use'
@@ -80,3 +85,4 @@ alias gd="git diff"
 alias gp="git push"
 alias gl="git pull"
 alias grs="git restore"
+alias gcl="git clone"
