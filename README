@@ -5,3 +5,4 @@
 - make identity files have the same name everywhere
 - Make zsh default
 - Add wezterm bachground
+- add bat + specific alias cat=batcat for debian

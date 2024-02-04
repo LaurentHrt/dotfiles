@@ -5,7 +5,6 @@ alias ws="webstorm"
 alias edit="open -e"
 alias cat='bat'
 alias als='alias | grep'
-alias cd='z'
 alias omzr='omz reload'
 alias aliasedit='nvim ~/.config/custom-aliases.zsh'
 alias editalias='aliasedit'

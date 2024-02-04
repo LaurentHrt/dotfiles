@@ -58,6 +58,7 @@ packages:
     - tmux
     - wget
     - zsh
+    - bat
     - zsh-autosuggestions
     - zsh-syntax-highlighting
 
