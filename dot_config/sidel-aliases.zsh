@@ -64,7 +64,7 @@ alias pmrb='pm2 restart sidel-back'
 startsidelfront() {
 	if [[ -z $(pm2 pid sidel-front) ]] then
 		echo "start sidel-front"
-    (\cd ~/workspace/sidel/sidel-front && nvm use > /dev/null && pm2 start "npm run start" --name "sidel-front" --error "~/.pm2/logs/sidel-front.log"  --output "~/.pm2/logs/sidel-front.log" > /dev/null)
+    (\cd ~/workspace/sidel/sidel-front && fnm use > /dev/null && pm2 start "npm run start" --name "sidel-front" --error "~/.pm2/logs/sidel-front.log"  --output "~/.pm2/logs/sidel-front.log" > /dev/null)
 	else
 		echo "restart sidel-front"
     pm2 restart sidel-front > /dev/null
@@ -74,7 +74,7 @@ startsidelfront() {
 startsidelback() {
 	if [[ -z $(pm2 pid sidel-back) ]] then
 		echo "start sidel-back"
-    (\cd ~/workspace/sidel/sidel-back && nvm use > /dev/null && pm2 start "npm run start:dev" --name "sidel-back" --error "~/.pm2/logs/sidel-back.log" --output "~/.pm2/logs/sidel-back.log" > /dev/null)
+    (\cd ~/workspace/sidel/sidel-back && fnm use > /dev/null && pm2 start "npm run start:dev" --name "sidel-back" --error "~/.pm2/logs/sidel-back.log" --output "~/.pm2/logs/sidel-back.log" > /dev/null)
 	else
 		echo "restart sidel-back"
     pm2 restart sidel-back > /dev/null
@@ -84,7 +84,7 @@ startsidelback() {
 startproxydev() {
 	if [[ -z $(pm2 pid proxy-dev) ]] then
 		echo "start proxy-dev"
-    (\cd ~/workspace/sidel/sidel-back && nvm use > /dev/null && pm2 start "npm run proxy:dev-file" --name "proxy-dev" --error "~/.pm2/logs/proxy-dev.log" --output "~/.pm2/logs/proxy-dev.log" > /dev/null)
+    (\cd ~/workspace/sidel/sidel-back && fnm use > /dev/null && pm2 start "npm run proxy:dev-file" --name "proxy-dev" --error "~/.pm2/logs/proxy-dev.log" --output "~/.pm2/logs/proxy-dev.log" > /dev/null)
 	else
 		echo "restart proxy-dev"
     pm2 restart proxy-dev > /dev/null
@@ -94,7 +94,7 @@ startproxydev() {
 startproxyprod() {
 	if [[ -z $(pm2 pid proxy-prod) ]] then
 		echo "start proxy-prod"
-    (\cd ~/workspace/sidel/sidel-back && nvm use > /dev/null && pm2 start "npm run proxy:prod-file" --name "proxy-prod" --error "~/.pm2/logs/proxy-prod.log" --output "~/.pm2/logs/proxy-prod.log" > /dev/null)
+    (\cd ~/workspace/sidel/sidel-back && fnm use > /dev/null && pm2 start "npm run proxy:prod-file" --name "proxy-prod" --error "~/.pm2/logs/proxy-prod.log" --output "~/.pm2/logs/proxy-prod.log" > /dev/null)
 	else
 		echo "restart proxy-prod"
     pm2 restart proxy-prod > /dev/null
@@ -104,7 +104,7 @@ startproxyprod() {
 startdtmfront() {
 	if [[ -z $(pm2 pid dtm-front) ]] then
 		echo "start dtm-front"
-    (\cd ~/workspace/sidel/dtm-live-front && nvm use 16 > /dev/null && pm2 start "npm run start" --name "dtm-front" --error "~/.pm2/logs/dtm-front.log" --output "~/.pm2/logs/dtm-front.log" > /dev/null)
+    (\cd ~/workspace/sidel/dtm-live-front && fnm use 16 > /dev/null && pm2 start "npm run start" --name "dtm-front" --error "~/.pm2/logs/dtm-front.log" --output "~/.pm2/logs/dtm-front.log" > /dev/null)
 	else
 		echo "restart dtm-front"
     pm2 restart dtm-front > /dev/null
@@ -114,7 +114,7 @@ startdtmfront() {
 startdtmback() {
 	if [[ -z $(pm2 pid dtm-back) ]] then
 		echo "start dtm-back"
-    (\cd ~/workspace/sidel/dtm-live && nvm use 16 > /dev/null && pm2 start "npm run start:dev" --name "dtm-back" --error "~/.pm2/logs/dtm-back.log" --output "~/.pm2/logs/dtm-back.log" > /dev/null)
+    (\cd ~/workspace/sidel/dtm-live && fnm use 16 > /dev/null && pm2 start "npm run start:dev" --name "dtm-back" --error "~/.pm2/logs/dtm-back.log" --output "~/.pm2/logs/dtm-back.log" > /dev/null)
 	else
 		echo "restart dtm-back"
     pm2 restart dtm-back > /dev/null
@@ -124,7 +124,7 @@ startdtmback() {
 startscheduler() {
 	if [[ -z $(pm2 pid task-scheduler) ]] then
 		echo "start task-scheduler"
-    (\cd ~/workspace/sidel/task-scheduler && nvm use 16 > /dev/null && pm2 start "npm run start:dev" --name "task-scheduler" --error "~/.pm2/logs/task-scheduler.log" --output "~/.pm2/logs/task-scheduler.log" > /dev/null)
+    (\cd ~/workspace/sidel/task-scheduler && fnm use 16 > /dev/null && pm2 start "npm run start:dev" --name "task-scheduler" --error "~/.pm2/logs/task-scheduler.log" --output "~/.pm2/logs/task-scheduler.log" > /dev/null)
 	else
 		echo "restart task-scheduler"
     pm2 restart task-scheduler > /dev/null
@@ -134,7 +134,7 @@ startscheduler() {
 startrecovery() {
 	if [[ -z $(pm2 pid sidel-recovery-machine) ]] then
 		echo "start sidel-recovery-machine"
-    (\cd ~/workspace/sidel/sidel-recovery-machine && nvm use 16 > /dev/null && pm2 start "npm run start:dev" --name "sidel-recovery-machine" --error "~/.pm2/logs/sidel-recovery-machine.log" --output "~/.pm2/logs/sidel-recovery-machine.log" > /dev/null)
+    (\cd ~/workspace/sidel/sidel-recovery-machine && fnm use 16 > /dev/null && pm2 start "npm run start:dev" --name "sidel-recovery-machine" --error "~/.pm2/logs/sidel-recovery-machine.log" --output "~/.pm2/logs/sidel-recovery-machine.log" > /dev/null)
 	else
 		echo "restart sidel-recovery-machine"
     pm2 restart sidel-recovery-machine > /dev/null
