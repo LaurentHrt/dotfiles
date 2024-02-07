@@ -20,8 +20,11 @@ case `uname` in
     # fnm
     export PATH="/Users/laurenthirth/Library/Application Support/fnm:$PATH"
     eval "$(fnm env --use-on-cd)"
+    # Docker CLI 
+    export PATH="$HOME/.docker/bin:$PATH"
   ;;
-  Debian)
+  Linux)
+    export PATH="$HOME/bin:$PATH"
   ;;
 esac
 
@@ -52,11 +55,8 @@ fi
 # Some mycli users like to disable line wrapping.
 export LESS="-SRXF"
 
-# Docker CLI 
-export PATH="$HOME/.docker/bin:$PATH"
-
 # Always open a tmux session
-if [[ "$TERM" != "screen-256color" ]]; then
+if [[ "$TERM" != "screen-256color" && "$TERM" != "tmux-256color" ]]; then
   if type tmux > /dev/null; then
     tmux attach-session -t "$USER" || tmux new-session -s "$USER"
   fi
