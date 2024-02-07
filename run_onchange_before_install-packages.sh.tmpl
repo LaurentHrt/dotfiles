@@ -20,9 +20,14 @@ EOF
 # LINUX ------------------------------
 {{ else if eq .chezmoi.os "linux" -}}
 {{ if eq .chezmoi.osRelease.id "debian" -}}
+
 curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg
+sudo add-apt-repository universe -y
+sudo add-apt-repository ppa:agornostal/ulauncher -y
 echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
-sudo apt update && sudo apt install -y {{ range .packages.apts -}} {{ . }} {{ end -}} ;
+sudo apt update 
+sudo apt install -y {{ range .packages.apts -}} {{ . }} {{ end -}} ;
+
 chsh -s $(which zsh)
 {{ end -}}
 {{ end -}}

@@ -63,4 +63,5 @@ packages:
     - zsh-syntax-highlighting
     - xclip
     - wezterm
+    - ulauncher
 
