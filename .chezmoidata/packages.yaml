@@ -61,4 +61,5 @@ packages:
     - bat
     - zsh-autosuggestions
     - zsh-syntax-highlighting
+    - xclip
 

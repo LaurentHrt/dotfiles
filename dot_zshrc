@@ -55,3 +55,10 @@ export LESS="-SRXF"
 # Docker CLI 
 export PATH="$HOME/.docker/bin:$PATH"
 
+# Always open a tmux session
+if [[ "$TERM" != "screen-256color" ]]; then
+  if type tmux > /dev/null; then
+    tmux attach-session -t "$USER" || tmux new-session -s "$USER"
+  fi
+fi
+
