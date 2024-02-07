@@ -17,7 +17,7 @@ config.window_decorations = "RESIZE"
 
 config.background = {
 	{
-		source = { File = '/Users/laurenthirth/Pictures/wallpapers/aloy-4k-horizon-zero-dawn-m9.jpeg' },
+		source = { File = '/Users/laurenthirth/.config/wezterm/wallpaper.jpeg' },
 		hsb = {
 			brightness = 0.25,
 		},
