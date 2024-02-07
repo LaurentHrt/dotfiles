@@ -64,4 +64,5 @@ packages:
     - xclip
     - wezterm
     - ulauncher
+    - gnupg
 
