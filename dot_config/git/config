@@ -4,8 +4,8 @@
 [includeIf "gitdir:~/workspace/sidel/"]
 	path = ~/.config/git/config-sidel
 
-; [includeIf "gitdir:~/workspace/komp/"]
-; 	path = ~/.config/git/config-komp
+[includeIf "gitdir:~/workspace/komp/"]
+	path = ~/.config/git/config-komp
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
