@@ -4,14 +4,7 @@ alias q="exit"
 alias ws="webstorm"
 alias edit="open -e"
 
-{{ if eq .chezmoi.os "linux" -}}
-{{ if eq .chezmoi.osRelease.id "debian" -}}
-alias cat=batcat
-{{ end -}}
-{{ else -}}
 alias cat='bat'
-{{ end -}}
-
 alias als='alias | grep'
 alias aliasedit='nvim ~/.config/custom-aliases.zsh'
 alias editalias='aliasedit'
@@ -69,7 +62,22 @@ alias gcloudloglast='gcloud builds log --stream $(gcloud builds list --ongoing -
 alias gpl="gh pr list"
 
 # Git 
-alias deletemerged="git branch --merged | egrep -v '(^\*|master|main|developpement)' | xargs git branch -d"
+# Check for develop and similarly named branches
+function git_develop_branch() {
+  command git rev-parse --git-dir &>/dev/null || return
+  local branch
+  for branch in dev devel develop development developpement; do
+    if command git show-ref -q --verify refs/heads/$branch; then
+      echo $branch
+      return 0
+    fi
+  done
+
+  echo develop
+  return 1
+}
+alias deletemerged="git branch --merged | egrep -v '(^\*|master|main|developpement|dev|develop|development|devel)' | xargs git branch -d"
+alias gswd='git switch $(git_develop_branch)'
 alias lg="lazygit"
 alias g="git"
 alias ga="git add"
