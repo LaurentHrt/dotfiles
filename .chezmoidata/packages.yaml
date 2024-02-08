@@ -11,10 +11,12 @@ packages:
   brews:
     - atuin
     - bat
+    - bitwarden
     - bitwarden-cli
     - btop
     - eza
     - fd
+    - chezmoi
     - fnm
     - fzf
     - gh
