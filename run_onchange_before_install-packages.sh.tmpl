@@ -21,11 +21,22 @@ EOF
 {{ else if eq .chezmoi.os "linux" -}}
 {{ if eq .chezmoi.osRelease.idLike "ubuntu debian" -}}
 
+# wezterm
 curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg
-
 echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
+
+# packages
 sudo apt update 
 sudo apt install -y {{ range .packages.apts -}} {{ . }} {{ end -}} ;
+
+# starship
+curl -sS https://starship.rs/install.sh | sh
+
+# atuin
+bash <(curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh)
+
+# bitwarden-cli
+npm install -g @bitwarden/cli
 
 chsh -s $(which zsh)
 {{ end -}}
