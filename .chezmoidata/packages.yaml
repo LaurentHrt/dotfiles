@@ -11,8 +11,8 @@ packages:
   brews:
     - atuin
     - bat
-    - bitwarden
     - bitwarden-cli
+    - bitwarden
     - btop
     - eza
     - fd
