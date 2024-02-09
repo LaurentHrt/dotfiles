@@ -12,7 +12,6 @@ packages:
     - atuin
     - bat
     - bitwarden-cli
-    - bitwarden
     - btop
     - eza
     - fd
