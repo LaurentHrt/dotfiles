@@ -33,10 +33,10 @@ sudo apt install -y {{ range .packages.apts -}} {{ . }} {{ end -}} ;
 curl -sS https://starship.rs/install.sh | sh
 
 # atuin
-bash <(curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh)
+curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh | bash
 
 # fnm
-curl -fsSL https://fnm.vercel.app/install | bash
+curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
 
 # bitwarden-cli
 npm install -g @bitwarden/cli

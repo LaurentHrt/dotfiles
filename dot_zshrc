@@ -66,3 +66,7 @@ fi
 # fnm
 export PATH="/home/laurent/.local/share/fnm:$PATH"
 eval "`fnm env`"
+
+# fnm
+export PATH="/home/laurent/.local/share/fnm:$PATH"
+eval "`fnm env`"
