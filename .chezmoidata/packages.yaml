@@ -50,9 +50,13 @@ packages:
     - wezterm
   apts:
     - build-essential
+    - software-properties-common
+    - appimagelauncher
+    - gnupg
     - curl
     - fzf
     - gcc
+    - npm
     - mycli
     - git
     - jq
@@ -64,6 +68,4 @@ packages:
     - zsh-autosuggestions
     - zsh-syntax-highlighting
     - xclip
-    - wezterm
-    - gnupg
 
