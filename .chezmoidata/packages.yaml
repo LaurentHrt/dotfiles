@@ -65,7 +65,5 @@ packages:
     - wget
     - zsh
     - bat
-    - zsh-autosuggestions
-    - zsh-syntax-highlighting
     - xclip
 
