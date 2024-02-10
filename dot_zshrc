@@ -62,11 +62,3 @@ if [[ "$TERM" != "screen-256color" && "$TERM" != "tmux-256color" && "$TERM" != "
   fi
 fi
 
-
-# fnm
-export PATH="/home/laurent/.local/share/fnm:$PATH"
-eval "`fnm env`"
-
-# fnm
-export PATH="/home/laurent/.local/share/fnm:$PATH"
-eval "`fnm env`"
