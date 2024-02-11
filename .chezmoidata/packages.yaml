@@ -20,6 +20,7 @@ packages:
     - fzf
     - gh
     - git
+    - k9s
     - git-delta
     - httpie
     - jesseduffield/lazydocker/lazydocker
