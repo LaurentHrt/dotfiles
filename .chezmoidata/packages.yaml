@@ -13,19 +13,19 @@ packages:
     - bat
     - bitwarden-cli
     - btop
+    - chezmoi
     - eza
     - fd
-    - chezmoi
     - fnm
     - fzf
     - gh
     - git
-    - k9s
     - git-delta
     - httpie
     - jesseduffield/lazydocker/lazydocker
     - jesseduffield/lazygit/lazygit
     - jq
+    - k9s
     - mycli
     - neovim
     - nnn
@@ -42,29 +42,31 @@ packages:
     - zsh-completions
     - zsh-syntax-highlighting
   casks:
+    - bitwarden
+    - dbeaver-community
+    - firefox
     - font-caskaydia-cove-nerd-font
     - font-fira-code-nerd-font
-    - font-inconsolata-nerd-font
-    - font-intone-mono-nerd-font
+    - httpie
     - orbstack
     - raycast
     - wezterm
   apts:
-    - build-essential
-    - software-properties-common
     - appimagelauncher
-    - gnupg
+    - bat
+    - build-essential
     - curl
     - fzf
     - gcc
-    - npm
-    - mycli
     - git
+    - gnupg
     - jq
+    - mycli
+    - npm
     - ripgrep
+    - software-properties-common
     - tmux
     - wget
-    - zsh
-    - bat
     - xclip
+    - zsh
 
