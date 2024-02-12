@@ -2,7 +2,6 @@ packages:
   taps:
     - ellie/atuin
     - homebrew/bundle
-    - homebrew/cask
     - homebrew/cask-fonts
     - homebrew/services
     - jesseduffield/lazydocker
