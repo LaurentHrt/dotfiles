@@ -2,11 +2,6 @@
 
 # MACOS ------------------------------
 {{ if eq .chezmoi.os "darwin" -}}
-# Install brew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-export HOMEBREW_INSTALL_FROM_API=1
-alias brew=/opt/homebrew/bin/brew
 brew bundle --no-lock --file=/dev/stdin <<EOF
 {{ range .packages.taps -}}
 tap {{ . | quote }}
