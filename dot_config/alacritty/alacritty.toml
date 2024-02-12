@@ -1,0 +1,15 @@
+# import = ["~/.config/alacritty/tokyonight.toml"]
+
+[window]
+decorations = "none"
+startup_mode = "Maximized"
+padding = { x = 3, y = 3 }
+dynamic_padding = true
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font" }
+size = 12
+
+[mouse]
+hide_when_typing = true
+
