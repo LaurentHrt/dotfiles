@@ -47,6 +47,7 @@ packages:
     - firefox
     - font-caskaydia-cove-nerd-font
     - font-fira-code-nerd-font
+    - font-jetbrains-mono-nerd-font
     - httpie
     - orbstack
     - raycast
