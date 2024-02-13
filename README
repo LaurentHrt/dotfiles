@@ -1,4 +1,5 @@
 # TODOS:
+- add creation of folder workspace 
 - automatize homebrew installation
 - separate .zshrc for work and personal (GCP config)
 - add raycast config
