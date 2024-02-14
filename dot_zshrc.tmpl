@@ -8,13 +8,13 @@ fi
 export EDITOR=nvim
 export VISUAL=nvim
 
-{{- if eq .chezmoi.hostname 'macbook-work' }}
+{{- if eq .chezmoi.hostname "macbook-work" }}
 # The next line updates PATH for the Google Cloud SDK. Must be before oh-my-zsh source
 source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
 source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 {{- end }}
 
-{{- if eq .chezmoi.os 'darwin' }}
+{{- if eq .chezmoi.os "darwin" }}
 source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" 
 # PYTHON
@@ -26,7 +26,7 @@ eval "$(fnm env --use-on-cd)"
 export PATH="$HOME/.docker/bin:$PATH"
 {{- end }}
 
-{{- if eq .chezmoi.os 'linux' }}
+{{- if eq .chezmoi.os "linux" }}
 export PATH="$HOME/bin:$PATH"
 {{- end }}
 
