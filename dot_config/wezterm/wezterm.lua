@@ -17,7 +17,7 @@ config.window_decorations = "RESIZE"
 
 config.background = {
 	{
-		source = { File = '/Users/laurenthirth/.config/wezterm/wallpaper.jpeg' },
+		source = { File = '/Users/laurent/.config/wezterm/wallpaper.jpeg' },
 		hsb = {
 			brightness = 0.25,
 		},
