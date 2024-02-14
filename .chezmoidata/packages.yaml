@@ -25,9 +25,11 @@ packages:
     - jesseduffield/lazygit/lazygit
     - jq
     - k9s
+    - mkcert
     - mycli
     - neovim
     - nnn
+    - nss
     - nvm
     - ripgrep
     - rm-improved
@@ -35,6 +37,7 @@ packages:
     - tmux
     - viddy
     - watch
+    - yarn
     - yq
     - zsh
     - zsh-autosuggestions

@@ -1,17 +1,16 @@
 # TODOS:
-- add creation of folder workspace 
-- automatize homebrew installation
-- separate .zshrc for work and personal (GCP config)
 - add raycast config
 - add atuin auto login with bitwarden cli
 - add usage of bitwarden cli 
 - find how to make clipboard work on linux/tmux/neovim
 - make identity files have the same name everywhere
 - Add wezterm bachground
-- add brew mkcert & nss & yarn
 
 # Done:
 - add bat + specific alias cat=batcat for debian
 - Make zsh default
 - make .zshrc not fail if commands not installed
 - install neovim eza atuin starship wezterm
+- separate .zshrc for work and personal (GCP config)
+- add brew mkcert & nss & yarn
+- add creation of folder workspace 
