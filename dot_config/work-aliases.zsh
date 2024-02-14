@@ -1,4 +1,4 @@
-alias editsidelalias='nvim ~/.config/sidel-aliases.zsh'
+alias editworlalias='nvim ~/.config/work-aliases.zsh'
 
 # Database
 alias startsql='orbctl start && docker container start mysql-onprem'
