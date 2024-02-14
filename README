@@ -8,6 +8,7 @@
 - find how to make clipboard work on linux/tmux/neovim
 - make identity files have the same name everywhere
 - Add wezterm bachground
+- add brew mkcert & nss & yarn
 
 # Done:
 - add bat + specific alias cat=batcat for debian
