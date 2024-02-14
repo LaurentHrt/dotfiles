@@ -5,9 +5,7 @@ alias ws="webstorm"
 alias edit="open -e"
 
 alias cat='bat'
-{{ if eq .chezmoi.os "linux" }}
-alias cat='batcat'
-{{ end }}
+
 alias als='alias | grep'
 alias aliasedit='nvim ~/.config/custom-aliases.zsh'
 alias editalias='aliasedit'
@@ -97,3 +95,5 @@ alias gp="git push"
 alias gl="git pull"
 alias grs="git restore"
 alias gcl="git clone"
+alias gsb="git branch --remote | fzf | sed -e 's#^[^/]*/##g' | xargs git switch"
+
