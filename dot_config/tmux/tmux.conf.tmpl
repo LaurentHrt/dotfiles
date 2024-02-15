@@ -35,8 +35,18 @@ source ~/.config/tmux/plugins/minimal-tmux-status.conf
 # forget the find window.  That is for chumps
 bind-key -r f run-shell "tmux neww ~/.config/tmux/custom-scripts/tmux-sessionizer.sh"
 bind-key -r H run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/"
+
+{{- if eq .chezmoi.hostname "MacBook-Pro" }}
+# shortcut for personal projects
+bind-key -r J run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/workspace/komp/app-coach-front"
+bind-key -r K run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/workspace/komp/app-coach-back"
+{{- end }}
+
+{{- if or (eq .chezmoi.hostname "macbook-work") (eq .chezmoi.hostname "LSXLT00165") }}
+# shortcut for work projects
 bind-key -r J run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/workspace/sidel/sidel-front"
 bind-key -r K run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/workspace/sidel/sidel-back"
+{{- end }}
 
 # Open split panes in cwd and change " and % to - and |
 bind - split-window -v -c "#{pane_current_path}"
