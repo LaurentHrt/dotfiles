@@ -13,5 +13,6 @@ README.md
 .config/gcloud/configurations/config_sidel*
 .config/gita/*
 .config/work-aliases.zsh
+.config/.cbtrc
 {{- end }}
 
