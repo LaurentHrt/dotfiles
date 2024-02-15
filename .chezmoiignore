@@ -11,5 +11,6 @@ gcloud/configurations/config_komp*
 .config/git/config-ouidou
 .config/git/config-sidel
 gcloud/configurations/config_sidel*
+gita/*
 {{- end }}
 
