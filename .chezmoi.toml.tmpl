@@ -1,0 +1,12 @@
+[data]
+{{- if eq .chezmoi.hostname "MacBook-Pro" }}
+where = "home"
+{{- end }}
+
+{{- if or (eq .chezmoi.hostname "macbook-work") (eq .chezmoi.hostname "LSXLT00165") }}
+where = "work"
+{{- end }}
+
+[git]
+autoCommit = true
+autoPush = true
