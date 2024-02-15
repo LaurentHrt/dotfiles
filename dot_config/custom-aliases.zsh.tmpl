@@ -3,9 +3,10 @@ alias c="clear"
 alias q="exit"
 alias ws="webstorm"
 alias edit="open -e"
-
 alias cat='bat'
-
+{{- if eq .chezmoi.os "linux" }}
+alias cat='batcat'
+{{- end }}
 alias als='alias | rg'
 alias aliasedit='nvim ~/.config/custom-aliases.zsh'
 alias editalias='aliasedit'

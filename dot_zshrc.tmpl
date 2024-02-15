@@ -1,5 +1,8 @@
 source ~/.config/custom-aliases.zsh
+
+{{- if eq .where "work" }}
 source ~/.config/work-aliases.zsh
+{{- end }}
 
 if [[ -f ~/.config/sensitive-aliases.zsh ]]; then
   source ~/.config/sensitive-aliases.zsh
@@ -8,7 +11,7 @@ fi
 export EDITOR=nvim
 export VISUAL=nvim
 
-{{- if or (eq .chezmoi.hostname "macbook-work") (eq .chezmoi.hostname "LSXLT00165") }}
+{{- if eq .where "home" }}
 # The next line updates PATH for the Google Cloud SDK. Must be before oh-my-zsh source
 source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
 source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
@@ -18,9 +21,9 @@ source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/compl
 source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" 
 # PYTHON
-export PATH="$PATH:/Users/laurenthirth/Library/Python/3.9/bin"
+export PATH="$PATH:$HOME/Library/Python/3.9/bin"
 # fnm
-export PATH="/Users/laurenthirth/Library/Application Support/fnm:$PATH"
+export PATH="$HOME/Library/Application Support/fnm:$PATH"
 eval "$(fnm env --use-on-cd)"
 # Docker CLI 
 export PATH="$HOME/.docker/bin:$PATH"

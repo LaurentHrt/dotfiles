@@ -1,11 +1,14 @@
+{{- if eq .where "home" }}
 [include]
 	path = ~/.config/git/config-personal
-
-[includeIf "gitdir:~/workspace/sidel/"]
-	path = ~/.config/git/config-sidel
-
 [includeIf "gitdir:~/workspace/komp/"]
 	path = ~/.config/git/config-komp
+{{- end }}
+
+{{- if eq .where "work" }}
+[includeIf "gitdir:~/workspace/sidel/"]
+	path = ~/.config/git/config-sidel
+{{- end }}
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f

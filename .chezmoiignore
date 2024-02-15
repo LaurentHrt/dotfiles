@@ -1,1 +1,13 @@
 **/.git/
+README.md
+
+{{- if ne .where "home" }}
+.config/git/config-personal
+.config/git/config-komp
+{{- end }}
+
+{{- if ne .where "work" }}
+.config/git/config-ouidou
+.config/git/config-sidel
+{{- end }}
+
