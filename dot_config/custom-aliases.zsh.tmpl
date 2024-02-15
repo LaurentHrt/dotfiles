@@ -6,7 +6,7 @@ alias edit="open -e"
 
 alias cat='bat'
 
-alias als='alias | grep'
+alias als='alias | rg'
 alias aliasedit='nvim ~/.config/custom-aliases.zsh'
 alias editalias='aliasedit'
 alias zshconfig='nvim ~/.zshrc'
@@ -96,4 +96,4 @@ alias gl="git pull"
 alias grs="git restore"
 alias gcl="git clone"
 alias gsb="git branch --remote | fzf | sed -e 's#^[^/]*/##g' | xargs git switch"
-
+alias gsbl="git branch | fzf | xargs git switch"
