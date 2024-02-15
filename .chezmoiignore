@@ -4,10 +4,12 @@ README.md
 {{- if ne .where "home" }}
 .config/git/config-personal
 .config/git/config-komp
+gcloud/configurations/config_komp*
 {{- end }}
 
 {{- if ne .where "work" }}
 .config/git/config-ouidou
 .config/git/config-sidel
+gcloud/configurations/config_sidel*
 {{- end }}
 
