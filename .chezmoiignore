@@ -12,5 +12,6 @@ gcloud/configurations/config_komp*
 .config/git/config-sidel
 gcloud/configurations/config_sidel*
 gita/*
+.config/work-aliases.zsh
 {{- end }}
 
