@@ -6,6 +6,10 @@
 {{- end }}
 
 {{- if eq .where "work" }}
+[includeIf "gitdir:~/.config/nvim/"]
+	path = ~/.config/git/config-personal
+[includeIf "gitdir:~/.local/share/chezmoi/"]
+	path = ~/.config/git/config-personal
 [includeIf "gitdir:~/workspace/sidel/"]
 	path = ~/.config/git/config-sidel
 {{- end }}
