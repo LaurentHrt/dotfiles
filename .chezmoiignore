@@ -2,7 +2,6 @@
 README.md
 
 {{- if ne .where "home" }}
-.config/git/config-personal
 .config/git/config-komp
 .config/gcloud/configurations/config_komp*
 {{- end }}
