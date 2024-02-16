@@ -1,11 +1,11 @@
-source ~/.config/custom-aliases.zsh
+aliasDirectory="~/.config/aliases
 
-{{- if eq .where "work" }}
-source ~/.config/work-aliases.zsh
-{{- end }}
-
-if [[ -f ~/.config/sensitive-aliases.zsh ]]; then
-  source ~/.config/sensitive-aliases.zsh
+if [[ -d "$aliasDirectory" ]]; then
+  for file in $aliasDirectory/*.zsh; do
+    if [[ -f $file ]]; then
+      source $file
+    fi
+  done
 fi
 
 export EDITOR=nvim
