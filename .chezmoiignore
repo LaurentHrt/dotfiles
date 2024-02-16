@@ -12,7 +12,7 @@ README.md
 .config/git/config-sidel
 .config/gcloud/configurations/config_sidel*
 .config/gita/*
-.config/work-aliases.zsh
+.config/aliases/work-aliases.zsh
 .cbtrc
 {{- end }}
 
