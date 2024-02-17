@@ -8,9 +8,9 @@ alias cat='bat'
 alias cat='batcat'
 {{- end }}
 alias als='alias | rg'
-alias aliasedit='nvim ~/.config/custom-aliases.zsh'
+alias aliasedit='chezmoi edit ~/.config/aliases/custom-aliases.zsh'
 alias editalias='aliasedit'
-alias zshconfig='nvim ~/.zshrc'
+alias editz='chezmoi edit ~/.zshrc'
 alias j='jobs'
 alias pm='pm2'
 alias pml='pm2 list --sort id'
@@ -99,6 +99,3 @@ alias gcl="git clone"
 alias gsb="git branch --remote | fzf | sed -e 's#^[^/]*/##g' | xargs git switch"
 alias gsbl="git branch | fzf | xargs git switch"
 
-alias t="tmux"
-alias ta="tmux attach"
-alias tl="tmux list-sessions"
