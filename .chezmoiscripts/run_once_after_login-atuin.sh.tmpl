@@ -1,0 +1,6 @@
+#!{{ lookPath "sh" }}
+
+echo "Atuin login"
+atuin login -u {{ (bitwarden "item" "atuin").login.username | quote }} -p {{ (bitwarden "item" "atuin").login.password | quote }} -k {{ (bitwardenFields "item" "atuin").key.value | quote }}
+atuin sync -f
+
