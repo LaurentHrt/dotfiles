@@ -54,6 +54,7 @@ packages:
     - orbstack
     - raycast
     - wezterm
+    - spotify
   apts:
     - appimagelauncher
     - bat
