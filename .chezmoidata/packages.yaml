@@ -51,10 +51,11 @@ packages:
     - font-fira-code-nerd-font
     - font-jetbrains-mono-nerd-font
     - httpie
+    - microsoft-remote-desktop
     - orbstack
     - raycast
-    - wezterm
     - spotify
+    - wezterm
   apts:
     - appimagelauncher
     - bat
