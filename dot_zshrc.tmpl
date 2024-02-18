@@ -67,8 +67,8 @@ if [[ "$TERM" != "screen-256color" && "$TERM" != "tmux-256color" && "$TERM" != "
 fi
 
 # Setup fzf
-if [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]]; then
-  PATH="${PATH:+${PATH}:}/opt/homebrew/opt/fzf/bin"
-fi
-source "/opt/homebrew/opt/fzf/shell/completion.zsh"
-source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
+source "$(brew --prefix)/opt/fzf/shell/completion.zsh"
+source "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh"
+
+# zsh-vi-mode
+source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
