@@ -25,9 +25,6 @@ set -g pane-base-index 1
 set-window-option -g pane-base-index 1
 set-option -g renumber-windows on
 
-# Use vim keybindings in copy mode
-setw -g mode-keys vi
-
 # List of plugins
 source ~/.config/tmux/plugins/vim-tmux-navigator.conf
 source ~/.config/tmux/plugins/minimal-tmux-status.conf
@@ -58,21 +55,21 @@ bind -r C-j resize-pane -D 5
 bind -r C-k resize-pane -U 5
 bind -r C-l resize-pane -R 5
 
-# set vi-mode
-set-window-option -g mode-keys vi
-
 # set mouse mode
 set -g mouse on
 
 # set key binding for copy mode
+setw -g mode-keys vi
 unbind -T copy-mode-vi Enter
 bind -T copy-mode-vi v send-keys -X begin-selection
 
 # Add support for get content into clipboard
+{{- if eq .chezmoi.os "darwin" }}
 # macOS only
 bind -T copy-mode-vi y send-keys -X copy-selection 'pbcopy'
 bind-key -T copy-mode-vi Enter send-keys -X copy-selection "pbcopy"
 bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "pbcopy"
+{{- end }}
 
 # custom key bindings
 bind-key / command-prompt "split-window -h -l 100 'exec man %%'"
