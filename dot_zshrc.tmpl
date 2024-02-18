@@ -60,9 +60,6 @@ fi
 # Setup fzf
 source "$(brew --prefix)/opt/fzf/shell/completion.zsh"
 
-# zsh-vi-mode
-source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-
 # ATUIN (must be after set vi mode)
 if type atuin > /dev/null; then
   export ATUIN_NOBIND="true"

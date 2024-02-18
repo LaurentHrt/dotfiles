@@ -43,7 +43,6 @@ packages:
     - zsh-autosuggestions
     - zsh-completions
     - zsh-syntax-highlighting
-    - zsh-vi-mode
   casks:
     - bitwarden
     - dbeaver-community
