@@ -47,15 +47,6 @@ else
   echo 'info: starship is not installed'
 fi
 
-# ATUIN (must be after set vi mode)
-if type atuin > /dev/null; then
-  export ATUIN_NOBIND="true"
-  eval "$(atuin init zsh)"
-  bindkey '^r' _atuin_search_widget
-else
-  echo 'info: atuin is not installed'
-fi
-
 # Some mycli users like to disable line wrapping.
 export LESS="-SRXF"
 
@@ -68,7 +59,15 @@ fi
 
 # Setup fzf
 source "$(brew --prefix)/opt/fzf/shell/completion.zsh"
-source "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh"
 
 # zsh-vi-mode
 source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
+# ATUIN (must be after set vi mode)
+if type atuin > /dev/null; then
+  export ATUIN_NOBIND="true"
+  eval "$(atuin init zsh)"
+  bindkey '^r' _atuin_search_widget
+else
+  echo 'info: atuin is not installed'
+fi
