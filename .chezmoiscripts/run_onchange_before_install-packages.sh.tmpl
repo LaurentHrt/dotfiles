@@ -16,6 +16,8 @@ cask {{ . | quote }}
 {{ end -}}
 EOF
 
+$(brew --prefix)/opt/fzf/install --bin --key-bindings --completion --no-update-rc
+
 # LINUX ------------------------------
 {{ else if eq .chezmoi.os "linux" -}}
 {{ if eq .chezmoi.osRelease.idLike "ubuntu debian" -}}
