@@ -26,3 +26,8 @@ chezmoi init --apply $GITHUB_USERNAME
 ## Troubleshooting
 ### ssh key in bitwarden
 The private key must not have any space character.
+
+Oneliner to import sshkey in bitwarden :
+```sh 
+echo "{\"organizationId\":null,\"folderId\":null,\"type\":2,\"name\":\"sshkey\",\"notes\":\"$(sed -e ':a' -e 'N' -e '$!ba' -e 's/\n/\\\\n/g' ~/.ssh/id_rsa)\",\"favorite\":false,\"fields\":[],\"login\":null,\"secureNote\":{\"type\":0},\"card\":null,\"identity\":null}" | bw encode | bw create item
+```
