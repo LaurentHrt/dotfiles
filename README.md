@@ -6,15 +6,20 @@
 
 ## Installation
 
+```sh
+# You are already logged in with any method
+export BW_SESSION=$(bw unlock --raw)
+# You are not logged in and log in with an email
+export BW_SESSION=$(bw login $BITWARDEN_EMAIL --raw)
+```
+
 ```sh 
-export BW_SESSION=$(bw login $BW_EMAIL --raw)
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $GITHUB_USERNAME
 ```
 
 or if chezmoi is already installed: 
 
 ```sh 
-export BW_SESSION=$(bw login $BW_EMAIL --raw)
 chezmoi init --apply $GITHUB_USERNAME
 ```
 
