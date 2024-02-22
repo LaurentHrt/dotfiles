@@ -49,7 +49,7 @@ bind-key -r M run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/wor
 bind - split-window -v -c "#{pane_current_path}"
 bind | split-window -h -c "#{pane_current_path}"
 
-# Pane resizing panes with Prefix H,J,K,L 
+# Pane resizing panes with Prefix + ctrl h,j,k,l 
 bind -r C-h resize-pane -L 5
 bind -r C-j resize-pane -D 5
 bind -r C-k resize-pane -U 5
