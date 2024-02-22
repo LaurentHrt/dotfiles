@@ -35,8 +35,6 @@ bind-key -r H run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/"
 
 {{- if eq .where "home" }}
 # shortcut for personal projects
-bind-key -r J run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/workspace/komp/app-coach-front"
-bind-key -r K run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/workspace/komp/app-coach-back"
 {{- end }}
 
 {{- if eq .where "work" }}
