@@ -1,12 +1,12 @@
 alias editworlalias='nvim ~/.config/work-aliases.zsh'
 
 # Database
-alias startsql='orbctl start && docker container start mysql-onprem'
-alias stopsql='docker container stop mysql-onprem'
-alias startinfluxdb='docker container start influxdb'
-alias createsql='(\cd ~/workspace/sidel/sidel-sql && docker run -d --name mysql-onprem -e MYSQL_ROOT_PASSWORD=root -p 3366:3306 --network sidel-sql --network-alias mysql biarms/mysql:5.7 --sql_mode="ONLY_FULL_GROUP_BY" --default-time-zone="+00:00")'
-alias runsqlmigration='(\cd ~/workspace/sidel/sidel-sql && docker start mysql-onprem && docker build -t sidel-migration-tool -f migration_tool/build/Dockerfile-macos . && docker run --rm -it -e MYSQL_USER=root -e MYSQL_PASSWORD=root -e MYSQL_HOST=mysql -e MYSQL_PORT=3306 -e API_BACK_PASSWORD=api_back -e DTM_LIVE_LOCAL_PASSWORD=dtm_live_local --name sidel-migration-tool --network sidel-sql sidel-migration-tool)'
-alias buildsql='(\cd ~/workspace/sidel/sidel-sql && docker build -t sidel-migration-tool -f migration_tool/build/Dockerfile-macos .)'
+alias startsql='podman machine start && podman container start mysql-onprem'
+alias stopsql='podman container stop mysql-onprem'
+alias startinfluxdb='podman container start influxdb'
+alias createsql='(\cd ~/workspace/sidel/sidel-sql && podman run -d --name mysql-onprem -e MYSQL_ROOT_PASSWORD=root -p 3366:3306 --network sidel-sql --network-alias mysql biarms/mysql:5.7 --sql_mode="ONLY_FULL_GROUP_BY" --default-time-zone="+00:00")'
+alias runsqlmigration='(\cd ~/workspace/sidel/sidel-sql && podman start mysql-onprem && podman build -t sidel-migration-tool -f migration_tool/build/Dockerfile-macos . && podman run --rm -it -e MYSQL_USER=root -e MYSQL_PASSWORD=root -e MYSQL_HOST=mysql -e MYSQL_PORT=3306 -e API_BACK_PASSWORD=api_back -e DTM_LIVE_LOCAL_PASSWORD=dtm_live_local --name sidel-migration-tool --network sidel-sql sidel-migration-tool)'
+alias buildsql='(\cd ~/workspace/sidel/sidel-sql && podman build -t sidel-migration-tool -f migration_tool/build/Dockerfile-macos .)'
 alias connectsqllocal='mycli -u root -h localhost -P 3366 -p root'
 alias connectsqllocaleit='mycli -u root -h localhost -P 3366 eit_v7 -p root'
 alias checklocalmigration='mycli -u root -h localhost -P 3366 eit_v7 -p root -e "select * from _migrations order by id desc limit 5" | column -t'
