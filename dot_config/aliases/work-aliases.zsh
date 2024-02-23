@@ -1,7 +1,7 @@
 alias editworlalias='nvim ~/.config/work-aliases.zsh'
 
 # Database
-alias startsql='podman machine start && podman container start mysql-onprem'
+alias startsql='podman container start mysql-onprem'
 alias stopsql='podman container stop mysql-onprem'
 alias startinfluxdb='podman container start influxdb'
 alias createsql='(\cd ~/workspace/sidel/sidel-sql && podman run -d --name mysql-onprem -e MYSQL_ROOT_PASSWORD=root -p 3366:3306 --network sidel-sql --network-alias mysql biarms/mysql:5.7 --sql_mode="ONLY_FULL_GROUP_BY" --default-time-zone="+00:00")'
