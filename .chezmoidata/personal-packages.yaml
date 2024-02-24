@@ -1,0 +1,7 @@
+personalpackages:
+  taps:
+  brews:
+  casks:
+    - orbstack
+  apts:
+  aptrepository:

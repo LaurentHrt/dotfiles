@@ -1,4 +1,4 @@
-packages:
+commonpackages:
   taps:
     - ellie/atuin
     - homebrew/bundle
@@ -25,7 +25,6 @@ packages:
     - jesseduffield/lazygit/lazygit
     - jq
     - k9s
-    - mkcert
     - mycli
     - neovim
     - nnn
@@ -37,7 +36,6 @@ packages:
     - tmux
     - viddy
     - watch
-    - yarn
     - yq
     - zsh
     - zsh-autosuggestions
@@ -52,7 +50,6 @@ packages:
     - font-jetbrains-mono-nerd-font
     - httpie
     - microsoft-remote-desktop
-    - orbstack
     - raycast
     - spotify
     - wezterm
@@ -74,4 +71,5 @@ packages:
     - wget
     - xclip
     - zsh
-
+  aptrepository:
+    - ppa:appimagelauncher-team/stable

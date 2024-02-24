@@ -1,0 +1,7 @@
+workpackages:
+  taps:
+  brews:
+    - podman
+  casks:
+  apts:
+  aptrepository:
