@@ -1,5 +1,5 @@
-This file is a template managed by Chezmoi, it must be edited with `chezmoi edit`.
----------------------------------
+# This file is a template managed by Chezmoi, it must be edited with `chezmoi edit`.
+# ---------------------------------
 
 aliasDirectory="$HOME/.config/aliases"
 if [[ -d "$aliasDirectory" ]]; then
@@ -13,7 +13,7 @@ fi
 export EDITOR=nvim
 export VISUAL=nvim
 
-{{- if eq .where "work" }}
+{{ if eq .where "work" }}
   {{- if eq .chezmoi.os "darwin" }}
     # === Config for work + darwin
     if type brew &>/dev/null
@@ -29,7 +29,7 @@ export VISUAL=nvim
   {{- end }}
 {{- end }}
 
-{{- if eq .chezmoi.os "darwin" }}
+{{ if eq .chezmoi.os "darwin" }}
   # === Config for darwin
   if type brew &>/dev/null
   then
