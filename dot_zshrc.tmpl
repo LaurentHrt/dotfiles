@@ -1,5 +1,7 @@
-aliasDirectory="$HOME/.config/aliases"
+This file is a template managed by Chezmoi, it must be edited with `chezmoi edit`.
+---------------------------------
 
+aliasDirectory="$HOME/.config/aliases"
 if [[ -d "$aliasDirectory" ]]; then
   for file in $aliasDirectory/*.zsh; do
     if [[ -f $file ]]; then
@@ -11,53 +13,53 @@ fi
 export EDITOR=nvim
 export VISUAL=nvim
 
-# === Config for work + darwin
 {{- if eq .where "work" }}
+  {{- if eq .chezmoi.os "darwin" }}
+    # === Config for work + darwin
+    if type brew &>/dev/null
+    then
+      # Setup Google Cloud sdk
+      source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+      source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+    fi
+
+    # using podman for docker commands
+    export DOCKER_HOST='unix:///Users/laurenthirthouidou/.local/share/containers/podman/machine/qemu/podman.sock'
+    # === 
+  {{- end }}
+{{- end }}
+
 {{- if eq .chezmoi.os "darwin" }}
-if type brew &>/dev/null
-then
-  # Setup Google Cloud sdk
-  source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-  source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
-fi
+  # === Config for darwin
+  if type brew &>/dev/null
+  then
+    # Setup FPATH
+    FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
-# using podman for docker commands
-export DOCKER_HOST='unix:///Users/laurenthirthouidou/.local/share/containers/podman/machine/qemu/podman.sock'
+    source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+    source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" 
+
+    # Setup fzf
+    source "$(brew --prefix)/opt/fzf/shell/completion.zsh"
+  fi
+
+  # Setup fnm
+  export PATH="$HOME/Library/Application Support/fnm:$PATH"
+  eval "$(fnm env --use-on-cd)"
+
+  # PYTHON
+  export PATH="$PATH:$HOME/Library/Python/3.9/bin"
+
+  # Docker CLI 
+  export PATH="$HOME/.docker/bin:$PATH"
+  # === 
 {{- end }}
-{{- end }}
-# === 
 
-# === Config for darwin
-{{- if eq .chezmoi.os "darwin" }}
-if type brew &>/dev/null
-then
-  # Setup FPATH
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-
-  source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-  source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" 
-
-  # Setup fzf
-  source "$(brew --prefix)/opt/fzf/shell/completion.zsh"
-fi
-
-# Setup fnm
-export PATH="$HOME/Library/Application Support/fnm:$PATH"
-eval "$(fnm env --use-on-cd)"
-
-# PYTHON
-export PATH="$PATH:$HOME/Library/Python/3.9/bin"
-
-# Docker CLI 
-export PATH="$HOME/.docker/bin:$PATH"
-{{- end }}
-# === 
-
-# === Config for linux
 {{- if eq .chezmoi.os "linux" }}
-export PATH="$HOME/bin:$PATH"
+  # === Config for linux
+  export PATH="$HOME/bin:$PATH"
+  # === 
 {{- end }}
-# === 
 
 # highlight tab suggestions 
 zstyle ':completion:*:*:git:*' script /usr/local/etc/bash_completion.d/git-completion.bash
