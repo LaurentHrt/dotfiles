@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 local mux = wezterm.mux
 
-wezterm.on('gui-attached', function(domain)
+wezterm.on('gui-attached', function(_)
 	-- maximize all displayed windows on startup
 	local workspace = mux.get_active_workspace()
 	for _, window in ipairs(mux.all_windows()) do
@@ -25,9 +25,19 @@ config.color_scheme = "tokyonight"
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
 
+-- Function to pick a random filename from a list
+local function getRandomFilename(files)
+	if #files == 0 then
+		return ''
+	end
+	local randomIndex = math.random(1, #files)
+	return files[randomIndex]
+end
+
+local randomFilename = getRandomFilename(wezterm.read_dir '/Users/laurent/.config/wezterm/wallpapers/')
 config.background = {
 	{
-		source = { File = '/Users/laurent/.config/wezterm/wallpaper.jpeg' },
+		source = { File = randomFilename },
 		hsb = {
 			brightness = 0.25,
 		},
