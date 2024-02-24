@@ -15,7 +15,6 @@ export VISUAL=nvim
 
 {{ if eq .where "work" }}
   {{- if eq .chezmoi.os "darwin" }}
-    # === Config for work + darwin
     if type brew &>/dev/null
     then
       # Setup Google Cloud sdk
@@ -25,12 +24,10 @@ export VISUAL=nvim
 
     # using podman for docker commands
     export DOCKER_HOST='unix:///Users/laurenthirthouidou/.local/share/containers/podman/machine/qemu/podman.sock'
-    # === 
   {{- end }}
 {{- end }}
 
 {{ if eq .chezmoi.os "darwin" }}
-  # === Config for darwin
   if type brew &>/dev/null
   then
     # Setup FPATH
@@ -52,13 +49,10 @@ export VISUAL=nvim
 
   # Docker CLI 
   export PATH="$HOME/.docker/bin:$PATH"
-  # === 
 {{- end }}
 
 {{- if eq .chezmoi.os "linux" }}
-  # === Config for linux
   export PATH="$HOME/bin:$PATH"
-  # === 
 {{- end }}
 
 # highlight tab suggestions 
