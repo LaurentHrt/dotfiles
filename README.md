@@ -2,7 +2,8 @@
 
 ## Prerequisites
 
-`bitwarden-cli` must be installed.
+* bitwarden-cli
+* brew (mac only)
 
 ## Installation
 
