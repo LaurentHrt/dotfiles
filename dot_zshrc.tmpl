@@ -11,36 +11,53 @@ fi
 export EDITOR=nvim
 export VISUAL=nvim
 
+# === Config for work + darwin
 {{- if eq .where "work" }}
-# The next line updates PATH for the Google Cloud SDK. Must be before oh-my-zsh source
-source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+{{- if eq .chezmoi.os "darwin" }}
+if type brew &>/dev/null
+then
+  # Setup Google Cloud sdk
+  source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+  source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+fi
 
 # using podman for docker commands
 export DOCKER_HOST='unix:///Users/laurenthirthouidou/.local/share/containers/podman/machine/qemu/podman.sock'
 {{- end }}
+{{- end }}
+# === 
 
+# === Config for darwin
 {{- if eq .chezmoi.os "darwin" }}
 if type brew &>/dev/null
 then
+  # Setup FPATH
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
   source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
   source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" 
+
+  # Setup fzf
+  source "$(brew --prefix)/opt/fzf/shell/completion.zsh"
 fi
+
+# Setup fnm
+export PATH="$HOME/Library/Application Support/fnm:$PATH"
+eval "$(fnm env --use-on-cd)"
 
 # PYTHON
 export PATH="$PATH:$HOME/Library/Python/3.9/bin"
-# fnm
-export PATH="$HOME/Library/Application Support/fnm:$PATH"
-eval "$(fnm env --use-on-cd)"
+
 # Docker CLI 
 export PATH="$HOME/.docker/bin:$PATH"
 {{- end }}
+# === 
 
+# === Config for linux
 {{- if eq .chezmoi.os "linux" }}
 export PATH="$HOME/bin:$PATH"
 {{- end }}
+# === 
 
 # highlight tab suggestions 
 zstyle ':completion:*:*:git:*' script /usr/local/etc/bash_completion.d/git-completion.bash
@@ -56,18 +73,12 @@ else
   echo 'info: starship is not installed'
 fi
 
-# Some mycli users like to disable line wrapping.
-export LESS="-SRXF"
-
 # Always open a tmux session
 if [[ "$TERM" != "screen-256color" && "$TERM" != "tmux-256color" && "$TERM" != "tmux" && "$TERM" != "screen" ]]; then
   if type tmux > /dev/null; then
     tmux attach-session -t "$USER" || tmux new-session -s "$USER"
   fi
 fi
-
-# Setup fzf
-source "$(brew --prefix)/opt/fzf/shell/completion.zsh"
 
 # ATUIN (must be after set vi mode)
 if type atuin > /dev/null; then
