@@ -1,5 +1,7 @@
 # Dotfiles
 
+Works only on macos and partially on linux
+
 ## Prerequisites
 
 * bitwarden-cli
@@ -32,3 +34,7 @@ Oneliner to import sshkey in bitwarden :
 ```sh 
 echo "{\"organizationId\":null,\"folderId\":null,\"type\":2,\"name\":\"sshkey\",\"notes\":\"$(sed -e ':a' -e 'N' -e '$!ba' -e 's/\n/\\\\n/g' ~/.ssh/id_rsa)\",\"favorite\":false,\"fields\":[],\"login\":null,\"secureNote\":{\"type\":0},\"card\":null,\"identity\":null}" | bw encode | bw create item
 ```
+
+## Todo
+* Make it work on Linux
+* Make it work on windows
