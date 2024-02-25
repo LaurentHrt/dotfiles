@@ -1,6 +1,11 @@
 #!{{ lookPath "sh" }}
 
-echo "Atuin login"
-atuin login -u {{ (bitwarden "item" "atuin").login.username | quote }} -p {{ (bitwarden "item" "atuin").login.password | quote }} -k {{ (bitwardenFields "item" "atuin").key.value | quote }}
-atuin sync -f
+if type atuin > /dev/null; then
+  echo "Atuin login"
+  atuin login -u {{ (bitwarden "item" "atuin").login.username | quote }} -p {{ (bitwarden "item" "atuin").login.password | quote }} -k {{ (bitwardenFields "item" "atuin").key.value | quote }}
+  atuin sync -f
+else
+  echo 'info: atuin is not installed, login skipped'
+fi
+
 
