@@ -68,7 +68,7 @@ sudo apt install -y {{ range .workpackages.apts -}} {{ . }} {{ end -}} ;
 {{- end }}
 
 # starship
-curl -sS https://starship.rs/install.sh | sh
+curl -sS https://starship.rs/install.sh | sh -s -- -y
 
 # atuin
 curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh | bash
