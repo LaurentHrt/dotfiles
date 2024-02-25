@@ -5,6 +5,8 @@ Works only on macos and partially on linux
 ## Prerequisites
 
 * bitwarden-cli
+* git
+* curl
 * brew (mac only)
 
 ## Installation
