@@ -51,7 +51,7 @@ $(brew --prefix)/opt/fzf/install --bin --key-bindings --completion --no-update-r
 {{ if or (eq .chezmoi.osRelease.id "debian") (eq .chezmoi.osRelease.id "ubuntu") -}}
 
 # packages
-sudo add-apt-repository {{ range .commonpackages.apts -}} {{ . }} {{ end -}}
+sudo add-apt-repository {{ range .commonpackages.aptrepository -}} {{ . }} {{ end -}}
 sudo apt update 
 sudo apt install -y {{ range .commonpackages.apts -}} {{ . }} {{ end -}} ;
 
