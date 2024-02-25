@@ -54,7 +54,6 @@ commonpackages:
     - spotify
     - wezterm
   apts:
-    - appimagelauncher
     - bat
     - build-essential
     - curl
@@ -66,10 +65,8 @@ commonpackages:
     - mycli
     - npm
     - ripgrep
-    - software-properties-common
     - tmux
     - wget
     - xclip
     - zsh
   aptrepository:
-    - ppa:appimagelauncher-team/stable
