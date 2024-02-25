@@ -76,5 +76,10 @@ curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh | bash
 # fnm
 curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
 
-chsh -s $(which zsh)
+if type zsh > /dev/null; then
+  chsh -s $(which zsh)
+else
+  echo 'info: zsh is not installed'
+fi
+
 {{ end -}}
