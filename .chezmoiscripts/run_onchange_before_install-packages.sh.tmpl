@@ -50,18 +50,20 @@ $(brew --prefix)/opt/fzf/install --bin --key-bindings --completion --no-update-r
 # LINUX ------------------------------
 {{ if or (eq .chezmoi.osRelease.id "debian") (eq .chezmoi.osRelease.id "ubuntu") -}}
 
+# need to install this before everything else
+sudo apt update
+sudo apt install software-properties-common
+
 # packages
 sudo add-apt-repository {{ range .commonpackages.aptrepository -}} {{ . }} {{ end -}} ;
-sudo apt update ;
+sudo apt update
 sudo apt install -y {{ range .commonpackages.apts -}} {{ . }} {{ end -}} ;
 
 {{- if eq .where "home" }}
-sudo apt update 
 sudo apt install -y {{ range .personalpackages.apts -}} {{ . }} {{ end -}} ;
 {{- end }}
 
 {{- if eq .where "work" }}
-sudo apt update 
 sudo apt install -y {{ range .workpackages.apts -}} {{ . }} {{ end -}} ;
 {{- end }}
 
