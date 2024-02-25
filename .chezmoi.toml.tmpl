@@ -10,5 +10,10 @@ where = "home"
 where = "work"
 {{- end }}
 
+{{- if and (ne .chezmoi.hostname "MacBook-Pro" ) (ne .chezmoi.hostname "macbook-work") (ne .chezmoi.hostname "LSXLT00165") }}
+{{- $choices := list "home" "work" -}}
+{{ $hosttype := promptChoice "Unkown host. What type of host are you on" $choices }}
+where = {{ $hosttype | quote }} {{- end }}
+
 [git]
 autoCommit = true
