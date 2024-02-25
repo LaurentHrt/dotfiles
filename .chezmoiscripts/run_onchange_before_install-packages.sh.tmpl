@@ -43,12 +43,12 @@ cask {{ . | quote }}
 {{ end -}}
 EOF
 {{- end }}
+{{- end }}
 
 $(brew --prefix)/opt/fzf/install --bin --key-bindings --completion --no-update-rc
 
 # LINUX ------------------------------
-{{ else if eq .chezmoi.os "linux" -}}
-{{ if eq .chezmoi.osRelease.idLike "ubuntu debian" -}}
+{{ if or (eq .chezmoi.osRelease.id "debian") (eq .chezmoi.osRelease.id "ubuntu") -}}
 
 # packages
 sudo add-apt-repository {{ range .commonpackages.apts -}} {{ . }} {{ end -}}
@@ -74,9 +74,5 @@ curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh | bash
 # fnm
 curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
 
-# bitwarden-cli
-npm install -g @bitwarden/cli
-
 chsh -s $(which zsh)
-{{ end -}}
 {{ end -}}
