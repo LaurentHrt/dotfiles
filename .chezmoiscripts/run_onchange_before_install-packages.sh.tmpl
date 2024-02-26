@@ -48,6 +48,7 @@ $(brew --prefix)/opt/fzf/install --bin --key-bindings --completion --no-update-r
 {{- end }}
 
 # LINUX ------------------------------
+{{ if eq .chezmoi.os "linux" -}}
 {{ if or (eq .chezmoi.osRelease.id "debian") (eq .chezmoi.osRelease.id "ubuntu") -}}
 
 # need to install this before everything else
@@ -89,3 +90,4 @@ else
 fi
 
 {{ end -}}
+{{ end }}
