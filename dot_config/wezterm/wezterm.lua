@@ -25,8 +25,19 @@ config.color_scheme = "tokyonight"
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
 
+function GetFileExtension(url)
+	return url:match("^.+(%..+)$")
+end
+
 -- Function to pick a random filename from a list
 local function getRandomFilename(files)
+	for i = 1, #files do
+		wezterm.log_error(GetFileExtension(files[i]))
+		if GetFileExtension(files[i]) then
+
+		end
+	end
+
 	if #files == 0 then
 		return ''
 	end
@@ -35,14 +46,16 @@ local function getRandomFilename(files)
 end
 
 local randomFilename = getRandomFilename(wezterm.read_dir(wezterm.home_dir .. '/.config/wezterm/wallpapers/'))
-config.background = {
-	{
-		source = { File = randomFilename },
-		hsb = {
-			brightness = 0.25,
+if randomFilename == '' then
+	config.background = {
+		{
+			source = { File = randomFilename },
+			hsb = {
+				brightness = 0.25,
+			},
 		},
-	},
-}
+	}
+end
 
 -- and finally, return the configuration to wezterm
 return config
