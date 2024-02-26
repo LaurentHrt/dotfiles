@@ -1,1 +1,1 @@
-{{ (bitwarden "item" "github-perso-ssh-keys").notes }}
+{{- if eq .bwActivated "yes" -}} {{ (bitwarden "item" "github-perso-ssh-keys").notes }} {{- end }}
