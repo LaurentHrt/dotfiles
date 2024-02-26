@@ -34,7 +34,7 @@ local function getRandomFilename(files)
 	return files[randomIndex]
 end
 
-local randomFilename = getRandomFilename(wezterm.read_dir '/Users/laurent/.config/wezterm/wallpapers/')
+local randomFilename = getRandomFilename(wezterm.read_dir(wezterm.home_dir .. '/.config/wezterm/wallpapers/'))
 config.background = {
 	{
 		source = { File = randomFilename },
