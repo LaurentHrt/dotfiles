@@ -1,4 +1,5 @@
 local wezterm = require("wezterm")
+local utils = require 'utils'
 local mux = wezterm.mux
 
 wezterm.on('gui-attached', function(_)
@@ -25,28 +26,9 @@ config.color_scheme = "tokyonight"
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
 
-function GetFileExtension(url)
-	return url:match("^.+(%..+)$")
-end
-
--- Function to pick a random filename from a list
-local function getRandomFilename(files)
-	for i = 1, #files do
-		wezterm.log_error(GetFileExtension(files[i]))
-		if GetFileExtension(files[i]) then
-
-		end
-	end
-
-	if #files == 0 then
-		return ''
-	end
-	local randomIndex = math.random(1, #files)
-	return files[randomIndex]
-end
-
-local randomFilename = getRandomFilename(wezterm.read_dir(wezterm.home_dir .. '/.config/wezterm/wallpapers/'))
-if randomFilename == '' then
+local imageFiles = utils.filterImageFiles(wezterm.read_dir(wezterm.home_dir .. '/.config/wezterm/wallpapers/'))
+local randomFilename = utils.getRandomElement(imageFiles)
+if randomFilename ~= nil then
 	config.background = {
 		{
 			source = { File = randomFilename },
