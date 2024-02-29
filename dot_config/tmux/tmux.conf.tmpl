@@ -36,6 +36,9 @@ source ~/.config/tmux/plugins/minimal-tmux-status.conf
 bind-key -r f run-shell "tmux neww ~/.config/tmux/custom-scripts/tmux-sessionizer.sh"
 bind-key -r H run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/"
 
+# shortcut 
+bind-key -r U run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/workspace/notes
+
 {{- if eq .where "home" }}
 # shortcut for personal projects
 {{- end }}
