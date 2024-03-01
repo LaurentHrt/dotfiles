@@ -143,3 +143,6 @@ startrecovery() {
     pm2 restart sidel-recovery-machine > /dev/null
 	fi
 }
+
+# Aliases from bitwarden
+{{ if eq .bwActivated "yes" -}} {{ (bitwarden "item" "secure-work-aliases").notes }} {{- end }}

@@ -102,3 +102,5 @@ alias gcl="git clone"
 alias gsb="git branch --remote | fzf | sed -e 's#^[^/]*/##g' | xargs git switch"
 alias gsbl="git branch | fzf | xargs git switch"
 
+# Aliases from bitwarden
+{{ if eq .bwActivated "yes" -}} {{ (bitwarden "item" "secure-personal-aliases").notes }} {{- end }}
