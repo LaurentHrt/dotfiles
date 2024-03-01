@@ -40,4 +40,3 @@ echo "{\"organizationId\":null,\"folderId\":null,\"type\":2,\"name\":\"sshkey\",
 ## Todo
 * Make it work on Linux
 * Make it work on windows
-* add sensitive aliases in bw
