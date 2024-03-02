@@ -1,5 +1,12 @@
 command_timeout = 750
 
+[hostname]
+ssh_symbol = '@'
+format = '[$ssh_symbol$hostname]($style)'
+
+[username]
+format = '[$user]($style)'
+
 [gcloud]
 disabled = true
 format = '[ $project]($style) '
