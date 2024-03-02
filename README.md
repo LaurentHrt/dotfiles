@@ -1,10 +1,14 @@
 # Dotfiles
 
-Works only on macos and partially on linux
+MacOS: Ok
+Linux: 
+ - Ubuntu: Ok
+ - Debian: Ok
+Windows: Not ok
 
 ## Prerequisites
 
-* bitwarden-cli
+* bitwarden-cli (https://bitwarden.com/help/cli/)
 * git
 * curl
 * brew (mac only)
@@ -38,5 +42,4 @@ echo "{\"organizationId\":null,\"folderId\":null,\"type\":2,\"name\":\"sshkey\",
 ```
 
 ## Todo
-* Make it work on Linux
 * Make it work on windows
