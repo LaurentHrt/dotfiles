@@ -53,7 +53,7 @@ $(brew --prefix)/opt/fzf/install --bin --key-bindings --completion --no-update-r
 
 # need to install this before everything else
 sudo apt update
-sudo apt install -y software-properties-common gpg snapd
+sudo apt install -y software-properties-common gpg wget snapd
 
 # eza
 sudo mkdir -p /etc/apt/keyrings
@@ -62,7 +62,6 @@ echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable
 sudo chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
 
 # packages
-sudo add-apt-repository -y {{ range .commonpackages.aptrepository -}} {{ . }} {{ end -}} ;
 sudo apt update
 sudo apt install -y {{ range .commonpackages.apts -}} {{ . }} {{ end -}} ;
 sudo snap install nvim --classic
