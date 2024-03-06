@@ -18,3 +18,17 @@ README.md
 .cbtrc
 {{- end }}
 
+# what I dont't want on Windows
+{{- if eq .chezmoi.os "windows" }}
+.config/karabiner
+{{- end }}
+
+# what I dont't want on Linux
+{{- if eq .chezmoi.os "linux" }}
+.config/karabiner
+{{- end }}
+
+# what I dont't want on Max
+{{- if eq .chezmoi.os "darwin" }}
+.config/karabiner
+{{- end }}
