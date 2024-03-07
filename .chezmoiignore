@@ -21,7 +21,8 @@ README.md
 # what I dont't want on Windows
 {{- if eq .chezmoi.os "windows" }}
 **/*.sh
-.config/karabiner
+.config/**
+!.config/wezterm
 {{- end }}
 
 # what I dont't want on Linux
