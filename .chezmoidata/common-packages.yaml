@@ -71,5 +71,9 @@ commonpackages:
     - xclip
     - zsh
   choco:
-    - wezterm
+    - bitwarden
+    - dbeaver
+    - firefox
     - git
+    - httpie-desktop
+    - wezterm
