@@ -1,11 +1,11 @@
 # Dotfiles
 
 ## Status
-MacOS: Ok
-Linux (including WSL): 
- - Ubuntu: Ok
- - Debian: Ok
-Windows: wip
+* MacOS: Ok
+* Linux (including WSL): 
+  - Ubuntu: Ok
+  - Debian: Ok
+* Windows: wip
 
 ## Prerequisites
 
