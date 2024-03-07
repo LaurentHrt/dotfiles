@@ -16,18 +16,18 @@ echo "Install choco"
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
 echo "Install packages"
-{{ if gt (len .commonpackages.choco) 0 -}}
+{{ if ne .commonpackages.choco nil -}}
 choco install -y {{ .commonpackages.choco | join " " }}
 {{ end }}
 
 {{- if eq .where "home" }}
-{{ if gt (len .personalpackages.choco) 0 -}}
+{{ if ne .personalpackages.choco nil -}}
 choco install -y {{ .personalpackages.choco | join " " }}
 {{ end }}
 {{- end }}
 
 {{- if eq .where "work" }}
-{{ if gt (len .workpackages.choco) 0 -}}
+{{ if ne .workpackages.choco nil -}}
 choco install -y {{ .workpackages.choco | join " " }}
 {{ end }}
 {{- end }}
