@@ -21,8 +21,8 @@ README.md
 # what I dont't want on Windows
 {{- if eq .chezmoi.os "windows" }}
 **/*.sh
+!.config/wezterm/**/*
 .config/**
-!.config/wezterm
 .cbtrc
 .ideavimrc
 .myclirc
