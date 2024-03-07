@@ -23,6 +23,11 @@ README.md
 **/*.sh
 .config/**
 !.config/wezterm
+.cbtrc
+.ideavimrc
+.myclirc
+.vimrc
+.zshrc
 {{- end }}
 
 # what I dont't want on Linux
