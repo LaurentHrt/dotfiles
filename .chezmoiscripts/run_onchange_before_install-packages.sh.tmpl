@@ -4,6 +4,7 @@ echo "Install packages"
 
 # MACOS ------------------------------
 {{ if eq .chezmoi.os "darwin" -}}
+
 brew bundle --no-lock --file=/dev/stdin <<EOF
 {{ range .commonpackages.taps -}}
 tap {{ . | quote }}

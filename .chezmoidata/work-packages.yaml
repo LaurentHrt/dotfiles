@@ -4,3 +4,4 @@ workpackages:
     - podman
   casks:
   apts:
+  choco:

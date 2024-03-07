@@ -20,15 +20,17 @@ README.md
 
 # what I dont't want on Windows
 {{- if eq .chezmoi.os "windows" }}
+**/*.sh
 .config/karabiner
 {{- end }}
 
 # what I dont't want on Linux
 {{- if eq .chezmoi.os "linux" }}
+**/*.ps1
 .config/karabiner
 {{- end }}
 
 # what I dont't want on Max
 {{- if eq .chezmoi.os "darwin" }}
-.config/karabiner
+**/*.ps1
 {{- end }}

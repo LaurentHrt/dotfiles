@@ -4,3 +4,4 @@ personalpackages:
   casks:
     - orbstack
   apts:
+  choco:

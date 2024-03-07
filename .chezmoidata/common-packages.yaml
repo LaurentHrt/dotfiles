@@ -70,3 +70,6 @@ commonpackages:
     - wget
     - xclip
     - zsh
+  choco:
+    - wezterm
+    - git
