@@ -56,6 +56,7 @@ commonpackages:
   aptsUtils:
     - software-properties-common 
     - gpg 
+    - git
     - gcc
     - wget 
     - snapd 
@@ -67,7 +68,6 @@ commonpackages:
     - bat
     - eza
     - fzf
-    - git
     - jq
     - mycli
     - npm
