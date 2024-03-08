@@ -77,3 +77,4 @@ commonpackages:
     - httpie-desktop
     - wezterm
     - bitwarden
+    - bitwarden-cli
