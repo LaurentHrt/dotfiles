@@ -43,6 +43,7 @@ echo "{\"organizationId\":null,\"folderId\":null,\"type\":2,\"name\":\"sshkey\",
 
 ## Todo
 * Make it work on windows
-  - create a ps1 file to install packages with choco
+* Make installation less verbose
+* find a way to set the BW_SESSION on chezmoi apply
 * set mac internal setting with script
 * set windows internal settings with script
