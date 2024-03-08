@@ -55,9 +55,7 @@ commonpackages:
     - wezterm
   apts:
     - bat
-    - build-essential
     - eza
-    - curl
     - fzf
     - gcc
     - git
@@ -78,3 +76,8 @@ commonpackages:
     - wezterm
     - bitwarden
     - bitwarden-cli
+    - docker-ce 
+    - docker-ce-cli 
+    - containerd.io 
+    - docker-buildx-plugin 
+    - docker-compose-plugin
