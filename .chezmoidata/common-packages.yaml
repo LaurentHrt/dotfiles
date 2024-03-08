@@ -68,6 +68,11 @@ commonpackages:
     - wget
     - xclip
     - zsh
+    - docker-ce 
+    - docker-ce-cli 
+    - containerd.io 
+    - docker-buildx-plugin 
+    - docker-compose-plugin
   choco:
     - dbeaver
     - firefox
@@ -76,8 +81,3 @@ commonpackages:
     - wezterm
     - bitwarden
     - bitwarden-cli
-    - docker-ce 
-    - docker-ce-cli 
-    - containerd.io 
-    - docker-buildx-plugin 
-    - docker-compose-plugin
