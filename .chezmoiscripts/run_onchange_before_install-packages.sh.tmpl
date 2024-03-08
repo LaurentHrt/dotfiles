@@ -128,7 +128,6 @@ fi
 # Docker postinstall
 sudo groupadd docker
 sudo usermod -aG docker $USER
-newgrp docker
 
 if type zsh > /dev/null; then
   chsh -s $(which zsh)
