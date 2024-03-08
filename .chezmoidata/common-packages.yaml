@@ -59,7 +59,6 @@ commonpackages:
     - git
     - gcc
     - wget 
-    - snapd 
     - gnupg
     - ca-certificates 
     - curl 
