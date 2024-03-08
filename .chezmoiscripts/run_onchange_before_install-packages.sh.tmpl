@@ -54,7 +54,7 @@ $(brew --prefix)/opt/fzf/install --bin --key-bindings --completion --no-update-r
 
 # need to install this before everything else
 sudo apt update
-sudo apt install -y software-properties-common gpg wget snapd ca-certificates curl build-essential
+sudo apt install -y {{ range .commonpackages.aptsUtils -}} {{ . }} {{ end -}} ;
 sudo install -m 0755 -d /etc/apt/keyrings
 
 # Docker
