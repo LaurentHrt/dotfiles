@@ -109,6 +109,7 @@ fi
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
 sudo rm -rf /opt/nvim
 sudo tar -C /opt -xzf nvim-linux64.tar.gz
+rm nvim-linux64.tar.gz
 
 # lazydocker
 if type lazydocker > /dev/null; then
@@ -125,7 +126,7 @@ else
   curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
   tar xf lazygit.tar.gz lazygit
   sudo install lazygit /usr/local/bin
-  rm lazygit.tar.gz
+  rm lazygit.tar.gz lazygit
 fi
 
 # Docker postinstall
