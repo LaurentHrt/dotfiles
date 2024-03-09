@@ -2,22 +2,20 @@
 
 ## Status
 * MacOS: Ok
-* Linux (including WSL): 
+* Linux: 
   - Ubuntu: Ok
+  - Ubuntu WSL: ok
   - Debian: Ok
-* Windows: wip
+* Windows: ok
 
 ## Prerequisites
 
 * bitwarden-cli (https://bitwarden.com/help/cli/) (optional if you choose "no" when asked during chezmoi init)
-* git
-* curl
 * brew (mac only)
-* chocolatey (windows only)
 
 ## Installation
 
-Set up BitWarden env (optional)
+Set up BitWarden env (optional):
 ```sh
 # You are not logged in and log in with an email
 export BW_SESSION=$(bw login $BITWARDEN_EMAIL --raw)
@@ -25,11 +23,22 @@ export BW_SESSION=$(bw login $BITWARDEN_EMAIL --raw)
 export BW_SESSION=$(bw unlock --raw)
 ```
 
-Install config
+On Linux and Mac:
 ```sh 
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $GITHUB_USERNAME
 # or if chezmoi is already installed:
 chezmoi init --apply $GITHUB_USERNAME
+```
+
+On windows:
+```ps1
+# Does not work since recent commit on the chezmoi repo
+iex "&{$(irm 'https://get.chezmoi.io/ps1')}"
+
+# Fallback
+iex "&{$(irm 'https://raw.githubusercontent.com/twpayne/chezmoi/5b48fccda9e8962a92621edfc2395bb2bc3b298a/assets/scripts/install.ps1')}"
+# or
+choco install chezmoi
 ```
 
 ## Troubleshooting
@@ -42,7 +51,6 @@ echo "{\"organizationId\":null,\"folderId\":null,\"type\":2,\"name\":\"sshkey\",
 ```
 
 ## Todo
-* Make it work on windows
 * Make installation less verbose
 * find a way to set the BW_SESSION on chezmoi apply
 * set mac internal setting with script
