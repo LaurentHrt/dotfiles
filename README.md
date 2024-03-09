@@ -34,6 +34,8 @@ On windows:
 ```ps1
 # Does not work since recent commit on the chezmoi repo
 iex "&{$(irm 'https://get.chezmoi.io/ps1')}"
+cd .\bin\
+.\chezmoi.exe init --apply $GITHUB_USERNAME
 
 # Fallback
 iex "&{$(irm 'https://raw.githubusercontent.com/twpayne/chezmoi/5b48fccda9e8962a92621edfc2395bb2bc3b298a/assets/scripts/install.ps1')}"
