@@ -51,6 +51,7 @@ echo "{\"organizationId\":null,\"folderId\":null,\"type\":2,\"name\":\"sshkey\",
 ```
 
 ## Todo
+* install git-delta on linux
 * Make installation less verbose
 * find a way to set the BW_SESSION on chezmoi apply
 * set mac internal setting with script
