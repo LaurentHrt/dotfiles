@@ -33,6 +33,7 @@ commonpackages:
     - ripgrep
     - rm-improved
     - starship
+    - tldr
     - tmux
     - viddy
     - watch
