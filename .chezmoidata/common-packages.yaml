@@ -33,7 +33,7 @@ commonpackages:
     - ripgrep
     - rm-improved
     - starship
-    - tldr
+    - tealdeer
     - tmux
     - viddy
     - watch
@@ -73,6 +73,7 @@ commonpackages:
     - npm
     - ripgrep
     - tmux
+    - tealdeer
     - xclip
     - zsh
     - unzip
