@@ -53,3 +53,6 @@ format = '[$symbol($version )](bold yellow) '
 [bun]
 format = '[$symbol($version )]($style) '
 style = 'fg:179'
+
+[php]
+format = '[$symbol($version )]($style) '
