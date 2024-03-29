@@ -1,8 +1,8 @@
 local wezterm = require("wezterm")
-local utils = require 'utils'
+local utils = require("utils")
 local mux = wezterm.mux
 
-wezterm.on('gui-attached', function(_)
+wezterm.on("gui-attached", function(_)
 	-- maximize all displayed windows on startup
 	local workspace = mux.get_active_workspace()
 	for _, window in ipairs(mux.all_windows()) do
@@ -25,8 +25,10 @@ end
 config.color_scheme = "tokyonight"
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
+config.send_composed_key_when_left_alt_is_pressed = true
+config.send_composed_key_when_right_alt_is_pressed = true
 
-local imageFiles = utils.filterImageFiles(wezterm.read_dir(wezterm.home_dir .. '/.config/wezterm/wallpapers/'))
+local imageFiles = utils.filterImageFiles(wezterm.read_dir(wezterm.home_dir .. "/.config/wezterm/wallpapers/"))
 local randomFilename = utils.getRandomElement(imageFiles)
 if randomFilename ~= nil then
 	config.background = {
