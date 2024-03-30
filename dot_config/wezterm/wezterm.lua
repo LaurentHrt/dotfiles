@@ -37,7 +37,7 @@ if randomFilename ~= nil then
 		{
 			source = { File = randomFilename },
 			hsb = {
-				brightness = 0.25,
+				brightness = 0.20,
 			},
 		},
 	}
