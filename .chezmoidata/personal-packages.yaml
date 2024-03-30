@@ -3,5 +3,6 @@ personalpackages:
   brews:
   casks:
     - orbstack
+    - discord
   apts:
   choco:
