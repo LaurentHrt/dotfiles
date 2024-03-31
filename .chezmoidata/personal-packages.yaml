@@ -4,5 +4,6 @@ personalpackages:
   casks:
     - orbstack
     - discord
+    - whatsapp
   apts:
   choco:
