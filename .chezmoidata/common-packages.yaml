@@ -54,6 +54,7 @@ commonpackages:
     - raycast
     - spotify
     - wezterm
+    - figma
   aptsUtils:
     - software-properties-common 
     - gpg 
