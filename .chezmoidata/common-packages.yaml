@@ -55,6 +55,7 @@ commonpackages:
     - spotify
     - wezterm
     - figma
+    - gimp
   aptsUtils:
     - software-properties-common 
     - gpg 
