@@ -18,15 +18,6 @@ alias checklocalmigration='mycli -u root -h localhost -P 3366 eit_v7 -p root -e 
 alias gcpdeve="gcloud config configurations activate sidel-deve-back"
 alias gcpprod="gcloud config configurations activate sidel-prod-back"
 
-# gita
-alias pullall='gita super sidel-all pull'
-alias swdall='gita super sidel-all switch developpement'
-alias pullfb='gita super sidel-fb pull'
-alias gswfb='gita super sidel-fb switch'
-alias gswfbd='gswfb developpement && pullfb'
-alias resetsideldev='swdall && pullall'
-alias resetsideldevhard='gita super sidel-all restore . && swdall && pullall'
-
 # env management
 setcloudenv() {
 	echo "Setting cloud env..."
