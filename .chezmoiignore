@@ -26,15 +26,17 @@ README.md
 .myclirc
 .vimrc
 .zshrc
+.config/raycast_config.rayconfig
 {{- end }}
 
 # what I dont't want on Linux
 {{- if eq .chezmoi.os "linux" }}
 **/*.ps1
 .config/karabiner
+.config/raycast_config.rayconfig
 {{- end }}
 
-# what I dont't want on Max
+# what I dont't want on Mac
 {{- if eq .chezmoi.os "darwin" }}
 **/*.ps1
 {{- end }}
