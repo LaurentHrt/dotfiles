@@ -13,7 +13,6 @@ README.md
 .config/git/config-ouidou
 .config/git/config-sidel
 .config/gcloud/configurations/config_sidel*
-.config/gita/*
 .config/aliases/work-aliases.zsh
 .cbtrc
 {{- end }}
