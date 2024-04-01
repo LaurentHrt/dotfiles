@@ -3,6 +3,7 @@
 
 alias editworlalias='nvim ~/.config/work-aliases.zsh'
 
+# === Sidel aliases === 
 # Database
 alias startsql='podman container start mysql-onprem'
 alias stopsql='podman container stop mysql-onprem'
@@ -137,3 +138,7 @@ startrecovery() {
 
 # Aliases from bitwarden
 {{ if eq .bwActivated "yes" -}} {{ (bitwarden "item" "secure-work-aliases").notes }} {{- end }}
+
+
+# === Other aliases === 
+
