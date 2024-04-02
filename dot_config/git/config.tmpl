@@ -1,8 +1,6 @@
 {{- if eq .where "home" }}
 [include]
 	path = ~/.config/git/config-personal
-[includeIf "gitdir:~/workspace/komp/"]
-	path = ~/.config/git/config-komp
 {{- end }}
 
 {{- if eq .where "work" }}
