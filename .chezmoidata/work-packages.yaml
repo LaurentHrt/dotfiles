@@ -2,6 +2,7 @@ workpackages:
   taps:
   brews:
     - podman
+    - php 
   casks:
   apts:
   choco:
