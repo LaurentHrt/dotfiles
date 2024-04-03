@@ -23,7 +23,8 @@ export VISUAL=nvim
     fi
 
     # using podman for docker commands
-    export DOCKER_HOST='unix:///Users/laurenthirthouidou/.local/share/containers/podman/machine/qemu/podman.sock'
+    # export DOCKER_HOST='unix:///Users/laurenthirthouidou/.local/share/containers/podman/machine/qemu/podman.sock'
+    export DOCKER_HOST=unix:///var/run/docker.sock
   {{- end }}
 {{- end }}
 
