@@ -4,6 +4,8 @@
 {{- end }}
 
 {{- if eq .where "work" }}
+[includeIf "gitdir:~/workspace/personal/"]
+	path = ~/.config/git/config-personal
 [includeIf "gitdir:~/.config/nvim/"]
 	path = ~/.config/git/config-personal
 [includeIf "gitdir:~/.local/share/chezmoi/"]
