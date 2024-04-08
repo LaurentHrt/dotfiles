@@ -3,6 +3,7 @@ workpackages:
   brews:
     - podman
     - php 
+    - glab
   casks:
   apts:
   choco:
