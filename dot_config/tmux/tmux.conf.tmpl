@@ -46,6 +46,8 @@ bind-key -r U run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/wor
 
 {{- if eq .where "work" }}
 # shortcut for work projects
+bind-key -r J run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/workspace/personal/ouidou/presence-react"
+bind-key -r K run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/workspace/personal/ouidou/presence-laravel-react"
 {{- end }}
 
 # Open split panes in cwd and change " and % to - and |
