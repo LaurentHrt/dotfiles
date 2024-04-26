@@ -67,6 +67,21 @@ alias gcloudloglast='gcloud builds log --stream $(gcloud builds list --ongoing -
 alias gpl="gh pr list"
 
 # Git 
+# Check for main and similarly named branches
+function git_main_branch() {
+  command git rev-parse --git-dir &>/dev/null || return
+  local branch
+  for branch in main master; do
+    if command git show-ref -q --verify refs/heads/$branch; then
+      echo $branch
+      return 0
+    fi
+  done
+
+  echo main
+  return 1
+}
+
 # Check for develop and similarly named branches
 function git_develop_branch() {
   command git rev-parse --git-dir &>/dev/null || return
@@ -81,14 +96,16 @@ function git_develop_branch() {
   echo develop
   return 1
 }
+
 alias deletemerged="git branch --merged | egrep -v '(^\*|master|main|developpement|dev|develop|development|devel)' | xargs git branch -d"
 alias gswd='git switch $(git_develop_branch)'
+alias gswm='git switch $(git_main_branch)'
 alias lg="lazygit"
 alias g="git"
 alias ga="git add"
 alias gaa="git add --all"
 alias gsw="git switch"
-alias gcam="git commit --all --message"
+alias gcam="git add --all && git commit --all --message"
 alias gcm="git commit --message"
 alias gc!="git commit --amend"
 alias gca!="git commit --all --amend"
