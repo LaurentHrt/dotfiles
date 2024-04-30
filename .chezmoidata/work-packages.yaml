@@ -2,8 +2,10 @@ workpackages:
   taps:
   brews:
     - podman
-    - php 
+    - php
     - glab
   casks:
+    - slack
+    - visual-studio-code
   apts:
   choco:
