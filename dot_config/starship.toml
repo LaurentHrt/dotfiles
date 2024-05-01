@@ -56,3 +56,6 @@ style = 'fg:179'
 
 [php]
 format = '[$symbol($version )]($style) '
+
+[dart]
+format = '[$symbol($version )]($style) '
