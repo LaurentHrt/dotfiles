@@ -45,6 +45,22 @@ cask {{ . | quote }}
 EOF
 {{- end }}
 
+{{- if eq .mobileDevEnv "yes" }}
+brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range .mobiledevpackages.taps -}}
+tap {{ . | quote }}
+{{ end -}}
+{{ range .mobiledevpackages.brews -}}
+brew {{ . | quote }}
+{{ end -}}
+{{ range .mobiledevpackages.casks -}}
+cask {{ . | quote }}
+{{ end -}}
+EOF
+
+dart pub global activate rps
+{{ end }}
+
 $(brew --prefix)/opt/fzf/install --bin --key-bindings --completion --no-update-rc
 {{- end }}
 

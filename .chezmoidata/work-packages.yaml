@@ -4,6 +4,7 @@ workpackages:
     - podman
     - php
     - glab
+    - firebase-cli
   casks:
     - slack
     - visual-studio-code

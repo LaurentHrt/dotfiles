@@ -1,0 +1,8 @@
+mobiledevpackages:
+  taps:
+  brews:
+  casks:
+    - flutter
+    - android-studio
+  apts:
+  choco:

@@ -53,6 +53,11 @@ export VISUAL=nvim
 
   # Docker CLI 
   export PATH="$HOME/.docker/bin:$PATH"
+
+  {{- if eq .mobileDevEnv "yes" }} 
+  # rps
+  export PATH="$PATH":"$HOME/.pub-cache/bin"
+  {{- end }}
 {{- end }}
 
 {{- if eq .chezmoi.os "linux" }}
