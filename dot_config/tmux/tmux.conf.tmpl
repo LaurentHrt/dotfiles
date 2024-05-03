@@ -60,6 +60,12 @@ bind -r C-j resize-pane -D 5
 bind -r C-k resize-pane -U 5
 bind -r C-l resize-pane -R 5
 
+# Dim inactive panes and set border color
+set -g pane-border-style fg=brightblack,bg=black
+set -g pane-active-border-style fg=blue,bg=black
+set-window-option -g window-active-style bg=terminal
+set-window-option -g window-style bg=black
+
 # set mouse mode
 set -g mouse on
 
