@@ -1,6 +1,7 @@
 mobiledevpackages:
   taps:
   brews:
+    - gradle
   casks:
     - flutter
     - android-studio
