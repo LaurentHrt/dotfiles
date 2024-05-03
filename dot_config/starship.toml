@@ -59,3 +59,10 @@ format = '[$symbol($version )]($style) '
 
 [dart]
 format = '[$symbol($version )]($style) '
+
+[gradle]
+format = '[$symbol($version )]($style) '
+
+[java]
+format = '[$symbol($version )]($style) '
+
