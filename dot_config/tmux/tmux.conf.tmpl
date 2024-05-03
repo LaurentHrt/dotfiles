@@ -34,20 +34,20 @@ source ~/.config/tmux/plugins/minimal-tmux-status.conf
 
 # forget the find window.  That is for chumps
 bind-key -r f run-shell "tmux neww ~/.config/tmux/custom-scripts/tmux-sessionizer.sh"
-bind-key -r H run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/"
 
 # shortcut 
+bind-key -r H run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/"
 bind-key -r U run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/workspace/notes"
+bind-key -r N run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/.local/share/chezmoi"
+bind-key -r Y run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/.config/nvim"
 
 {{- if eq .where "home" }}
 # shortcut for personal projects
-# Exemple: bind-key -r J run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/workspace/personal/myproject"
 {{- end }}
 
 {{- if eq .where "work" }}
 # shortcut for work projects
-bind-key -r J run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/workspace/ouidou/presence-front"
-bind-key -r K run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/workspace/ouidou/presence-back"
+bind-key -r J run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/workspace/personal/akacamp"
 {{- end }}
 
 # Open split panes in cwd and change " and % to - and |
