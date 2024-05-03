@@ -5,6 +5,8 @@ decorations = "none"
 startup_mode = "Maximized"
 padding = { x = 3, y = 3 }
 dynamic_padding = true
+opacity = 0.8
+blur = true
 
 [font]
 normal = { family = "JetBrainsMono Nerd Font" }
