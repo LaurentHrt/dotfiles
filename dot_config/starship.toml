@@ -33,6 +33,9 @@ format = '([$all_status$ahead_behind]($style) )'
 [git_branch]
 format = "[$symbol$branch(:$remote_branch)]($style) "
 
+[git_metrics]
+disabled = false
+
 [helm]
 format = '[⎈ $version](bold white) '
 
