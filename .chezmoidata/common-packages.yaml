@@ -27,7 +27,6 @@ commonpackages:
     - k9s
     - mycli
     - neovim
-    - nnn
     - nss
     - nvm
     - ripgrep
