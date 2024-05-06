@@ -21,10 +21,18 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
--- This is where you actually apply your config choices
 config.color_scheme = 'tokyonight'
 config.enable_tab_bar = false
 config.window_decorations = 'RESIZE'
+
+config.keys = {
+  -- Turn off the default CMD-t action (disable new tab creation)
+  {
+    key = 't',
+    mods = 'CMD',
+    action = wezterm.action.DisableDefaultAssignment,
+  },
+}
 
 -- Make accent work (using zmk macros)
 config.send_composed_key_when_left_alt_is_pressed = true
