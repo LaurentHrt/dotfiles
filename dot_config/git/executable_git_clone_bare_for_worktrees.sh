@@ -1,34 +1,34 @@
-git_clone_bare_for_worktrees() {
-    # Examples of call:
-    # git-clone-bare-for-worktrees git@github.com:name/repo.git
-    # => Clones to a /repo directory
-    #
-    # git-clone-bare-for-worktrees git@github.com:name/repo.git my-repo
-    # => Clones to a /my-repo directory
-    set -e
+#!/bin/bash
 
-    url=$1
-    basename=${url##*/}
-    name=${2:-${basename%.*}}
+# Examples of call:
+# git-clone-bare-for-worktrees git@github.com:name/repo.git
+# => Clones to a /repo directory
+#
+# git-clone-bare-for-worktrees git@github.com:name/repo.git my-repo
+# => Clones to a /my-repo directory
+set -e
 
-    mkdir $name
-    cd "$name"
+url=$1
+basename=${url##*/}
+name=${2:-${basename%.*}}
 
-    # Moves all the administrative git files (a.k.a $GIT_DIR) under .bare directory.
-    #
-    # Plan is to create worktrees as siblings of this directory.
-    # Example targeted structure:
-    # .bare
-    # main
-    # new-awesome-feature
-    # hotfix-bug-12
-    # ...
-    git clone --bare "$url" .bare
-    echo "gitdir: ./.bare" > .git
+mkdir $name
+cd "$name"
 
-    # Explicitly sets the remote origin fetch so we can fetch remote branches
-    git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
+# Moves all the administrative git files (a.k.a $GIT_DIR) under .bare directory.
+#
+# Plan is to create worktrees as siblings of this directory.
+# Example targeted structure:
+# .bare
+# main
+# new-awesome-feature
+# hotfix-bug-12
+# ...
+git clone --bare "$url" .bare
+echo "gitdir: ./.bare" > .git
 
-    # Gets all branches from origin
-    git fetch origin
-}
+# Explicitly sets the remote origin fetch so we can fetch remote branches
+git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
+
+# Gets all branches from origin
+git fetch origin
