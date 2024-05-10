@@ -43,7 +43,8 @@ export VISUAL=nvim
 
   # Setup fnm
   export PATH="$HOME/Library/Application Support/fnm:$PATH"
-  eval "$(fnm env --use-on-cd)"
+  # Use on cd can be very slow, uncomment the following line to enable it (usefull if switching between node projects frequently)
+  # eval "$(fnm env --use-on-cd)"
 
   # PYTHON
   export PATH="$PATH:$HOME/Library/Python/3.9/bin"
