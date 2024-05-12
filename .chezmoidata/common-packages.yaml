@@ -24,6 +24,7 @@ commonpackages:
     - jesseduffield/lazydocker/lazydocker
     - jesseduffield/lazygit/lazygit
     - jq
+    - noahgorstein/tap/jqp
     - k9s
     - mycli
     - neovim
