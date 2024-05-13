@@ -76,10 +76,12 @@ else
   echo 'info: starship is not installed'
 fi
 
-# Always open a tmux session
+# Always open a tmux session only when not already in tmux and when not in other program (vscode or webstorm)
 if [[ "$TERM" != "screen-256color" && "$TERM" != "tmux-256color" && "$TERM" != "tmux" && "$TERM" != "screen" ]]; then
-  if type tmux > /dev/null; then
-    tmux attach-session -t "$USER" || tmux new-session -s "$USER"
+  if [[ "$TERM_PROGRAM" != "vscode" ]]; then
+    if type tmux > /dev/null; then
+      tmux attach-session -t "$USER" || tmux new-session -s "$USER"
+    fi
   fi
 fi
 
