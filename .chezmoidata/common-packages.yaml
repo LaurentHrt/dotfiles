@@ -15,7 +15,6 @@ commonpackages:
     - chezmoi
     - eza
     - fd
-    - fnm
     - fzf
     - gh
     - git

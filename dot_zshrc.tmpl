@@ -41,10 +41,10 @@ export VISUAL=nvim
     source "$(brew --prefix)/opt/fzf/shell/completion.zsh"
   fi
 
-  # Setup fnm
-  export PATH="$HOME/Library/Application Support/fnm:$PATH"
-  # Use on cd can be very slow, uncomment the following line to enable it (usefull if switching between node projects frequently)
-  # eval "$(fnm env --use-on-cd)"
+  # Setup nvm
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
   # PYTHON
   export PATH="$PATH:$HOME/Library/Python/3.9/bin"
