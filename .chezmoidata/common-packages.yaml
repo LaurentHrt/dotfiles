@@ -44,8 +44,8 @@ commonpackages:
   casks:
     - bitwarden
     - dbeaver-community
-    - firefox
     - google-chrome
+    - brave-browser
     - font-caskaydia-cove-nerd-font
     - font-fira-code-nerd-font
     - font-jetbrains-mono-nerd-font
@@ -86,7 +86,7 @@ commonpackages:
     - docker-compose-plugin
   choco:
     - dbeaver
-    - firefox
+    - googlechrome
     - git
     - httpie-desktop
     - wezterm
