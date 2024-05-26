@@ -186,12 +186,9 @@ sudo pacman --noconfirm -S {{ range .workpackages.pacman -}} {{ . }} {{ end -}} 
 sudo groupadd docker
 sudo usermod -aG docker $USER
 
-# bitwarden cli
-npm install -g @bitwarden/cli
-
 # zsh by default
 if type zsh > /dev/null; then
-  chsh -s usr/bin/zsh
+  chsh -s /usr/bin/zsh
 else
   echo 'info: zsh is not installed'
 fi
