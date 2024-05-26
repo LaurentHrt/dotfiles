@@ -168,19 +168,19 @@ fi
 {{ if or (eq .chezmoi.osRelease.id "arch") -}}
 
 # need to install this before everything else
-sudo pacman -Syu
-sudo pacman -Syu {{ range .commonpackages.pacmanUtils -}} {{ . }} {{ end -}} ;
+sudo pacman --noconfirm -Syu
+sudo pacman --noconfirm -Syu {{ range .commonpackages.pacmanUtils -}} {{ . }} {{ end -}} ;
 
 # packages
-sudo pacman -Syu
-sudo pacman -Syu {{ range .commonpackages.pacman -}} {{ . }} {{ end -}} ;
+sudo pacman --noconfirm -Syu
+sudo pacman --noconfirm -Syu {{ range .commonpackages.pacman -}} {{ . }} {{ end -}} ;
 
 {{- if eq .where "home" }}
-sudo pacman -Syu {{ range .personalpackages.pacman -}} {{ . }} {{ end -}} ;
+sudo pacman --noconfirm -Syu {{ range .personalpackages.pacman -}} {{ . }} {{ end -}} ;
 {{- end }}
 
 {{- if eq .where "work" }}
-sudo pacman -Syu {{ range .workpackages.pacman -}} {{ . }} {{ end -}} ;
+sudo pacman --noconfirm -Syu {{ range .workpackages.pacman -}} {{ . }} {{ end -}} ;
 {{- end }}
 
 # Docker postinstall
