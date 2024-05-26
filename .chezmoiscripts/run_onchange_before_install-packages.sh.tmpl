@@ -169,18 +169,17 @@ fi
 
 # need to install this before everything else
 sudo pacman --noconfirm -Syu
-sudo pacman --noconfirm -Syu {{ range .commonpackages.pacmanUtils -}} {{ . }} {{ end -}} ;
+sudo pacman --noconfirm -S {{ range .commonpackages.pacmanUtils -}} {{ . }} {{ end -}} ;
 
 # packages
-sudo pacman --noconfirm -Syu
-sudo pacman --noconfirm -Syu {{ range .commonpackages.pacman -}} {{ . }} {{ end -}} ;
+sudo pacman --noconfirm -S {{ range .commonpackages.pacman -}} {{ . }} {{ end -}} ;
 
 {{- if eq .where "home" }}
-sudo pacman --noconfirm -Syu {{ range .personalpackages.pacman -}} {{ . }} {{ end -}} ;
+sudo pacman --noconfirm -S {{ range .personalpackages.pacman -}} {{ . }} {{ end -}} ;
 {{- end }}
 
 {{- if eq .where "work" }}
-sudo pacman --noconfirm -Syu {{ range .workpackages.pacman -}} {{ . }} {{ end -}} ;
+sudo pacman --noconfirm -S {{ range .workpackages.pacman -}} {{ . }} {{ end -}} ;
 {{- end }}
 
 # Docker postinstall
@@ -192,7 +191,7 @@ npm install -g @bitwarden/cli
 
 # zsh by default
 if type zsh > /dev/null; then
-  chsh -s $(which zsh)
+  chsh -s usr/bin/zsh
 else
   echo 'info: zsh is not installed'
 fi
