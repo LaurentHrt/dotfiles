@@ -5,13 +5,15 @@
 - MacOS: Ok
 - Linux:
   - Ubuntu: Ok
-  - Ubuntu WSL: ok
+  - Ubuntu WSL: Ok
   - Debian: Ok
+  - Arch: WIP
 - Windows: ok
 
 ## Prerequisites
 
-- bitwarden-cli (https://bitwarden.com/help/cli/) (optional if you choose "no" when asked during chezmoi init)
+- Git
+- [bitwarden-cli](https://bitwarden.com/help/cli/) (optional if you choose "no" when asked during chezmoi init)
 - brew (mac only)
 
 ## Installation
