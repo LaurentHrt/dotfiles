@@ -9,4 +9,5 @@ workpackages:
     - slack
     - visual-studio-code
   apts:
+  pacman:
   choco:

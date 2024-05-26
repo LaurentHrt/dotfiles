@@ -66,6 +66,8 @@ $(brew --prefix)/opt/fzf/install --bin --key-bindings --completion --no-update-r
 
 # LINUX ------------------------------
 {{ if eq .chezmoi.os "linux" -}}
+
+# DEBIAN ------------------------------
 {{ if or (eq .chezmoi.osRelease.id "debian") (eq .chezmoi.osRelease.id "ubuntu") -}}
 
 # need to install this before everything else
@@ -153,6 +155,7 @@ fi
 sudo groupadd docker
 sudo usermod -aG docker $USER
 
+# zsh by default
 if type zsh > /dev/null; then
   chsh -s $(which zsh)
 else
@@ -160,4 +163,40 @@ else
 fi
 
 {{ end -}}
+
+# ARCH (btw) ------------------------------
+{{ if or (eq .chezmoi.osRelease.id "arch") -}}
+
+# need to install this before everything else
+sudo pacman -Syu
+sudo pacman -Syu {{ range .commonpackages.pacmanUtils -}} {{ . }} {{ end -}} ;
+
+# packages
+sudo pacman -Syu
+sudo pacman -Syu {{ range .commonpackages.pacman -}} {{ . }} {{ end -}} ;
+
+{{- if eq .where "home" }}
+sudo pacman -Syu {{ range .personalpackages.pacman -}} {{ . }} {{ end -}} ;
+{{- end }}
+
+{{- if eq .where "work" }}
+sudo pacman -Syu {{ range .workpackages.pacman -}} {{ . }} {{ end -}} ;
+{{- end }}
+
+# Docker postinstall
+sudo groupadd docker
+sudo usermod -aG docker $USER
+
+# bitwarden cli
+npm install -g @bitwarden/cli
+
+# zsh by default
+if type zsh > /dev/null; then
+  chsh -s $(which zsh)
+else
+  echo 'info: zsh is not installed'
+fi
+
+{{ end }}
+
 {{ end }}

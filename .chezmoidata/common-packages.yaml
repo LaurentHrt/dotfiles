@@ -85,6 +85,32 @@ commonpackages:
     - containerd.io
     - docker-buildx-plugin
     - docker-compose-plugin
+  pacmanUtils:
+    - ca-certificates
+    - curl
+    - gcc
+    - git
+    - gnupg
+    - wget
+  pacman:
+    - atuin
+    - bat
+    - docker
+    - docker-compose
+    - eza
+    - fzf
+    - httpie
+    - jq
+    - lazygit
+    - neovim
+    - npm
+    - ripgrep
+    - starship
+    - tealdeer
+    - tmux
+    - unzip
+    - xclip
+    - zsh
   choco:
     - dbeaver
     - googlechrome

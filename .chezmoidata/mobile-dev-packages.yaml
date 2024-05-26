@@ -6,4 +6,5 @@ mobiledevpackages:
     - flutter
     - android-studio
   apts:
+  pacman:
   choco:
