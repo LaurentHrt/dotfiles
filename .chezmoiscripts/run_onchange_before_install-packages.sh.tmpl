@@ -169,17 +169,17 @@ fi
 
 # need to install this before everything else
 sudo pacman --noconfirm -Syu
-sudo pacman --noconfirm -S {{ range .commonpackages.pacmanUtils -}} {{ . }} {{ end -}} ;
+sudo pacman --noconfirm --needed -S {{ range .commonpackages.pacmanUtils -}} {{ . }} {{ end -}} ;
 
 # packages
-sudo pacman --noconfirm -S {{ range .commonpackages.pacman -}} {{ . }} {{ end -}} ;
+sudo pacman --noconfirm --needed -S {{ range .commonpackages.pacman -}} {{ . }} {{ end -}} ;
 
 {{- if eq .where "home" }}
-sudo pacman --noconfirm -S {{ range .personalpackages.pacman -}} {{ . }} {{ end -}} ;
+sudo pacman --noconfirm --needed -S {{ range .personalpackages.pacman -}} {{ . }} {{ end -}} ;
 {{- end }}
 
 {{- if eq .where "work" }}
-sudo pacman --noconfirm -S {{ range .workpackages.pacman -}} {{ . }} {{ end -}} ;
+sudo pacman --noconfirm --needed -S {{ range .workpackages.pacman -}} {{ . }} {{ end -}} ;
 {{- end }}
 
 # Docker postinstall
