@@ -68,6 +68,7 @@ commonpackages:
     - build-essential
   apts:
     - bat
+    - brave-browser
     - eza
     - fzf
     - jq
