@@ -28,7 +28,7 @@ commonpackages:
     - mycli
     - neovim
     - nss
-    - nvm
+    - fnm
     - ripgrep
     - rm-improved
     - starship

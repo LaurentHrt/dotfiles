@@ -41,10 +41,8 @@ export VISUAL=nvim
     source "$(brew --prefix)/opt/fzf/shell/completion.zsh"
   fi
 
-  # Setup nvm
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+  # Setup fnm
+  eval "$(fnm env --use-on-cd)"
 
   # PYTHON
   export PATH="$PATH:$HOME/Library/Python/3.9/bin"
@@ -52,7 +50,7 @@ export VISUAL=nvim
   # Docker CLI 
   export PATH="$HOME/.docker/bin:$PATH"
 
-  {{- if eq .mobileDevEnv "yes" }} 
+  {{ if eq .mobileDevEnv "yes" }} 
   # rps
   export PATH="$PATH":"$HOME/.pub-cache/bin"
   {{- end }}
