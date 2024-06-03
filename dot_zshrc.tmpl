@@ -1,6 +1,9 @@
 # This file is a template managed by Chezmoi, it must be edited with `chezmoi edit`.
 # ---------------------------------
 
+# For startup profiling (uncomment then launch the command `zprof` to start profiling)
+# zmodload zsh/zprof
+
 aliasDirectory="$HOME/.config/aliases"
 if [[ -d "$aliasDirectory" ]]; then
   for file in $aliasDirectory/*.zsh; do
