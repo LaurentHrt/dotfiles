@@ -37,6 +37,28 @@ alias nvmu='nvm use'
 alias d="cd"
 alias ..="cd .."
 
+# Chezmoi alias to check if the bitwarden vault is unlocked before running apply
+chezmoiapply() {
+  fnm use 20
+  BW_STATUS=$(bw status | jq -r '.status')
+  if [[ "$BW_STATUS" == "locked" ]]; then
+    echo "Bitwarden is locked."
+    export BW_SESSION=$(bw unlock --raw)
+    # Check if bw unlock was successful
+    if [[ $(bw status | jq -r '.status') != "unlocked" ]]; then
+        echo "Failed to unlock Bitwarden. Exiting."
+        return
+    fi
+    echo "Session unlocked, applying changes..."
+  elif [[ "$BW_STATUS" == "unlocked" ]]; then
+    echo "Bitwarden is already unlocked, applying changes..."
+  else
+    echo "Bitwarden is unauthenticated, please authenticate."
+    return
+  fi
+  chezmoi apply
+}
+
 # Create a Brewfile file backup
 alias brewBackup="(cd ~/.config && rm Brewfile && brew bundle dump)"
  
