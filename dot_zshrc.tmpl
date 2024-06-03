@@ -67,7 +67,12 @@ export VISUAL=nvim
 zstyle ':completion:*:*:git:*' script /usr/local/etc/bash_completion.d/git-completion.bash
 zstyle ':completion:*' menu select
 fpath=(/usr/local/share/zsh-completions $fpath)
-autoload -Uz compinit && compinit
+autoload -Uz compinit
+if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
+  compinit
+else
+  compinit -C
+fi
 zmodload -i zsh/complist
 
 # starship
