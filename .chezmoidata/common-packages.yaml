@@ -110,6 +110,8 @@ commonpackages:
     - tmux
     - unzip
     - xclip
+    - wezterm
+    - ttf-nerd-fonts-symbols-mono
     - zsh
   choco:
     - dbeaver
