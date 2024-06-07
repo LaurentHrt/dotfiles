@@ -44,8 +44,6 @@ export VISUAL=nvim
     source "$(brew --prefix)/opt/fzf/shell/completion.zsh"
   fi
 
-  # Setup fnm
-  eval "$(fnm env --use-on-cd)"
 
   # PYTHON
   export PATH="$PATH:$HOME/Library/Python/3.9/bin"
@@ -76,6 +74,13 @@ else
 fi
 {{- end }}
 zmodload -i zsh/complist
+
+# Setup fnm
+if type fnm > /dev/null; then
+  eval "$(fnm env --use-on-cd)"
+else
+  echo 'info: fnm is not installed'
+fi
 
 # starship
 if type starship > /dev/null; then
