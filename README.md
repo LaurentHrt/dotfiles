@@ -74,4 +74,4 @@ echo "{\"organizationId\":null,\"folderId\":null,\"type\":2,\"name\":\"sshkey\",
 - add httpie in debian
 - complete arch install
 - install wezterm on ubuntu/debian
-- add yay for arch and brave install
+- install yay
