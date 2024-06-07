@@ -30,9 +30,10 @@ export BW_SESSION=$(bw unlock --raw)
 On Linux and Mac:
 
 ```sh
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $GITHUB_USERNAME
+REPO_URL=git@github.com:LaurentHrt/dotfiles.git
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $REPO_URL
 # or if chezmoi is already installed:
-chezmoi init --apply $GITHUB_USERNAME
+chezmoi init --apply $REPO_URL
 ```
 
 On windows:
