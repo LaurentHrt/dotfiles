@@ -68,11 +68,13 @@ zstyle ':completion:*:*:git:*' script /usr/local/etc/bash_completion.d/git-compl
 zstyle ':completion:*' menu select
 fpath=(/usr/local/share/zsh-completions $fpath)
 autoload -Uz compinit
+{{- if eq .chezmoi.os "darwin" }}
 if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
   compinit
 else
   compinit -C
 fi
+{{- end }}
 zmodload -i zsh/complist
 
 # starship
