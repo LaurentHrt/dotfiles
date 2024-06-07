@@ -171,8 +171,14 @@ fi
 sudo pacman --noconfirm -Syu
 sudo pacman --noconfirm --needed -S {{ range .commonpackages.pacmanUtils -}} {{ . }} {{ end -}} ;
 
+# Yay installation
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si --noconfirm
+
 # packages
 sudo pacman --noconfirm --needed -S {{ range .commonpackages.pacman -}} {{ . }} {{ end -}} ;
+sudo yay --needed --answerclean=None --answerdiff=None -S {{ range .commonpackages.yay -}} {{ . }} {{ end -}} ;
 
 {{- if eq .where "home" }}
 sudo pacman --noconfirm --needed -S {{ range .personalpackages.pacman -}} {{ . }} {{ end -}} ;

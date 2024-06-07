@@ -117,6 +117,9 @@ commonpackages:
     - wezterm
     - ttf-nerd-fonts-symbols-mono
     - zsh
+  yay:
+    - brave-bin
+    - fnm
   choco:
     - dbeaver
     - googlechrome
