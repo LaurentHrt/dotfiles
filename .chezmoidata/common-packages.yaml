@@ -92,9 +92,12 @@ commonpackages:
     - git
     - gnupg
     - wget
+    - base-devel
   pacman:
     - atuin
     - bat
+    - bitwarden
+    - bitwarden-cli
     - docker
     - docker-compose
     - eza
