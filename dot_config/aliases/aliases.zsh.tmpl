@@ -50,7 +50,7 @@ chezmoiapply() {
   elif [[ "$BW_STATUS" == "unlocked" ]]; then
     echo "Bitwarden is already unlocked, applying changes..."
   else
-    echo "Bitwarden is unauthenticated, please authenticate."
+    echo "Bitwarden is unauthenticated, please authenticate (`bw login`)."
     return
   fi
   chezmoi apply
