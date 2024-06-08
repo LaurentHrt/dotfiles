@@ -43,7 +43,6 @@ commonpackages:
     - zsh-syntax-highlighting
   casks:
     - bitwarden
-    - dbeaver-community
     - google-chrome
     - brave-browser
     - font-caskaydia-cove-nerd-font
@@ -121,7 +120,6 @@ commonpackages:
     - brave-bin
     - fnm
   choco:
-    - dbeaver
     - googlechrome
     - git
     - httpie-desktop
