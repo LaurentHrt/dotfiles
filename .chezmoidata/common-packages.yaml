@@ -95,6 +95,7 @@ commonpackages:
   pacman:
     - atuin
     - bat
+    - git-delta
     - bitwarden
     - bitwarden-cli
     - man-db
