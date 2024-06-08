@@ -33,4 +33,4 @@ choco install -y {{ .workpackages.choco | join " " }}
 {{- end }}
 
 echo "Install wsl"
-wsl --install --no-launch
+wsl --install -d ubuntu
