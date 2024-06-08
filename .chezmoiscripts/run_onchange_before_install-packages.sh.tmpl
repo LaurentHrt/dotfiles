@@ -43,8 +43,6 @@ brew {{ . | quote }}
 cask {{ . | quote }}
 {{ end -}}
 EOF
-{{- end }}
-
 {{ end }}
 
 $(brew --prefix)/opt/fzf/install --bin --key-bindings --completion --no-update-rc

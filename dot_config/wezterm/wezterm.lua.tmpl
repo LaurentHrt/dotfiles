@@ -1,3 +1,6 @@
+# This file is a template managed by Chezmoi, it must be edited with `chezmoi edit`.
+# ---------------------------------
+
 local wezterm = require 'wezterm'
 local utils = require 'utils'
 local mux = wezterm.mux
@@ -50,6 +53,10 @@ if randomFilename ~= nil then
     },
   }
 end
+
+{{- if eq .chezmoi.os "windows" }}
+config.default_domain = 'WSL:Debian'
+{{- end }}
 
 -- and finally, return the configuration to wezterm
 return config
