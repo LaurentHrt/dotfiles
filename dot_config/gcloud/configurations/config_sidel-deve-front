@@ -1,8 +1,0 @@
-[core]
-account = laurent.hirth@ouidou.fr
-project = deve-front
-
-[compute]
-zone = europe-west2-a
-region = europe-west2
-

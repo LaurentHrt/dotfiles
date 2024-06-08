@@ -1,8 +1,0 @@
-[core]
-account = laurent.hirth@ouidou.fr
-project = data-244201
-
-[compute]
-zone = europe-west2-a
-region = europe-west2
-
