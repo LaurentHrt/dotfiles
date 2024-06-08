@@ -121,6 +121,7 @@ commonpackages:
     - fnm
   choco:
     - googlechrome
+    - brave
     - git
     - httpie-desktop
     - wezterm
