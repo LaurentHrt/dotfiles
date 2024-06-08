@@ -7,7 +7,7 @@
   - Ubuntu: Ok
   - Ubuntu WSL: Ok
   - Debian: Ok
-  - Arch: WIP
+  - Arch: Ok
 - Windows: ok
 
 ## Prerequisites
@@ -30,7 +30,7 @@ export BW_SESSION=$(bw unlock --raw)
 On Linux and Mac:
 
 ```sh
-REPO_URL=git@github.com:LaurentHrt/dotfiles.git
+REPO_URL=LaurentHrt
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $REPO_URL
 # or if chezmoi is already installed:
 chezmoi init --apply $REPO_URL
@@ -66,12 +66,9 @@ echo "{\"organizationId\":null,\"folderId\":null,\"type\":2,\"name\":\"sshkey\",
 
 - install git-delta on linux
 - Make installation less verbose
-- find a way to set the BW_SESSION on chezmoi apply
 - set mac internal setting with script
 - set windows internal settings with script
 - automatize brew installation
 - automatize xcode installation
 - add httpie in debian
-- complete arch install
 - install wezterm on ubuntu/debian
-- install yay
