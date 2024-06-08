@@ -33,4 +33,6 @@ choco install -y {{ .workpackages.choco | join " " }}
 {{- end }}
 
 echo "Install wsl"
-wsl --install -d ubuntu
+wsl --install -d Debian
+
+exit
