@@ -12,9 +12,17 @@
 
 ## Prerequisites
 
-- Git
+- git
+- curl
 - [bitwarden-cli](https://bitwarden.com/help/cli/) (optional if you choose "no" when asked during chezmoi init)
-- brew (mac only)
+
+### Mac
+
+- brew
+
+### Windows
+
+- Run `set-executionpolicy remotesigned` in a admin powershell
 
 ## Installation
 
