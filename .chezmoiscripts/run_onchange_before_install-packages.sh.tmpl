@@ -157,7 +157,11 @@ sudo usermod -aG docker $USER
 
 # zsh by default
 if type zsh > /dev/null; then
-  chsh -s $(which zsh)
+  if [ -n "`$SHELL -c 'echo $ZSH_VERSION'`" ]; then
+    echo 'Shell is already zsh'
+  else
+    chsh -s $(which zsh)
+  fi
 else
   echo 'info: zsh is not installed'
 fi
@@ -189,7 +193,11 @@ sudo usermod -aG docker $USER
 
 # zsh by default
 if type zsh > /dev/null; then
-  chsh -s /usr/bin/zsh
+  if [ -n "`$SHELL -c 'echo $ZSH_VERSION'`" ]; then
+    echo 'Shell is already zsh'
+  else
+    chsh -s /usr/bin/zsh
+  fi
 else
   echo 'info: zsh is not installed'
 fi
