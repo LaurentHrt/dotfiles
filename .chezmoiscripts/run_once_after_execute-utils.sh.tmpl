@@ -1,6 +1,15 @@
 #!{{ lookPath "sh" }}
 
-{{- if eq .bwActivated "yes" }} 
+# tldr update
+if type tldr > /dev/null; then
+  echo 'Updating tldr db...'
+  tldr --update
+else
+  echo 'info: tldr is not installed'
+fi
+
+# Atuin login
+{{ if eq .bwActivated "yes" }}
 if type atuin > /dev/null; then
   echo "Atuin login"
   atuin login -u {{ (bitwarden "item" "atuin").login.username | quote }} -p {{ (bitwarden "item" "atuin").login.password | quote }} -k {{ (bitwardenFields "item" "atuin").key.value | quote }}
