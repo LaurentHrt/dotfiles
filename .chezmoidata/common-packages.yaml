@@ -72,6 +72,7 @@ commonpackages:
     - brave-browser
     - eza
     - fzf
+    - btop
     - jq
     - mycli
     - npm
