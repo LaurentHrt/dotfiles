@@ -79,4 +79,3 @@ echo "{\"organizationId\":null,\"folderId\":null,\"type\":2,\"name\":\"sshkey\",
 - automatize xcode installation
 - add httpie in debian
 - install wezterm on ubuntu/debian
-- install bw-cli on debian

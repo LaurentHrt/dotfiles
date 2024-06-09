@@ -90,6 +90,15 @@ sudo apt install -y {{ range .personalpackages.apts -}} {{ . }} {{ end -}} ;
 sudo apt install -y {{ range .workpackages.apts -}} {{ . }} {{ end -}} ;
 {{- end }}
 
+# bitwarden cli
+if type bw > /dev/null; then
+  echo 'info: bw is already installed'
+else
+  curl -L "https://vault.bitwarden.com/download/?app=cli&platform=linux" -o bw.zip
+  unzip bw.zip -d ~/.local/bin/
+  rm bw.zip
+fi
+
 # starship
 if type starship > /dev/null; then
   echo 'info: starship is already installed'
