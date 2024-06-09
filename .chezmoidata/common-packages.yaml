@@ -65,7 +65,9 @@ commonpackages:
     - ca-certificates
     - curl
     - build-essential
+    - unzip
   apts:
+    - man-db
     - bat
     - brave-browser
     - eza
@@ -78,7 +80,6 @@ commonpackages:
     - tealdeer
     - xclip
     - zsh
-    - unzip
     - docker-ce
     - docker-ce-cli
     - containerd.io
@@ -92,6 +93,7 @@ commonpackages:
     - gnupg
     - wget
     - base-devel
+    - unzip
   pacman:
     - atuin
     - bat
@@ -112,7 +114,6 @@ commonpackages:
     - starship
     - tealdeer
     - tmux
-    - unzip
     - xclip
     - wezterm
     - ttf-nerd-fonts-symbols-mono
