@@ -1,0 +1,46 @@
+#!{{ lookPath "sh" }}
+
+# ARCH (btw) ------------------------------
+{{ if eq .chezmoi.os "linux" -}}
+{{ if or (eq .chezmoi.osRelease.id "arch") -}}
+
+echo "Install packages"
+
+# need to install this before everything else
+sudo pacman --noconfirm -Syu
+sudo pacman --noconfirm --needed -S {{ range .commonpackages.pacmanUtils -}} {{ . }} {{ end -}} ;
+
+# yay installation
+rm -rf yay
+git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm
+
+# packages
+sudo pacman --noconfirm --needed -S {{ range .commonpackages.pacman -}} {{ . }} {{ end -}} ;
+yay --needed --noconfirm --answerclean=None --answerdiff=None -S {{ range .commonpackages.yay -}} {{ . }} {{ end -}} ;
+
+{{- if eq .where "home" }}
+sudo pacman --noconfirm --needed -S {{ range .personalpackages.pacman -}} {{ . }} {{ end -}} ;
+{{- end }}
+
+{{- if eq .where "work" }}
+sudo pacman --noconfirm --needed -S {{ range .workpackages.pacman -}} {{ . }} {{ end -}} ;
+{{- end }}
+
+# Docker postinstall
+sudo groupadd docker
+sudo usermod -aG docker $USER
+
+# zsh by default
+if type zsh > /dev/null; then
+  if [ -n "`$SHELL -c 'echo $ZSH_VERSION'`" ]; then
+    echo 'Shell is already zsh'
+  else
+    chsh -s /usr/bin/zsh
+  fi
+else
+  echo 'info: zsh is not installed'
+fi
+
+{{ end }}
+
+{{ end }}

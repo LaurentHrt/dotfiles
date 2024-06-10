@@ -1,0 +1,49 @@
+#!{{ lookPath "sh" }}
+
+# MACOS ------------------------------
+{{ if eq .chezmoi.os "darwin" -}}
+
+echo "Install packages"
+
+brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range .commonpackages.taps -}}
+tap {{ . | quote }}
+{{ end -}}
+{{ range .commonpackages.brews -}}
+brew {{ . | quote }}
+{{ end -}}
+{{ range .commonpackages.casks -}}
+cask {{ . | quote }}
+{{ end -}}
+EOF
+
+{{- if eq .where "home" }}
+brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range .personalpackages.taps -}}
+tap {{ . | quote }}
+{{ end -}}
+{{ range .personalpackages.brews -}}
+brew {{ . | quote }}
+{{ end -}}
+{{ range .personalpackages.casks -}}
+cask {{ . | quote }}
+{{ end -}}
+EOF
+{{- end }}
+
+{{- if eq .where "work" }}
+brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range .workpackages.taps -}}
+tap {{ . | quote }}
+{{ end -}}
+{{ range .workpackages.brews -}}
+brew {{ . | quote }}
+{{ end -}}
+{{ range .workpackages.casks -}}
+cask {{ . | quote }}
+{{ end -}}
+EOF
+{{ end }}
+
+$(brew --prefix)/opt/fzf/install --bin --key-bindings --completion --no-update-rc
+{{- end }}

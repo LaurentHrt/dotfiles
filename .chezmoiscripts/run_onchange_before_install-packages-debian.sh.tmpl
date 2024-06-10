@@ -1,58 +1,10 @@
 #!{{ lookPath "sh" }}
 
-echo "Install packages"
-
-# MACOS ------------------------------
-{{ if eq .chezmoi.os "darwin" -}}
-
-brew bundle --no-lock --file=/dev/stdin <<EOF
-{{ range .commonpackages.taps -}}
-tap {{ . | quote }}
-{{ end -}}
-{{ range .commonpackages.brews -}}
-brew {{ . | quote }}
-{{ end -}}
-{{ range .commonpackages.casks -}}
-cask {{ . | quote }}
-{{ end -}}
-EOF
-
-{{- if eq .where "home" }}
-brew bundle --no-lock --file=/dev/stdin <<EOF
-{{ range .personalpackages.taps -}}
-tap {{ . | quote }}
-{{ end -}}
-{{ range .personalpackages.brews -}}
-brew {{ . | quote }}
-{{ end -}}
-{{ range .personalpackages.casks -}}
-cask {{ . | quote }}
-{{ end -}}
-EOF
-{{- end }}
-
-{{- if eq .where "work" }}
-brew bundle --no-lock --file=/dev/stdin <<EOF
-{{ range .workpackages.taps -}}
-tap {{ . | quote }}
-{{ end -}}
-{{ range .workpackages.brews -}}
-brew {{ . | quote }}
-{{ end -}}
-{{ range .workpackages.casks -}}
-cask {{ . | quote }}
-{{ end -}}
-EOF
-{{ end }}
-
-$(brew --prefix)/opt/fzf/install --bin --key-bindings --completion --no-update-rc
-{{- end }}
-
-# LINUX ------------------------------
-{{ if eq .chezmoi.os "linux" -}}
-
 # DEBIAN ------------------------------
+{{ if eq .chezmoi.os "linux" -}}
 {{ if or (eq .chezmoi.osRelease.id "debian") (eq .chezmoi.osRelease.id "ubuntu") -}}
+
+echo "Install packages"
 
 # need to install this before everything else
 sudo apt update
@@ -164,45 +116,5 @@ else
 fi
 
 {{ end -}}
-
-# ARCH (btw) ------------------------------
-{{ if or (eq .chezmoi.osRelease.id "arch") -}}
-
-# need to install this before everything else
-sudo pacman --noconfirm -Syu
-sudo pacman --noconfirm --needed -S {{ range .commonpackages.pacmanUtils -}} {{ . }} {{ end -}} ;
-
-# yay installation
-rm -rf yay
-git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm
-
-# packages
-sudo pacman --noconfirm --needed -S {{ range .commonpackages.pacman -}} {{ . }} {{ end -}} ;
-yay --needed --noconfirm --answerclean=None --answerdiff=None -S {{ range .commonpackages.yay -}} {{ . }} {{ end -}} ;
-
-{{- if eq .where "home" }}
-sudo pacman --noconfirm --needed -S {{ range .personalpackages.pacman -}} {{ . }} {{ end -}} ;
-{{- end }}
-
-{{- if eq .where "work" }}
-sudo pacman --noconfirm --needed -S {{ range .workpackages.pacman -}} {{ . }} {{ end -}} ;
-{{- end }}
-
-# Docker postinstall
-sudo groupadd docker
-sudo usermod -aG docker $USER
-
-# zsh by default
-if type zsh > /dev/null; then
-  if [ -n "`$SHELL -c 'echo $ZSH_VERSION'`" ]; then
-    echo 'Shell is already zsh'
-  else
-    chsh -s /usr/bin/zsh
-  fi
-else
-  echo 'info: zsh is not installed'
-fi
-
-{{ end }}
 
 {{ end }}
