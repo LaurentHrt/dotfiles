@@ -13,6 +13,7 @@ sudo pacman --noconfirm --needed -S {{ range .commonpackages.pacmanUtils -}} {{ 
 # yay installation
 rm -rf yay
 git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm
+rm -rf yay
 
 # packages
 sudo pacman --noconfirm --needed -S {{ range .commonpackages.pacman -}} {{ . }} {{ end -}} ;
