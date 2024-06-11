@@ -78,4 +78,3 @@ echo "{\"organizationId\":null,\"folderId\":null,\"type\":2,\"name\":\"sshkey\",
 - automatize brew installation
 - automatize xcode installation
 - add httpie in debian
-- install wezterm on ubuntu/debian

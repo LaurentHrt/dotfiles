@@ -75,6 +75,7 @@ commonpackages:
     - btop
     - jq
     - mycli
+    - wezterm
     - npm
     - ripgrep
     - tmux
