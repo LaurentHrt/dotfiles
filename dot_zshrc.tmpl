@@ -16,6 +16,52 @@ fi
 export EDITOR=nvim
 export VISUAL=nvim
 
+# Always open a tmux session only when not already in tmux and when not in other program (vscode or webstorm)
+if [[ "$TERM" != "screen-256color" && "$TERM" != "tmux-256color" && "$TERM" != "tmux" && "$TERM" != "screen" ]]; then
+  if [[ "$TERM_PROGRAM" != "vscode" ]]; then
+    if type tmux > /dev/null; then
+      tmux attach-session -t "$USER" || tmux new-session -s "$USER"
+    fi
+  fi
+fi
+
+# highlight tab suggestions 
+zstyle ':completion:*:*:git:*' script /usr/local/etc/bash_completion.d/git-completion.bash
+zstyle ':completion:*' menu select
+fpath=(/usr/local/share/zsh-completions $fpath)
+autoload -Uz compinit
+{{- if eq .chezmoi.os "darwin" }}
+if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
+  compinit
+else
+  compinit -C
+fi
+{{- end }}
+zmodload -i zsh/complist
+
+# Setup fnm
+if type fnm > /dev/null; then
+  eval "$(fnm env --use-on-cd)"
+else
+  echo 'info: fnm is not installed'
+fi
+
+# starship
+if type starship > /dev/null; then
+  eval "$(starship init zsh)"
+else
+  echo 'info: starship is not installed'
+fi
+
+# ATUIN (must be after set vi mode)
+if type atuin > /dev/null; then
+  export ATUIN_NOBIND="true"
+  eval "$(atuin init zsh)"
+  bindkey '^r' _atuin_search_widget
+else
+  echo 'info: atuin is not installed'
+fi
+
 {{ if eq .where "work" }}
   {{- if eq .chezmoi.os "darwin" }}
     if type brew &>/dev/null
@@ -69,48 +115,3 @@ export VISUAL=nvim
 
 {{- end }}
 
-# highlight tab suggestions 
-zstyle ':completion:*:*:git:*' script /usr/local/etc/bash_completion.d/git-completion.bash
-zstyle ':completion:*' menu select
-fpath=(/usr/local/share/zsh-completions $fpath)
-autoload -Uz compinit
-{{- if eq .chezmoi.os "darwin" }}
-if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
-  compinit
-else
-  compinit -C
-fi
-{{- end }}
-zmodload -i zsh/complist
-
-# Setup fnm
-if type fnm > /dev/null; then
-  eval "$(fnm env --use-on-cd)"
-else
-  echo 'info: fnm is not installed'
-fi
-
-# starship
-if type starship > /dev/null; then
-  eval "$(starship init zsh)"
-else
-  echo 'info: starship is not installed'
-fi
-
-# Always open a tmux session only when not already in tmux and when not in other program (vscode or webstorm)
-if [[ "$TERM" != "screen-256color" && "$TERM" != "tmux-256color" && "$TERM" != "tmux" && "$TERM" != "screen" ]]; then
-  if [[ "$TERM_PROGRAM" != "vscode" ]]; then
-    if type tmux > /dev/null; then
-      tmux attach-session -t "$USER" || tmux new-session -s "$USER"
-    fi
-  fi
-fi
-
-# ATUIN (must be after set vi mode)
-if type atuin > /dev/null; then
-  export ATUIN_NOBIND="true"
-  eval "$(atuin init zsh)"
-  bindkey '^r' _atuin_search_widget
-else
-  echo 'info: atuin is not installed'
-fi
