@@ -110,6 +110,7 @@ commonpackages:
     - eza
     - fzf
     - httpie
+    - btop
     - jq
     - lazygit
     - neovim
