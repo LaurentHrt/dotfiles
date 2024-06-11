@@ -129,6 +129,7 @@ commonpackages:
   yay:
     - brave-bin
     - fnm
+    - spotify
   choco:
     - googlechrome
     - brave
