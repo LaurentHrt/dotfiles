@@ -104,9 +104,20 @@ else
   rm lazygit.tar.gz lazygit
 fi
 
+# git-delta
+if type delta > /dev/null; then
+  echo 'info: lazygit is already installed'
+else
+  curl -Lo git-delta.deb "https://github.com/dandavison/delta/releases/download/0.17.0/git-delta_0.17.0_$(dpkg --print-architecture).deb"
+  sudo dpkg -i git-delta.deb
+  rm git-delta.deb
+fi
+
 # Docker postinstall
 sudo groupadd docker
 sudo usermod -aG docker $USER
+
+test diff
 
 # zsh by default
 if type zsh > /dev/null; then

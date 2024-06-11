@@ -71,7 +71,6 @@ echo "{\"organizationId\":null,\"folderId\":null,\"type\":2,\"name\":\"sshkey\",
 
 ## Todo
 
-- install git-delta on linux
 - Make installation less verbose
 - set mac internal setting with script
 - set windows internal settings with script
