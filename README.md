@@ -77,4 +77,5 @@ echo "{\"organizationId\":null,\"folderId\":null,\"type\":2,\"name\":\"sshkey\",
 - set windows internal settings with script
 - automatize brew installation
 - automatize xcode installation
+- add appImageLauncher in linux
 - add httpie in debian
