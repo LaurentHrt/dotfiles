@@ -11,9 +11,13 @@ sudo pacman --noconfirm -Syu
 sudo pacman --noconfirm --needed -S {{ range .commonpackages.pacmanUtils -}} {{ . }} {{ end -}} ;
 
 # yay installation
-rm -rf yay
-git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm
-rm -rf yay
+if type yay > dev/null; then
+  echo 'info: yay is already installed'
+else
+  rm -rf yay
+  git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm
+  rm -rf yay
+fi
 
 # packages
 sudo pacman --noconfirm --needed -S {{ range .commonpackages.pacman -}} {{ . }} {{ end -}} ;
