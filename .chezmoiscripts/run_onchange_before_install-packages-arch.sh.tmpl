@@ -11,7 +11,7 @@ sudo pacman --noconfirm -Syu
 sudo pacman --noconfirm --needed -S {{ range .commonpackages.pacmanUtils -}} {{ . }} {{ end -}} ;
 
 # yay installation
-if type yay > dev/null; then
+if type yay > /dev/null; then
   echo 'info: yay is already installed'
 else
   rm -rf yay
