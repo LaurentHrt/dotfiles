@@ -55,6 +55,7 @@ export VISUAL=nvim
 
 {{- if eq .chezmoi.os "linux" }}
   export PATH="$HOME/bin:/snap/bin:$HOME/.local/bin:/opt/nvim-linux64/bin:$PATH"
+  source $HOME/.atuin/bin/env 
 {{- end }}
 
 # highlight tab suggestions 
