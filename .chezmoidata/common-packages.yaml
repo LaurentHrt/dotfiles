@@ -82,6 +82,8 @@ commonpackages:
     - tealdeer
     - xclip
     - zsh
+    - zsh-autosuggestions
+    - zsh-syntax-highlighting
     - docker-ce
     - docker-ce-cli
     - containerd.io
@@ -120,6 +122,9 @@ commonpackages:
     - wezterm
     - ttf-nerd-fonts-symbols-mono
     - zsh
+    - zsh-autosuggestions
+    - zsh-completions
+    - zsh-syntax-highlighting
   yay:
     - brave-bin
     - fnm
