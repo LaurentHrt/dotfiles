@@ -4,6 +4,8 @@
 {{ if eq .chezmoi.os "linux" -}}
 case "$XDG_CURRENT_DESKTOP" in
     GNOME)
+        # Info: Run gsettings list-recursively | fzf to find things
+
         # Deactivate screesaver and autolock
         gsettings set org.gnome.desktop.screensaver lock-enabled false
         gsettings set org.gnome.desktop.session idle-delay 0
@@ -22,8 +24,12 @@ case "$XDG_CURRENT_DESKTOP" in
         gsettings set org.gnome.shell.keybindings switch-to-application-3 "['<Alt>l']"
         gsettings set org.gnome.shell.keybindings switch-to-application-4 "['<Alt>m']"
 
-        # Mouse
+        # Mouse 
         gsettings set org.gnome.desktop.peripherals.mouse natural-scroll true
+
+        # Desactivate switch-input-source hotkeys
+        gsettings set org.gnome.desktop.wm.keybindings switch-input-source "[]"
+        gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "[]"
 
         ;;
     *)
