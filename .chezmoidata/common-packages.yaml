@@ -104,6 +104,7 @@ commonpackages:
     - git-delta
     - bitwarden
     - bitwarden-cli
+    - github-cli
     - man-db
     - docker
     - docker-compose
