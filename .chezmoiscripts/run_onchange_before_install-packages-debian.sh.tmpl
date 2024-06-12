@@ -117,7 +117,8 @@ fi
 sudo groupadd docker
 sudo usermod -aG docker $USER
 
-test diff
+# fd postinsall
+ln -s $(which fdfind) ~/.local/bin/fd
 
 # zsh by default
 if type zsh > /dev/null; then
