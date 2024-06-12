@@ -103,7 +103,7 @@ fi
   export PATH="$HOME/bin:/snap/bin:$HOME/.local/bin:/opt/nvim-linux64/bin:$PATH"
 
   {{ if or (eq .chezmoi.osRelease.id "debian") (eq .chezmoi.osRelease.id "ubuntu") -}}
-  source $HOME/.atuin/bin/env 
+  # source $HOME/.atuin/bin/env 
   source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
   {{ end }}
