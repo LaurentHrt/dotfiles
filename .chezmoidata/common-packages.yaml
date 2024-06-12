@@ -142,3 +142,4 @@ commonpackages:
     - wezterm
     - bitwarden
     - bitwarden-cli
+    - powertoys
