@@ -133,6 +133,7 @@ commonpackages:
     - brave-bin
     - fnm
     - spotify
+    - lazydocker
   choco:
     - googlechrome
     - brave
