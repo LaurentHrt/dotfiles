@@ -26,9 +26,15 @@ if [[ "$TERM" != "screen-256color" && "$TERM" != "tmux-256color" && "$TERM" != "
 fi
 
 # highlight tab suggestions 
-zstyle ':completion:*:*:git:*' script /usr/local/etc/bash_completion.d/git-completion.bash
+{{- if eq .chezmoi.os "darwin" }}
 zstyle ':completion:*' menu select
-fpath=(/usr/local/share/zsh-completions $fpath)
+if type brew &>/dev/null; then
+  zstyle ':completion:*:*:git:*' script $(brew --prefix)/etc/bash_completion.d/git-completion.bash
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+fi
+{{- else }}
+FPATH=(/usr/local/share/zsh-completions $FPATH)
+{{- end }}
 autoload -Uz compinit
 {{- if eq .chezmoi.os "darwin" }}
 if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
