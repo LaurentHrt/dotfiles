@@ -40,3 +40,6 @@
 
 filter_mode_shell_up_key_binding = "directory" # or global, host, directory, etc
 filter_mode = "directory"
+
+[sync]
+records = true
