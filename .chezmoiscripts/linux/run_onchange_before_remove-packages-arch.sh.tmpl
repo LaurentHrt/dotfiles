@@ -89,7 +89,7 @@ for package in $BLOATWARE_PACKAGES; do
 done
 
 if [ -n "$BLOATWARE_INSTALLED" ]; then
-    sudo pacman -Rns --noconfirm $BLOATWARE_INSTALLED
+    sudo pacman -Rnsc --noconfirm $BLOATWARE_INSTALLED
 fi
 
 {{ end -}}
