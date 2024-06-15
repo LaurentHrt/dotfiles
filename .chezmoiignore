@@ -3,7 +3,6 @@ README.md
 
 # what I dont't want in my work config
 {{- if ne .where "home" }}
-.config/sanity
 {{- end }}
 
 # what I dont't want in my personal config
@@ -26,9 +25,11 @@ README.md
 {{- if eq .chezmoi.os "linux" }}
 **/*.ps1
 .config/raycast_config.rayconfig
+.config/settings_*
 {{- end }}
 
 # what I dont't want on Mac
 {{- if eq .chezmoi.os "darwin" }}
 **/*.ps1
+.config/settings_*
 {{- end }}
