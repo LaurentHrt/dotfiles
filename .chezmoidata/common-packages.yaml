@@ -128,15 +128,16 @@ commonpackages:
     - zsh-autosuggestions
     - zsh-completions
     - zsh-syntax-highlighting
-  pacmanGUI: 
+  pacmanGUI:
     - wezterm
     - bitwarden
   yay:
     - fnm
     - lazydocker
-  yayGUI: 
+  yayGUI:
     - brave-bin
     - spotify
+    - httpie-desktop
   choco:
     - googlechrome
     - brave
