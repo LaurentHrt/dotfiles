@@ -45,29 +45,6 @@ fi
 {{- end }}
 zmodload -i zsh/complist
 
-# Setup fnm
-if type fnm > /dev/null; then
-  eval "$(fnm env --use-on-cd)"
-else
-  echo 'info: fnm is not installed'
-fi
-
-# starship
-if type starship > /dev/null; then
-  eval "$(starship init zsh)"
-else
-  echo 'info: starship is not installed'
-fi
-
-# ATUIN (must be after set vi mode)
-if type atuin > /dev/null; then
-  export ATUIN_NOBIND="true"
-  eval "$(atuin init zsh)"
-  bindkey '^r' _atuin_search_widget
-else
-  echo 'info: atuin is not installed'
-fi
-
 {{ if eq .where "work" }}
   {{- if eq .chezmoi.os "darwin" }}
     if type brew &>/dev/null
@@ -120,4 +97,27 @@ fi
   {{ end }}
 
 {{- end }}
+
+# Setup fnm
+if type fnm > /dev/null; then
+  eval "$(fnm env --use-on-cd)"
+else
+  echo 'info: fnm is not installed'
+fi
+
+# starship
+if type starship > /dev/null; then
+  eval "$(starship init zsh)"
+else
+  echo 'info: starship is not installed'
+fi
+
+# ATUIN (must be after set vi mode)
+if type atuin > /dev/null; then
+  export ATUIN_NOBIND="true"
+  eval "$(atuin init zsh)"
+  bindkey '^r' _atuin_search_widget
+else
+  echo 'info: atuin is not installed'
+fi
 
