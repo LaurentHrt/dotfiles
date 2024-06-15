@@ -77,5 +77,6 @@ echo "{\"organizationId\":null,\"folderId\":null,\"type\":2,\"name\":\"sshkey\",
 - automatize brew installation
 - automatize xcode installation
 - add appImageLauncher in linux
+- add bitwarden desktop in debian (need app image launcher)
 - add httpie in debian
 - add gh in debian
