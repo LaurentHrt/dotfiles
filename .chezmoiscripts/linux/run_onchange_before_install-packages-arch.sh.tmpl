@@ -23,6 +23,11 @@ fi
 sudo pacman --noconfirm --needed -S {{ range .commonpackages.pacman -}} {{ . }} {{ end -}} ;
 yay --needed --noconfirm --answerclean=None --answerdiff=None -S {{ range .commonpackages.yay -}} {{ . }} {{ end -}} ;
 
+{{- if eq .GUI "yes" }}
+sudo pacman --noconfirm --needed -S {{ range .commonpackages.pacmanGUI -}} {{ . }} {{ end -}} ;
+yay --needed --noconfirm --answerclean=None --answerdiff=None -S {{ range .commonpackages.yayGUI -}} {{ . }} {{ end -}} ;
+{{- end }}
+
 {{- if eq .where "home" }}
 sudo pacman --noconfirm --needed -S {{ range .personalpackages.pacman -}} {{ . }} {{ end -}} ;
 {{- end }}

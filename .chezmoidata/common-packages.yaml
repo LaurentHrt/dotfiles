@@ -69,7 +69,6 @@ commonpackages:
   apts:
     - man-db
     - bat
-    - brave-browser
     - eza
     - fzf
     - fd-find
@@ -90,6 +89,8 @@ commonpackages:
     - containerd.io
     - docker-buildx-plugin
     - docker-compose-plugin
+  aptsGUI:
+    - brave-browser
   pacmanUtils:
     - ca-certificates
     - curl
@@ -103,7 +104,6 @@ commonpackages:
     - atuin
     - bat
     - git-delta
-    - bitwarden
     - bitwarden-cli
     - github-cli
     - man-db
@@ -123,17 +123,20 @@ commonpackages:
     - tealdeer
     - tmux
     - xclip
-    - wezterm
     - ttf-nerd-fonts-symbols-mono
     - zsh
     - zsh-autosuggestions
     - zsh-completions
     - zsh-syntax-highlighting
+  pacmanGUI: 
+    - wezterm
+    - bitwarden
   yay:
-    - brave-bin
     - fnm
-    - spotify
     - lazydocker
+  yayGUI: 
+    - brave-bin
+    - spotify
   choco:
     - googlechrome
     - brave

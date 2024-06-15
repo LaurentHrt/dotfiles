@@ -38,6 +38,10 @@ echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/w
 sudo apt update
 sudo apt install -y {{ range .commonpackages.apts -}} {{ . }} {{ end -}} ;
 
+{{- if eq .GUI "yes" }}
+sudo apt install -y {{ range .commonpackages.aptsGUI -}} {{ . }} {{ end -}} ;
+{{- end }}
+
 {{- if eq .where "home" }}
 sudo apt install -y {{ range .personalpackages.apts -}} {{ . }} {{ end -}} ;
 {{- end }}
