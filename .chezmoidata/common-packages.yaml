@@ -12,6 +12,7 @@ commonpackages:
     - bat
     - bitwarden-cli
     - btop
+    - bruno
     - chezmoi
     - eza
     - fd
@@ -147,3 +148,4 @@ commonpackages:
     - bitwarden
     - bitwarden-cli
     - powertoys
+    - bruno
