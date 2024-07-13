@@ -12,7 +12,6 @@ commonpackages:
     - bat
     - bitwarden-cli
     - btop
-    - bruno
     - chezmoi
     - eza
     - fd
@@ -52,6 +51,7 @@ commonpackages:
     - httpie
     - microsoft-remote-desktop
     - raycast
+    - bruno
     - spotify
     - wezterm
     - figma
