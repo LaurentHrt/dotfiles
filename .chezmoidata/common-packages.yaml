@@ -10,6 +10,11 @@ commonpackages:
   brews:
     - atuin
     - bat
+    - bash
+    - bc
+    - coreutils
+    - gawk
+    - gsed
     - bitwarden-cli
     - btop
     - chezmoi
@@ -48,6 +53,8 @@ commonpackages:
     - font-caskaydia-cove-nerd-font
     - font-fira-code-nerd-font
     - font-jetbrains-mono-nerd-font
+    - font-monaspace-nerd-font
+    - font-noto-sans-symbols-2
     - httpie
     - microsoft-remote-desktop
     - raycast
@@ -59,6 +66,9 @@ commonpackages:
   aptsUtils:
     - software-properties-common
     - gpg
+    - bash
+    - bc
+    - coreutils
     - git
     - gcc
     - wget
@@ -75,6 +85,7 @@ commonpackages:
     - fd-find
     - btop
     - jq
+    - gawk
     - mycli
     - wezterm
     - npm
@@ -96,6 +107,9 @@ commonpackages:
     - ca-certificates
     - curl
     - gcc
+    - bash
+    - bc
+    - coreutils
     - git
     - gnupg
     - wget
