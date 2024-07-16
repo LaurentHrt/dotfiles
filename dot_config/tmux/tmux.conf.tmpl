@@ -88,10 +88,6 @@ bind-key y set-window-option synchronize-panes\; display-message "synchronize mo
 set -g status-left-length 50
 set -g status-right-length 500
 
-# Personal plugins
-source ~/.config/tmux/plugins/vim-tmux-navigator.conf
-# source ~/.config/tmux/plugins/minimal-tmux-status.conf
-
 # TPM plugins
 set -g @tokyo-night-tmux_window_id_style fsquare
 set -g @tokyo-night-tmux_show_path 1
@@ -99,4 +95,5 @@ set -g @tokyo-night-tmux_path_format relative
 
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin "LaurentHrt/tokyo-night-tmux"
+set -g @plugin 'LaurentHrt/vim-tmux-navigator'
 run '~/.config/tmux/plugins/tpm/tpm'
