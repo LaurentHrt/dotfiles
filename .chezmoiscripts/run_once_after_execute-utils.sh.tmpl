@@ -20,5 +20,7 @@ fi
 {{ end }}
 
 # create directory
-echo "Create workspace directory"
-mkdir -p ~/workspace
+if [ ! -d ~/workspace ]; then
+  echo "Create workspace directory"
+  mkdir -p ~/workspace
+fi
