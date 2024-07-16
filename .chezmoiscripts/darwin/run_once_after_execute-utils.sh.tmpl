@@ -2,6 +2,8 @@
 
 # MACOS ------------------------------
 {{ if eq .chezmoi.os "darwin" -}}
-echo "Create symlink for mycli"
-ln -s /opt/homebrew/bin/mycli /opt/homebrew/bin/mysql
+if [ ! -e "/opt/homebrew/bin/mysql" ]; then
+  echo "Create symlink for mycli"
+  ln -s /opt/homebrew/bin/mycli /opt/homebrew/bin/mysql
+fi
 {{ end }}
