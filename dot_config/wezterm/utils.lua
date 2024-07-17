@@ -23,4 +23,10 @@ function module.getRandomElement(array)
   return array[randomIndex]
 end
 
+-- Function to get the colorScheme (will be used to change the colorScheme by script more easily)
+function module.getColorScheme()
+  local colorScheme = 'tokyonight'
+  return colorScheme
+end
+
 return module
