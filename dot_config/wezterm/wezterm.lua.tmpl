@@ -5,6 +5,8 @@ local wezterm = require 'wezterm'
 local utils = require 'utils'
 local mux = wezterm.mux
 
+local activateBackgroundImages = true
+
 wezterm.on('gui-attached', function(_)
   -- maximize all displayed windows on startup
   local workspace = mux.get_active_workspace()
@@ -41,17 +43,19 @@ config.keys = {
 config.send_composed_key_when_left_alt_is_pressed = true
 config.send_composed_key_when_right_alt_is_pressed = true
 
-local imageFiles = utils.filterImageFiles(wezterm.read_dir(wezterm.home_dir .. '/.config/wezterm/wallpapers/'))
-local randomFilename = utils.getRandomElement(imageFiles)
-if randomFilename ~= nil then
-  config.background = {
-    {
-      source = { File = randomFilename },
-      hsb = {
-        brightness = 0.20,
+if activateBackgroundImages then
+  local imageFiles = utils.filterImageFiles(wezterm.read_dir(wezterm.home_dir .. '/.config/wezterm/wallpapers/'))
+  local randomFilename = utils.getRandomElement(imageFiles)
+  if randomFilename ~= nil then
+    config.background = {
+      {
+        source = { File = randomFilename },
+        hsb = {
+          brightness = 0.20,
+        },
       },
-    },
-  }
+    }
+  end
 end
 
 {{- if eq .chezmoi.os "windows" }}
