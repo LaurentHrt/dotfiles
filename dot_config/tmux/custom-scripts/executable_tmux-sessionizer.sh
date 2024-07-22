@@ -23,8 +23,7 @@ fi
 
 # Ensure selected is not empty
 if [[ -z "$selected" ]]; then
-    echo "No selection made."
-    exit 1
+    exit 0
 fi
 
 selected_name=$(basename "$selected" | tr . _)

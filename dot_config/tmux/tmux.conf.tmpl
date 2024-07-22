@@ -30,7 +30,7 @@ set-option -g renumber-windows on
 
 
 # forget the find window.  That is for chumps
-bind-key -r f run-shell "tmux neww ~/.config/tmux/custom-scripts/tmux-sessionizer.sh"
+bind-key -r f run-shell "tmux popup -b rounded -E ~/.config/tmux/custom-scripts/tmux-sessionizer.sh "
 
 # shortcut 
 bind-key -r H run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/"
