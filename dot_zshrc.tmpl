@@ -66,20 +66,13 @@ zmodload -i zsh/complist
     # Setup FPATH
     FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
+    source "$(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
     source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
     source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" 
-
-    # Setup fzf
     source "$(brew --prefix)/opt/fzf/shell/completion.zsh"
   fi
-
-
-  # PYTHON
   export PATH="$PATH:$HOME/Library/Python/3.9/bin"
-
-  # Docker CLI 
   export PATH="$HOME/.docker/bin:$PATH"
-
 {{- end }}
 
 {{- if eq .chezmoi.os "linux" }}
@@ -92,10 +85,10 @@ zmodload -i zsh/complist
   {{ end }}
 
   {{ if or  (eq .chezmoi.osRelease.id "arch") -}}
+  source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
   source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
   {{ end }}
-
 {{- end }}
 
 # Setup fnm
@@ -117,6 +110,9 @@ if type atuin > /dev/null; then
   export ATUIN_NOBIND="true"
   eval "$(atuin init zsh)"
   bindkey '^r' _atuin_search_widget
+  function zvm_after_init() {
+     zvm_bindkey viins '^R' _atuin_search_widget
+  }
 else
   echo 'info: atuin is not installed'
 fi

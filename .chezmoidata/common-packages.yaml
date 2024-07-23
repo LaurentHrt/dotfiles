@@ -46,6 +46,7 @@ commonpackages:
     - zsh-autosuggestions
     - zsh-completions
     - zsh-syntax-highlighting
+    - zsh-vi-mode
   casks:
     - bitwarden
     - google-chrome
@@ -149,6 +150,7 @@ commonpackages:
   yay:
     - fnm
     - lazydocker
+    - zsh-vi-mode
   yayGUI:
     - brave-bin
     - spotify
