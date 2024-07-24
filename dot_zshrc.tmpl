@@ -17,8 +17,9 @@ export EDITOR=nvim
 export VISUAL=nvim
 
 # Always open a tmux session only when not already in tmux and when not in other program (vscode or webstorm)
+appName="$(ps -p $PPID -o comm=)"
 if [[ "$TERM" != "screen-256color" && "$TERM" != "tmux-256color" && "$TERM" != "tmux" && "$TERM" != "screen" ]]; then
-  if [[ "$TERM_PROGRAM" != "vscode" ]]; then
+  if [[ "$TERM_PROGRAM" != "vscode" && "$appName" != *"webstorm"* ]]; then
     if type tmux > /dev/null; then
       tmux attach-session -t "$USER" || tmux new-session -s "$USER"
     fi
