@@ -44,7 +44,9 @@ bind-key -r Y run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/.co
 
 {{- if eq .where "work" }}
 # shortcut for work projects
-bind-key -r J run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/workspace/personal/akacamp"
+bind-key -r J run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/workspace/sidel/sidel-front"
+bind-key -r K run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/workspace/sidel/sidel-back"
+bind-key -r L run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/workspace/sidel/sidel-sql"
 {{- end }}
 
 # Open split panes in cwd and change " and % to - and |
