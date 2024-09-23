@@ -32,6 +32,7 @@ commonpackages:
     - k9s
     - mycli
     - neovim
+    - nmap
     - nss
     - fnm
     - ripgrep
@@ -88,6 +89,7 @@ commonpackages:
     - jq
     - gawk
     - mycli
+    - nmap
     - wezterm
     - npm
     - ripgrep
@@ -134,6 +136,7 @@ commonpackages:
     - lazygit
     - neovim
     - npm
+    - nmap
     - ripgrep
     - starship
     - tealdeer
