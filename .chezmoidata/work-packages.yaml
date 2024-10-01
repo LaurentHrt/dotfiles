@@ -2,6 +2,7 @@ workpackages:
   taps:
   brews:
     - podman
+    - podman-compose
     - php
     - glab
     - firebase-cli
