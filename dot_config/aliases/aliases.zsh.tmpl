@@ -119,5 +119,7 @@ alias gcl="git clone"
 alias gsb="git branch --remote | fzf | sed -e 's#^[^/]*/##g' | xargs git switch"
 alias gsbl="git branch | fzf | xargs git switch"
 
+alias sshdietpi="ssh dietpi@dietpi -i ~/.ssh/id_rsa.dietpi"
+
 # Aliases from bitwarden
 {{ if eq .bwActivated "yes" -}} {{ (bitwarden "item" "secure-personal-aliases").notes }} {{- end }}
