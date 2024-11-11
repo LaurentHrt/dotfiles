@@ -6,12 +6,16 @@
 where = "home"
 {{- end }}
 
+{{- if eq .chezmoi.hostname "DietPi" }}
+where = "headless-server"
+{{- end }}
+
 {{- if or (eq .chezmoi.hostname "macbook-work") (eq .chezmoi.hostname "LSXLT00165") }}
 where = "work"
 {{- end }}
 
-{{- if and (ne .chezmoi.hostname "MacBook-Pro" ) (ne .chezmoi.hostname "macbook-work") (ne .chezmoi.hostname "LSXLT00165") }}
-{{- $choices := list "home" "work" -}}
+{{- if and (ne .chezmoi.hostname "MacBook-Pro" ) (ne .chezmoi.hostname "macbook-work") (ne .chezmoi.hostname "LSXLT00165") (ne .chezmoi.hostname "DietPi") }}
+{{- $choices := list "home" "work" "headless-server" -}}
 {{ $hosttype := promptChoice "Unkown host. What type of host are you on" $choices }}
 where = {{ $hosttype | quote }} 
 {{- end }}
