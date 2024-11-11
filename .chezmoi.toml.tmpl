@@ -3,14 +3,17 @@
 
 [data]
 {{- if eq .chezmoi.hostname "MacBook-Pro" }}
+{{- writeToStdout "You are in Home\n" }}
 where = "home"
 {{- end }}
 
 {{- if eq .chezmoi.hostname "DietPi" }}
+{{- writeToStdout "You are in headless-server\n" }}
 where = "headless-server"
 {{- end }}
 
 {{- if or (eq .chezmoi.hostname "macbook-work") (eq .chezmoi.hostname "LSXLT00165") }}
+{{- writeToStdout "You are in work\n" }}
 where = "work"
 {{- end }}
 
