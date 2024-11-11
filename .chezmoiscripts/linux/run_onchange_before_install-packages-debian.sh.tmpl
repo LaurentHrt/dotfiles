@@ -3,7 +3,6 @@
 # DEBIAN ------------------------------
 {{ if eq .chezmoi.os "linux" -}}
 {{ if or (eq .chezmoi.osRelease.id "debian") (eq .chezmoi.osRelease.id "ubuntu") -}}
-{{ if ne .where "headless-server" -}}
 
 echo "Install packages"
 
@@ -136,18 +135,6 @@ else
   echo 'info: zsh is not installed'
 fi
 
-# Installation for headless server
-{{ else }}
-
-echo "Install packages"
-
-sudo apt update
-sudo apt install -y {{ range .headlessserverpackages.aptsUtils -}} {{ . }} {{ end -}} ;
-
-# packages
-sudo apt update
-sudo apt install -y {{ range .headlessserverpackages.apts -}} {{ . }} {{ end -}} ;
-
 {{ end -}}
-{{ end -}}
+
 {{ end }}

@@ -5,11 +5,6 @@ README.md
 {{- if ne .where "home" }}
 {{- end }}
 
-# what I dont't want in my headless server config
-{{- if ne .where "headless-server" }}
-.ssh/
-{{- end }}
-
 # what I dont't want in my personal config
 {{- if ne .where "work" }}
 .config/git/config-ouidou
