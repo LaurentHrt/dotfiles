@@ -52,8 +52,9 @@ alias hse="helm search"
 alias hup="helm upgrade"
 alias hun="helm uninstall"
 
-# fuzzy
+# Open files with neovim
 alias vf='nvim $(fzf)'
+alias vlgf='nvim $(git show --pretty="" --name-only | fzf)' #VimLastGitFile
 
 # tmux
 alias t='tmux new-session -As $(whoami)'
