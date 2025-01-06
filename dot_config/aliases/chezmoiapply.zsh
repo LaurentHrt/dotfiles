@@ -8,6 +8,7 @@ chezmoiapply() {
     echo "Bitwarden is already unlocked, applying changes..."
   elif [[ "$BW_STATUS" == "locked" ]]; then
     echo "Bitwarden is locked."
+    bw sync
     export BW_SESSION=$(bw unlock --raw)
     # Check if bw unlock was successful
     if [[ $(bw status | jq -r '.status') != "unlocked" ]]; then
