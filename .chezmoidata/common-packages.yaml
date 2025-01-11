@@ -90,7 +90,6 @@ commonpackages:
     - gawk
     - mycli
     - nmap
-    - wezterm
     - npm
     - ripgrep
     - tmux
@@ -106,6 +105,7 @@ commonpackages:
     - docker-compose-plugin
   aptsGUI:
     - brave-browser
+    - wezterm
   pacmanUtils:
     - ca-certificates
     - curl
