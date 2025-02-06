@@ -55,6 +55,7 @@ alias hun="helm uninstall"
 # Open files with neovim
 alias vf='nvim $(fzf)'
 alias vlgf='nvim $(git show --pretty="" --name-only | fzf)' #VimLastGitFile
+alias vcgf="git status --porcelain | awk '{print $2}' | fzf | xargs nvim" #VimCurrentGitFiles
 
 # tmux
 alias t='tmux new-session -As $(whoami)'
