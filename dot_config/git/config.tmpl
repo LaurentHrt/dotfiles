@@ -32,8 +32,11 @@
 	clone-for-worktrees = !~/.config/git/git_clone_bare_for_worktrees.sh
 [push]
 	autoSetupRemote = true
+	followTags = true
 [fetch]
 	prune = true
+	pruneTags = true
+	all = true
 [init]
 	defaultBranch = main
 [core]
@@ -46,9 +49,12 @@
 	showStash = true
 [rebase]
 	autoStash = true
+	autoSquash = true
+	updateRefs = true
 [interactive]
-	diffFilter = delta --color-only --features=interactive
+	diffFilter = delta --color-only
 [delta]
+	navigate = true
 	side-by-side = true
 	features = decorations
 	# tokyoNightStorm theme
@@ -73,3 +79,23 @@
 	hunk-header-file-style = red
 	hunk-header-line-number-style = "#067a00"
 	hunk-header-style = file line-number syntax
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
+[tag]
+	sort = version:refname
+[diff]
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
+[help]
+	autocorrect = prompt
+[commit]
+	verbose = true
+[rerere]
+	enabled = true
+	autoupdate = true
+[merge]
+	conflictstyle = zdiff3
