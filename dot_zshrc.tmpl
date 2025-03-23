@@ -77,7 +77,7 @@ zmodload -i zsh/complist
 {{- end }}
 
 {{- if eq .chezmoi.os "linux" }}
-  export PATH="$HOME/bin:/snap/bin:$HOME/.local/bin:/opt/nvim-linux64/bin:$PATH"
+  export PATH="$HOME/bin:/snap/bin:$HOME/.local/bin:/opt/{{.nvimrelease}}/bin:$PATH"
 
   {{ if or (eq .chezmoi.osRelease.id "debian") (eq .chezmoi.osRelease.id "ubuntu") -}}
   source $HOME/.atuin/bin/env 
