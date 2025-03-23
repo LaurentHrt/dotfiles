@@ -31,6 +31,7 @@ Set up BitWarden env (optional):
 ```sh
 # You are not logged in and log in with an email
 export BW_SESSION=$(bw login $BITWARDEN_EMAIL --raw)
+
 # You are already logged in with any method
 export BW_SESSION=$(bw unlock --raw)
 ```
@@ -40,7 +41,9 @@ On Linux and Mac:
 ```sh
 REPO_URL=LaurentHrt
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $REPO_URL
+
 # or if chezmoi is already installed:
+chezmoi update
 chezmoi init --apply $REPO_URL
 ```
 
