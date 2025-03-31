@@ -3,11 +3,8 @@ workpackages:
   brews:
     - podman
     - podman-compose
-    - php
     - glab
-    - firebase-cli
   casks:
-    - slack
     - visual-studio-code
   apts:
   pacman:
