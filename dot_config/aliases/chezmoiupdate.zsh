@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # Chezmoi alias to check if the bitwarden vault is unlocked before running apply
-chezmoiapply() {
+chezmoiupdate() {
   fnm use 20
   BW_STATUS=$(bw status | jq -r '.status')
   if [[ "$BW_STATUS" == "unlocked" ]]; then
@@ -37,7 +37,7 @@ chezmoiapply() {
     fi
     echo "Session unlocked, applying changes..."
   fi
-  chezmoi apply
+  chezmoi update
   echo "Changes applied by chezmoi."
   bw lock
 }
