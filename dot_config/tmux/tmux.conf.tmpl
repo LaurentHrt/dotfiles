@@ -34,9 +34,8 @@ bind-key -r f run-shell "tmux popup -b rounded -E ~/.config/tmux/custom-scripts/
 
 # shortcut 
 bind-key -r H run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/"
-bind-key -r U run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/workspace/notes"
+bind-key -r Y run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/workspace/personal/second-brain/"
 bind-key -r N run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/.local/share/chezmoi"
-bind-key -r Y run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/.config/nvim"
 
 {{- if eq .where "home" }}
 # shortcut for personal projects
@@ -44,8 +43,10 @@ bind-key -r Y run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/.co
 
 {{- if eq .where "work" }}
 # shortcut for work projects
-bind-key -r J run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/workspace/sidel/sidel-front"
-bind-key -r K run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/workspace/sidel/sidel-back"
+bind-key -r j run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/workspace/sidel/sidel-front"
+bind-key -r k run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/workspace/sidel/sidel-back"
+bind-key -r J run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/workspace/sidel/sidel-iot-library"
+bind-key -r K run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/workspace/sidel/sidel-sql"
 {{- end }}
 
 # Open split panes in cwd and change " and % to - and |
