@@ -65,6 +65,7 @@ commonpackages:
     - wezterm
     - figma
     - gimp
+    - obsidian
   aptsUtils:
     - software-properties-common
     - gpg
