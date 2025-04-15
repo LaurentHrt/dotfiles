@@ -70,6 +70,19 @@ set -g pane-active-border-style fg=blue,bg=black
 set-window-option -g window-active-style bg=terminal
 set-window-option -g window-style bg=black
 
+# Border lines between panes are thicker
+# single -> single lines using ACS or UTF-8 characters
+# double -> double lines using UTF-8 characters
+# heavy  -> heavy lines using UTF-8 characters
+# simple -> simple ASCII characters
+# number -> the pane number
+set -g pane-border-lines double
+
+# Indicate active pane by colouring only half of the border in windows with 
+# exactly two panes, by displaying arrow markers, by drawing both or neither.
+# [off | colour | arrows | both]
+set -g pane-border-indicators both
+
 # set mouse mode
 set -g mouse on
 
