@@ -8,7 +8,7 @@
   - Ubuntu WSL: Ok
   - Debian: Ok
   - Arch: Ok
-- Windows: ok
+- Windows: Ok
 
 ## Prerequisites
 
@@ -81,5 +81,4 @@ echo "{\"organizationId\":null,\"folderId\":null,\"type\":2,\"name\":\"sshkey\",
 - automatize xcode installation
 - add appImageLauncher in linux
 - add bitwarden desktop in debian (need app image launcher)
-- add httpie in debian
 - add gh in debian
