@@ -58,12 +58,6 @@ bind-key -r K run-shell "~/.config/tmux/custom-scripts/tmux-sessionizer.sh ~/wor
 bind - split-window -v -c "#{pane_current_path}"
 bind | split-window -h -c "#{pane_current_path}"
 
-# Pane resizing panes with Prefix + ctrl h,j,k,l 
-bind -r C-h resize-pane -L 5
-bind -r C-j resize-pane -D 5
-bind -r C-k resize-pane -U 5
-bind -r C-l resize-pane -R 5
-
 # Dim inactive panes and set border color
 set -g pane-border-style fg=brightblack,bg=black
 set -g pane-active-border-style fg=blue,bg=black
@@ -122,3 +116,10 @@ if "test ! -d ~/.config/tmux/plugins/tpm" \
    "run 'git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm && ~/.config/tmux/plugins/tpm/bindings/install_plugins'"
 
 run '~/.config/tmux/plugins/tpm/tpm'
+
+# Pane resizing panes with Prefix + ctrl h,j,k,l 
+bind -r C-h resize-pane -L 5
+bind -r C-j resize-pane -D 5
+bind -r C-k resize-pane -U 5
+bind -r C-l resize-pane -R 5
+
