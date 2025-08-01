@@ -7,30 +7,6 @@ If(!(test-path -PathType container $path))
       New-Item -ItemType Directory -Path $path
 }
 
-# Remove default taskbar pinned apps (for new profiles only)
-$taskbarRegPath = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Taskband"
-Remove-ItemProperty -Path $taskbarRegPath -Name Favorites -ErrorAction SilentlyContinue
-
-# Unpin taskbar items (live)
-$appsToUnpin = @(
-    "Microsoft.Edge",
-    "Microsoft.Store",
-    "Microsoft.Copilot",
-    "Microsoft.WindowsMail",
-    "Microsoft.XboxGamingOverlay"
-)
-
-foreach ($app in $appsToUnpin) {
-    $appPath = (Get-StartApps | Where-Object { $_.AppId -like "*$app*" }).AppId
-    if ($appPath) {
-        try {
-            & "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "Start-Process shell:AppsFolder\$appPath -ArgumentList '/UnpinFromTaskbar' -Verb RunAs"
-        } catch {
-            Write-Warning "Failed to unpin $app"
-        }
-    }
-}
-
 # Disable notifications
 # Turns off "Get notifications from apps and other senders"
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\PushNotifications" -Name ToastEnabled -Value 0 -Type DWord -Force
