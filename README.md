@@ -23,10 +23,11 @@
 ### Windows
 
 - Run `set-executionpolicy remotesigned` in a admin powershell
+- Run `set-executionpolicy unrestricted process` in a admin powershell
 
 ## Installation
 
-Set up BitWarden env (optional):
+### Set up BitWarden env (optional)
 
 ```sh
 # You are not logged in and log in with an email
@@ -36,7 +37,7 @@ export BW_SESSION=$(bw login $BITWARDEN_EMAIL --raw)
 export BW_SESSION=$(bw unlock --raw)
 ```
 
-On Linux and Mac:
+### On Linux and Mac
 
 ```sh
 REPO_URL=LaurentHrt
@@ -47,17 +48,34 @@ chezmoi update
 chezmoi init --apply $REPO_URL
 ```
 
-On windows:
+### On windows
+
+#### Chezmoi installation
 
 ```ps1
 iex "&{$(irm 'https://get.chezmoi.io/ps1')}"
-cd .\bin\
-.\chezmoi.exe init --apply $GITHUB_USERNAME
 
 # Fallback in case it does not work
 iex "&{$(irm 'https://raw.githubusercontent.com/twpayne/chezmoi/5b48fccda9e8962a92621edfc2395bb2bc3b298a/assets/scripts/install.ps1')}"
 # or
 choco install chezmoi
+```
+
+#### Chezmoi initialization
+
+```
+cd .\bin\
+.\chezmoi.exe init --apply $GITHUB_USERNAME
+```
+
+#### If Chezmoi initialization does not work
+
+```
+.\chezmoi.exe cd
+git remote add origin https://github.com/LaurentHrt/dotfiles.git
+git pull
+.\chezmoi.exe init --apply
+
 ```
 
 ## Troubleshooting
