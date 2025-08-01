@@ -33,14 +33,8 @@ Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer
 # Hide Widgets button
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "TaskbarDa" -Value 0 -Type DWord
 
-# Enable auto-hide taskbar
-$regPath = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\StuckRects3"
-$settings = (Get-ItemProperty -Path $regPath).Settings
-$settings[8] = $settings[8] -bor 0x02
-Set-ItemProperty -Path $regPath -Name Settings -Value $settings
-
-# (Optional) Small taskbar
-Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "TaskbarSi" -Value 0 -Type DWord
+# Hide badges on taskbar
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "TaskbarBadges" -Value 0 -Type DWord
 
 # Restart Explorer to apply changes
 Stop-Process -Name explorer -Force
