@@ -6,3 +6,53 @@ If(!(test-path -PathType container $path))
 {
       New-Item -ItemType Directory -Path $path
 }
+
+# Remove default taskbar pinned apps (for new profiles only)
+$taskbarRegPath = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Taskband"
+Remove-ItemProperty -Path $taskbarRegPath -Name Favorites -ErrorAction SilentlyContinue
+
+# Unpin taskbar items (live)
+$appsToUnpin = @(
+    "Microsoft.Edge",
+    "Microsoft.Store",
+    "Microsoft.Copilot",
+    "Microsoft.WindowsMail",
+    "Microsoft.XboxGamingOverlay"
+)
+
+foreach ($app in $appsToUnpin) {
+    $appPath = (Get-StartApps | Where-Object { $_.AppId -like "*$app*" }).AppId
+    if ($appPath) {
+        try {
+            & "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "Start-Process shell:AppsFolder\$appPath -ArgumentList '/UnpinFromTaskbar' -Verb RunAs"
+        } catch {
+            Write-Warning "Failed to unpin $app"
+        }
+    }
+}
+
+# Disable notifications
+# Turns off "Get notifications from apps and other senders"
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\PushNotifications" -Name ToastEnabled -Value 0 -Type DWord -Force
+
+# Disable focus assist notifications
+New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings" -Force | Out-Null
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings" -Name NOC_GLOBAL_SETTING_ALLOW_TOASTS_ABOVE_LOCK -Value 0 -Type DWord
+
+# Disable tips and suggestions
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" -Name "SubscribedContent-310093Enabled" -Value 0 -Type DWord -Force
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" -Name "SubscribedContent-338387Enabled" -Value 0 -Type DWord -Force
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" -Name "SubscribedContent-353698Enabled" -Value 0 -Type DWord -Force
+
+# Remove weather and search from taskbar
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Feeds" -Name ShellFeedsTaskbarViewMode -Value 2 -Type DWord
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" -Name SearchboxTaskbarMode -Value 0 -Type DWord
+
+# Hide Copilot
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowCopilotButton" -Value 0 -Type DWord
+
+# Restart Explorer to apply changes
+Stop-Process -Name explorer -Force
+Start-Process explorer.exe
+
+Write-Host "System preferences updated."
