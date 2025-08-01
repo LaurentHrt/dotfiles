@@ -5,7 +5,7 @@ personalpackages:
     - orbstack
     - discord
     - whatsapp
-    - messenger
+    - visual-studio-code
   apts:
   pacman:
   choco:

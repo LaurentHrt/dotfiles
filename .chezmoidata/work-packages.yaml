@@ -5,7 +5,6 @@ workpackages:
     - podman-compose
     - glab
   casks:
-    - visual-studio-code
   apts:
   pacman:
   choco:
