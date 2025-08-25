@@ -63,6 +63,7 @@ commonpackages:
     - figma
     - gimp
     - obsidian
+    - visual-studio-code
   aptsUtils:
     - software-properties-common
     - gpg

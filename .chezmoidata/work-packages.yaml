@@ -3,7 +3,6 @@ workpackages:
   brews:
     - podman
     - podman-compose
-    - glab
   casks:
   apts:
   pacman:

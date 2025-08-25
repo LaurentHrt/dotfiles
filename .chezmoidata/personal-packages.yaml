@@ -3,9 +3,7 @@ personalpackages:
   brews:
   casks:
     - orbstack
-    - discord
     - whatsapp
-    - visual-studio-code
   apts:
   pacman:
   choco:
