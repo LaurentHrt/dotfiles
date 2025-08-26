@@ -14,6 +14,8 @@
 
 - git
 - curl
+- wget
+- gpg
 - [bitwarden-cli](https://bitwarden.com/help/cli/) (optional if you choose "no" when asked during chezmoi init)
 
 ### Mac
