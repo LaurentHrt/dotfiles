@@ -16,7 +16,12 @@
 - curl
 - wget
 - gpg
+- unzip
 - [bitwarden-cli](https://bitwarden.com/help/cli/) (optional if you choose "no" when asked during chezmoi init)
+
+```sh
+sudo apt install git curl wget gpg unzip
+```
 
 ### Mac
 
