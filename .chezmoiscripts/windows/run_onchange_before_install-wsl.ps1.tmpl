@@ -4,7 +4,7 @@ $ErrorActionPreference = "Stop"
 echo "Install wsl"
 wsl --install -d Debian --no-launch
 wsl -d Debian -- sh -c "useradd -m -s /bin/bash laurent && echo 'laurent:password' | chpasswd"
-wsl -d Debian -- sh -c "adduser laruent sudo"
+wsl -d Debian -- sh -c "adduser laurent sudo"
 wsl -d Debian -- sh -c "echo -e '[user]\ndefault=laurent' > /etc/wsl.conf"
 wsl --shutdown
 wsl -d Debian -- sh -c "sudo apt-get install -qqy curl git"
