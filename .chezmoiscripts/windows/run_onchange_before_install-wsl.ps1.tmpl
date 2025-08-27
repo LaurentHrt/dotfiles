@@ -2,12 +2,13 @@ Set-StrictMode -Version 3.0
 $ErrorActionPreference = "Stop"
 
 echo "Install wsl"
+wsl --set-default-version 2
 wsl --install -d Debian --no-launch
 wsl -d Debian -- sh -c "useradd -m -s /bin/bash laurent && echo 'laurent:root' | chpasswd"
 wsl -d Debian -- sh -c "adduser laurent sudo"
 wsl -d Debian -- sh -c "echo -e '[user]\ndefault=laurent' > /etc/wsl.conf"
 wsl --shutdown
-wsl -d Debian -- sh -c "sudo apt-get -qq update && sudo apt-get -qqy install curl git"
-wsl -d Debian -- sh -c "sh -c `$(curl -fsSL get.chezmoi.io)` -- init --apply LaurentHrt"
+wsl -d Debian -u laurent -- sh -c "sudo apt-get -qq update > /dev/null && sudo apt-get -qqy install curl git > /dev/null"
+wsl -d Debian -u laurent -- sh -c "sh -c `$(curl -fsSL get.chezmoi.io)` -- init --apply LaurentHrt"
 wsl --shutdown
 
