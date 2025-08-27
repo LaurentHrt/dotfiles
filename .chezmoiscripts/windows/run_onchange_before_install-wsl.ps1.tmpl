@@ -7,6 +7,7 @@ wsl -d Debian -- sh -c "useradd -m -s /bin/bash laurent && echo 'laurent:root' |
 wsl -d Debian -- sh -c "adduser laurent sudo"
 wsl -d Debian -- sh -c "echo -e '[user]\ndefault=laurent' > /etc/wsl.conf"
 wsl --shutdown
-wsl -d Debian -- sh -c "sudo apt-get install -qqy curl git"
+wsl -d Debian -- sh -c "sudo apt-get -qq update && sudo apt-get -qqy install curl git"
 wsl -d Debian -- sh -c "sh -c `$(curl -fsSL get.chezmoi.io)` -- init --apply LaurentHrt"
+wsl --shutdown
 
