@@ -137,16 +137,6 @@ else
   echo 'Installing lazydocker...'
   curl -sS https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
 fi
-
-# git-delta
-if type delta > /dev/null; then
-  echo 'info: git-delta is already installed'
-else
-  echo 'Installing git-delta...'
-  DELTA_VERSION=$(curl -sS "https://api.github.com/repos/dandavison/delta/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
-  curl -sSLo git-delta.deb "https://github.com/dandavison/delta/releases/download/${DELTA_VERSION}/git-delta_${DELTA_VERSION}_$(dpkg --print-architecture).deb" > /dev/null
-  sudo dpkg -i git-delta.deb > /dev/null
-  rm git-delta.deb
 fi
 
 # Docker postinstall

@@ -103,6 +103,7 @@ commonpackages:
     - docker-buildx-plugin
     - docker-compose-plugin
     - lazygit
+    - git-delta
   aptsGUI:
     - brave-browser
     - wezterm
