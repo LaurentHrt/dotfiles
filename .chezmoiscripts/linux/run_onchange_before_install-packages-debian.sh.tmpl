@@ -6,9 +6,17 @@
 
 echo "Install packages"
 
-# need to install this before everything else
+# need to install utils before everything else
 sudo apt update
-sudo apt install -y {{ range .commonpackages.aptsUtils -}} {{ . }} {{ end -}} ;
+packages=( {{ range .commonpackages.aptsUtils -}} {{ . }} {{ end -}} )
+for pkg in "${packages[@]}"; do
+  if apt-cache show "$pkg" >/dev/null 2>&1; then
+    echo "Installing $pkg..."
+    sudo apt-get install -qqy "$pkg"
+  else
+    echo "Skipping $pkg (not found)"
+  fi
+done
 sudo install -m 0755 -d /etc/apt/keyrings
 
 # Docker
