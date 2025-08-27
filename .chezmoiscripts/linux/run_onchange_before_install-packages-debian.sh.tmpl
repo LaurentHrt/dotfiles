@@ -134,7 +134,7 @@ fi
 
 # git-delta
 if type delta > /dev/null; then
-  echo 'info: lazygit is already installed'
+  echo 'info: git-delta is already installed'
 else
   DELTA_VERSION=$(curl -s "https://api.github.com/repos/dandavison/delta/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
   curl -Lo git-delta.deb "https://github.com/dandavison/delta/releases/download/${DELTA_VERSION}/git-delta_${DELTA_VERSION}_$(dpkg --print-architecture).deb"
