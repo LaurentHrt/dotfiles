@@ -35,7 +35,7 @@ sudo chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.lis
 
 # brave-browser
 sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
 
 # wezterm
 curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg
@@ -90,7 +90,7 @@ if type bw > /dev/null; then
   echo 'info: bw is already installed'
 else
   echo 'Installing bitwarden-cli...'
-  curl -L "https://vault.bitwarden.com/download/?app=cli&platform=linux" -o bw.zip > /dev/null
+  curl -sSL "https://vault.bitwarden.com/download/?app=cli&platform=linux" -o bw.zip > /dev/null
   unzip bw.zip -d ~/.local/bin/ > /dev/null
   rm bw.zip
 fi
@@ -124,7 +124,7 @@ if type nvim > /dev/null; then
   echo 'info: nvim is already installed'
 else
   echo 'Installing neovim...'
-  curl -LO https://github.com/neovim/neovim/releases/latest/download/{{.nvimrelease}}.tar.gz > /dev/null
+  curl -sSLO https://github.com/neovim/neovim/releases/latest/download/{{.nvimrelease}}.tar.gz > /dev/null
   sudo rm -rf /opt/nvim
   sudo tar -C /opt -xzf {{.nvimrelease}}.tar.gz > /dev/null
   rm {{.nvimrelease}}.tar.gz
@@ -135,7 +135,7 @@ if type lazydocker > /dev/null; then
   echo 'info: lazydocker is already installed'
 else
   echo 'Installing lazydocker...'
-  curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
+  curl -sS https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
 fi
 
 # git-delta
@@ -143,8 +143,8 @@ if type delta > /dev/null; then
   echo 'info: git-delta is already installed'
 else
   echo 'Installing git-delta...'
-  DELTA_VERSION=$(curl -s "https://api.github.com/repos/dandavison/delta/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
-  curl -Lo git-delta.deb "https://github.com/dandavison/delta/releases/download/${DELTA_VERSION}/git-delta_${DELTA_VERSION}_$(dpkg --print-architecture).deb" > /dev/null
+  DELTA_VERSION=$(curl -sS "https://api.github.com/repos/dandavison/delta/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+  curl -sSLo git-delta.deb "https://github.com/dandavison/delta/releases/download/${DELTA_VERSION}/git-delta_${DELTA_VERSION}_$(dpkg --print-architecture).deb" > /dev/null
   sudo dpkg -i git-delta.deb > /dev/null
   rm git-delta.deb
 fi
