@@ -3,38 +3,38 @@
 # DEBIAN ------------------------------
 {{ if eq .chezmoi.os "linux" -}}
 case "$XDG_CURRENT_DESKTOP" in
-    GNOME)
-        # Info: Run gsettings list-recursively | fzf to find things
+GNOME)
+  # Info: Run gsettings list-recursively | fzf to find things
 
-        # Deactivate screesaver and autolock
-        gsettings set org.gnome.desktop.screensaver lock-enabled false
-        gsettings set org.gnome.desktop.session idle-delay 0
-        gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-timeout 0
-        gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-timeout 0
+  # Deactivate screesaver and autolock
+  gsettings set org.gnome.desktop.screensaver lock-enabled false
+  gsettings set org.gnome.desktop.session idle-delay 0
+  gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-timeout 0
+  gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-timeout 0
 
-        # Windows management shortcuts
-        gsettings set org.gnome.desktop.wm.keybindings maximize "['<Super>g']"
-        gsettings set org.gnome.settings-daemon.plugins.media-keys search "['<Super>space']"
+  # Windows management shortcuts
+  gsettings set org.gnome.desktop.wm.keybindings maximize "['<Super>g']"
+  gsettings set org.gnome.settings-daemon.plugins.media-keys search "['<Super>space']"
 
-        # Set dock pinned apps (to get app names: gsettings get org.gnome.shell favorite-apps)
-        gsettings set org.gnome.shell favorite-apps "['org.wezfurlong.wezterm.desktop', 'brave-browser.desktop', 'org.gnome.Nautilus.desktop']"
-        # Use alt + home row buttons for pinned apps
-        gsettings set org.gnome.shell.keybindings switch-to-application-1 "['<Alt>j']"
-        gsettings set org.gnome.shell.keybindings switch-to-application-2 "['<Alt>k']"
-        gsettings set org.gnome.shell.keybindings switch-to-application-3 "['<Alt>l']"
-        gsettings set org.gnome.shell.keybindings switch-to-application-4 "['<Alt>m']"
+  # Set dock pinned apps (to get app names: gsettings get org.gnome.shell favorite-apps)
+  gsettings set org.gnome.shell favorite-apps "['org.wezfurlong.wezterm.desktop', 'brave-browser.desktop', 'org.gnome.Nautilus.desktop']"
+  # Use alt + home row buttons for pinned apps
+  gsettings set org.gnome.shell.keybindings switch-to-application-1 "['<Alt>j']"
+  gsettings set org.gnome.shell.keybindings switch-to-application-2 "['<Alt>k']"
+  gsettings set org.gnome.shell.keybindings switch-to-application-3 "['<Alt>l']"
+  gsettings set org.gnome.shell.keybindings switch-to-application-4 "['<Alt>m']"
 
-        # Mouse 
-        gsettings set org.gnome.desktop.peripherals.mouse natural-scroll true
+  # Mouse
+  gsettings set org.gnome.desktop.peripherals.mouse natural-scroll true
 
-        # Desactivate switch-input-source hotkeys
-        gsettings set org.gnome.desktop.wm.keybindings switch-input-source "[]"
-        gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "[]"
+  # Desactivate switch-input-source hotkeys
+  gsettings set org.gnome.desktop.wm.keybindings switch-input-source "[]"
+  gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "[]"
 
-        ;;
-    *)
-        echo "Unknown or unsupported desktop environment: $XDG_CURRENT_DESKTOP"
-        ;;
+  ;;
+*)
+  echo "Unsupported or no desktop environment: $XDG_CURRENT_DESKTOP"
+  ;;
 esac
 
 {{ end }}
