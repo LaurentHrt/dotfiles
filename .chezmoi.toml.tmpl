@@ -16,5 +16,12 @@ bwActivated = {{ $bwActivated | quote }}
 GUI = {{ $GUI | quote }} 
 {{- end }}
 
+{{- if eq .chezmoi.arch "arm64" }}
+nvimrelease = "nvim-linux-arm64"
+{{ else }}
+nvimrelease = "nvim-linux-x86_64"
+{{- end }}
+
 [git]
 autoCommit = true
+
