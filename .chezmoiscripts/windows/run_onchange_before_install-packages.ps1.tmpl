@@ -17,18 +17,18 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 
 echo "Install packages"
 {{ if ne .commonpackages.choco nil -}}
-choco install -y {{ .commonpackages.choco | join " " }}
+choco install -y --no-progress --limit-output {{ .commonpackages.choco | join " " }}
 {{ end }}
 
 {{- if eq .where "home" }}
 {{ if ne .personalpackages.choco nil -}}
-choco install -y {{ .personalpackages.choco | join " " }}
+choco install -y --no-progress --limit-output {{ .personalpackages.choco | join " " }}
 {{ end }}
 {{- end }}
 
 {{- if eq .where "work" }}
 {{ if ne .workpackages.choco nil -}}
-choco install -y {{ .workpackages.choco | join " " }}
+choco install -y --no-progress --limit-output {{ .workpackages.choco | join " " }}
 {{ end }}
 {{- end }}
 
