@@ -10,7 +10,7 @@ wsl -d Debian -- sh -c "echo -e '[user]\ndefault=laurent' > /etc/wsl.conf"
 wsl --shutdown
 wsl -d Debian -- sh -c "echo Installing curl and git..."
 wsl -d Debian -- sh -c "sudo apt-get -qq update > /dev/null && sudo apt-get -qqy install curl git > /dev/null"
-wsl -d Debian -- sh -c "cd /home/laurent && curl -fsSL get.chezmoi.io | sudo bash"
-wsl -d Debian -- sh -c "cd /home/laurent && ./bin/chezmoi init --apply LaurentHrt"
+wsl -d Debian -u laurent -- sh -c "cd /home/laurent && curl -fsSL get.chezmoi.io | sudo bash"
+wsl -d Debian -u laurent -- sh -c "cd /home/laurent && ./bin/chezmoi init --apply LaurentHrt"
 wsl --shutdown
 
