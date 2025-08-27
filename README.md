@@ -69,17 +69,16 @@ choco install chezmoi
 #### Chezmoi initialization
 
 ```
-cd .\bin\
-.\chezmoi.exe init --apply $GITHUB_USERNAME
+.\bin\chezmoi.exe init --apply $GITHUB_USERNAME
 ```
 
 #### If Chezmoi initialization does not work
 
 ```
-.\chezmoi.exe cd
+.\bin\chezmoi.exe cd
 git remote add origin https://github.com/LaurentHrt/dotfiles.git
 git pull
-.\chezmoi.exe init --apply
+.\bin\chezmoi.exe init --apply
 
 ```
 
