@@ -18,14 +18,11 @@
 
 - git
 - curl
-- wget
-- gpg
-- unzip
 - [bitwarden-cli](https://bitwarden.com/help/cli/) (optional if you choose "no" when asked during chezmoi init)
 - brew (Mac only)
 
 ```sh
-sudo apt install git curl wget gpg unzip
+sudo apt install -qqy git curl
 ```
 
 ### Windows

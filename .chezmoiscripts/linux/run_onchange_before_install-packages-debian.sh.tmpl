@@ -7,7 +7,7 @@
 echo "Install packages"
 
 # need to install utils before everything else
-sudo apt update -qq
+sudo apt-get update -qq
 for pkg in {{ range .commonpackages.aptsUtils -}} {{ . }} {{ end -}}; do
   if apt-cache show "$pkg" >/dev/null 2>&1; then
     echo "Installing $pkg..."
@@ -42,19 +42,47 @@ curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/sh
 echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
 
 # packages
-sudo apt update
-sudo apt install -y {{ range .commonpackages.apts -}} {{ . }} {{ end -}} ;
+sudo apt-get update -qq
+for pkg in {{ range .commonpackages.apts -}} {{ . }} {{ end -}}; do
+  if apt-cache show "$pkg" >/dev/null 2>&1; then
+    echo "Installing $pkg..."
+    sudo apt-get install -qqy "$pkg"
+  else
+    echo "Skipping $pkg (not found)"
+  fi
+done
 
 {{- if eq .GUI "yes" }}
-sudo apt install -y {{ range .commonpackages.aptsGUI -}} {{ . }} {{ end -}} ;
+for pkg in {{ range .commonpackages.aptsGUI -}} {{ . }} {{ end -}}; do
+  if apt-cache show "$pkg" >/dev/null 2>&1; then
+    echo "Installing $pkg..."
+    sudo apt-get install -qqy "$pkg"
+  else
+    echo "Skipping $pkg (not found)"
+  fi
+done
 {{- end }}
 
 {{- if eq .where "home" }}
-sudo apt install -y {{ range .personalpackages.apts -}} {{ . }} {{ end -}} ;
+for pkg in {{ range .personalpackages.apts -}} {{ . }} {{ end -}}; do
+  if apt-cache show "$pkg" >/dev/null 2>&1; then
+    echo "Installing $pkg..."
+    sudo apt-get install -qqy "$pkg"
+  else
+    echo "Skipping $pkg (not found)"
+  fi
+done
 {{- end }}
 
 {{- if eq .where "work" }}
-sudo apt install -y {{ range .workpackages.apts -}} {{ . }} {{ end -}} ;
+for pkg in {{ range .workpackages.apts -}} {{ . }} {{ end -}}; do
+  if apt-cache show "$pkg" >/dev/null 2>&1; then
+    echo "Installing $pkg..."
+    sudo apt-get install -qqy "$pkg"
+  else
+    echo "Skipping $pkg (not found)"
+  fi
+done
 {{- end }}
 
 # bitwarden cli
