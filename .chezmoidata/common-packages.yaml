@@ -24,7 +24,7 @@ commonpackages:
     - git
     - git-delta
     - jesseduffield/lazydocker/lazydocker
-    - jesseduffield/lazygit/lazygit
+    - lazygit
     - jq
     - noahgorstein/tap/jqp
     - k9s
@@ -102,6 +102,7 @@ commonpackages:
     - containerd.io
     - docker-buildx-plugin
     - docker-compose-plugin
+    - lazygit
   aptsGUI:
     - brave-browser
     - wezterm
