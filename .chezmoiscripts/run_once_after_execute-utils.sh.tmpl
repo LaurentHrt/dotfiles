@@ -3,7 +3,7 @@
 # tldr update
 if type tldr > /dev/null; then
   echo 'Updating tldr db...'
-  tldr --update
+  tldr --update > /dev/null
 else
   echo 'info: tldr is not installed'
 fi
