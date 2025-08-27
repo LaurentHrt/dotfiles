@@ -5,10 +5,12 @@
 - MacOS: Ok
 - Linux:
   - Ubuntu: Ok
-  - Ubuntu WSL: Ok
   - Debian: Ok
   - Arch: Ok
 - Windows: Ok
+- Windows WSL:
+  - Ubuntu: Ok
+  - Debian: WIP
 
 ## Prerequisites
 
