@@ -7,9 +7,8 @@
 echo "Install packages"
 
 # need to install utils before everything else
-sudo apt update
-packages=( {{ range .commonpackages.aptsUtils -}} {{ . }} {{ end -}} )
-for pkg in "${packages[@]}"; do
+sudo apt update -qq
+for pkg in {{ range .commonpackages.aptsUtils -}} {{ . }} {{ end -}}; do
   if apt-cache show "$pkg" >/dev/null 2>&1; then
     echo "Installing $pkg..."
     sudo apt-get install -qqy "$pkg"
