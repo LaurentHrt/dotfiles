@@ -2,7 +2,7 @@ Set-StrictMode -Version 3.0
 $ErrorActionPreference = "Stop"
 
 echo "Install wsl"
-wsl --set-default-version 2
+wsl --set-default-version {{ .wsl_version }}
 wsl --install -d Debian --no-launch
 wsl -d Debian -- sh -c "useradd -m -s /bin/bash laurent && echo 'laurent:root' | chpasswd"
 wsl -d Debian -- sh -c "adduser laurent sudo"

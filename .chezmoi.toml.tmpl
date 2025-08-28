@@ -16,6 +16,12 @@ bwActivated = {{ $bwActivated | quote }}
 GUI = {{ $GUI | quote }} 
 {{- end }}
 
+{{- if eq .chezmoi.os "windows" }}
+{{- $choices := list "1" "2" -}}
+{{- $wsl_version := promptChoice "Which version of wsl do you want to use (choose 1 if you are in a VM) ?" $choices "2" }}
+wsl_version = {{ $wsl_version }} 
+{{- end }}
+
 {{- if eq .chezmoi.arch "arm64" }}
 nvimrelease = "nvim-linux-arm64"
 {{ else }}
