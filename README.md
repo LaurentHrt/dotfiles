@@ -96,8 +96,6 @@ echo "{\"organizationId\":null,\"folderId\":null,\"type\":2,\"name\":\"sshkey\",
 
 ## Todo
 
-- Detect the architecture (x86 or arm) for software installation like neovim (or ask the architecture before apply ?)
-- Make installation less verbose
 - set mac internal setting with script
 - set windows internal settings with script
 - automatize brew installation
