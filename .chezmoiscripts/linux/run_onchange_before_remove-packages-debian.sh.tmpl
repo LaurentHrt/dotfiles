@@ -117,11 +117,11 @@ done
 # Purge the bloatware packages
 if [ -n "$BLOATWARE_INSTALLED" ]; then
     for package in $BLOATWARE_INSTALLED; do
-        sudo apt-get purge -qqy $package
+        sudo apt-get purge -qqy $package > /dev/null
     done
 fi
 
-sudo apt-get auto-remove -qqy
+sudo apt-get auto-remove -qqy > /dev/null
 
 {{ end -}}
 {{ end }}
