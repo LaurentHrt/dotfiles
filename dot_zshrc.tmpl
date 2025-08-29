@@ -48,12 +48,12 @@ zmodload -i zsh/complist
 
 {{ if eq .where "work" }}
   {{- if eq .chezmoi.os "darwin" }}
-    if type brew &>/dev/null
-    then
-      # Setup Google Cloud sdk
-      source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-      source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
-    fi
+    # if type brew &>/dev/null
+    # then
+    #   # Setup Google Cloud sdk
+    #   source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+    #   source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+    # fi
 
     # using podman for docker commands
     # export DOCKER_HOST='unix:///Users/laurenthirthouidou/.local/share/containers/podman/machine/qemu/podman.sock'
@@ -70,17 +70,17 @@ zmodload -i zsh/complist
     source "$(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
     source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
     source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" 
-    source "$(brew --prefix)/opt/fzf/shell/completion.zsh"
+    # source "$(brew --prefix)/opt/fzf/shell/completion.zsh"
   fi
-  export PATH="$PATH:$HOME/Library/Python/3.9/bin"
-  export PATH="$HOME/.docker/bin:$PATH"
+  # export PATH="$PATH:$HOME/Library/Python/3.9/bin"
+  # export PATH="$HOME/.docker/bin:$PATH"
 {{- end }}
 
 {{- if eq .chezmoi.os "linux" }}
-  export PATH="$HOME/bin:/snap/bin:$HOME/.local/bin:/opt/{{.nvimrelease}}/bin:$PATH"
+  export PATH="$HOME/bin:/snap/bin:$PATH"
 
   {{ if or (eq .chezmoi.osRelease.id "debian") (eq .chezmoi.osRelease.id "ubuntu") -}}
-  source $HOME/.atuin/bin/env 
+  # source $HOME/.atuin/bin/env 
   source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
   {{ end }}
@@ -93,28 +93,29 @@ zmodload -i zsh/complist
 {{- end }}
 
 # Setup fnm
-if type fnm > /dev/null; then
-  eval "$(fnm env --use-on-cd)"
-else
-  echo 'info: fnm is not installed'
-fi
+# if type fnm > /dev/null; then
+#   eval "$(fnm env --use-on-cd)"
+# else
+#   echo 'info: fnm is not installed'
+# fi
 
 # starship
-if type starship > /dev/null; then
-  eval "$(starship init zsh)"
-else
-  echo 'info: starship is not installed'
-fi
+# if type starship > /dev/null; then
+#   eval "$(starship init zsh)"
+# else
+#   echo 'info: starship is not installed'
+# fi
 
 # ATUIN (must be after set vi mode)
-if type atuin > /dev/null; then
-  export ATUIN_NOBIND="true"
-  eval "$(atuin init zsh)"
-  bindkey '^r' _atuin_search_widget
-  function zvm_after_init() {
-     zvm_bindkey viins '^R' _atuin_search_widget
-  }
-else
-  echo 'info: atuin is not installed'
-fi
+# if type atuin > /dev/null; then
+#   export ATUIN_NOBIND="true"
+#   eval "$(atuin init zsh)"
+#   bindkey '^r' _atuin_search_widget
+#   function zvm_after_init() {
+#      zvm_bindkey viins '^R' _atuin_search_widget
+#   }
+# else
+#   echo 'info: atuin is not installed'
+# fi
 
+eval "$(mise activate zsh)"

@@ -3,44 +3,19 @@ commonpackages:
     - ellie/atuin
     - homebrew/bundle
     - homebrew/services
-    - jesseduffield/lazydocker
-    - jesseduffield/lazygit
     - koekeishiya/formulae
   brews:
-    - atuin
-    - bat
+    - mise
     - bash
     - bc
     - coreutils
     - gawk
     - gsed
-    - bitwarden-cli
-    - btop
-    - chezmoi
-    - eza
-    - fd
-    - fzf
-    - gh
     - git
-    - git-delta
-    - jesseduffield/lazydocker/lazydocker
-    - lazygit
-    - jq
-    - noahgorstein/tap/jqp
-    - k9s
     - mycli
-    - neovim
+    - btop
     - nmap
     - nss
-    - fnm
-    - ripgrep
-    - rm-improved
-    - starship
-    - tealdeer
-    - tmux
-    - viddy
-    - watch
-    - yq
     - zsh
     - zsh-autosuggestions
     - zsh-completions
@@ -55,10 +30,8 @@ commonpackages:
     - font-jetbrains-mono-nerd-font
     - font-monaspace-nerd-font
     - font-noto-sans-symbols-2
-    - microsoft-remote-desktop
     - raycast
     - bruno
-    - spotify
     - wezterm
     - figma
     - obsidian
@@ -79,30 +52,14 @@ commonpackages:
     - unzip
   apts:
     - man-db
-    - bat
-    - eza
-    - fzf
-    - fd-find
-    - btop
-    - jq
     - gawk
     - mycli
     - nmap
-    - npm
-    - ripgrep
-    - tmux
-    - tealdeer
     - xclip
     - zsh
     - zsh-autosuggestions
     - zsh-syntax-highlighting
-    - docker-ce
-    - docker-ce-cli
     - containerd.io
-    - docker-buildx-plugin
-    - docker-compose-plugin
-    - lazygit
-    - git-delta
   aptsGUI:
     - brave-browser
     - wezterm
@@ -119,27 +76,8 @@ commonpackages:
     - base-devel
     - unzip
   pacman:
-    - atuin
-    - bat
-    - git-delta
-    - bitwarden-cli
-    - github-cli
     - man-db
-    - docker
-    - docker-compose
-    - eza
-    - fzf
-    - fd
-    - btop
-    - jq
-    - lazygit
-    - neovim
-    - npm
     - nmap
-    - ripgrep
-    - starship
-    - tealdeer
-    - tmux
     - xclip
     - ttf-nerd-fonts-symbols-mono
     - zsh
@@ -150,12 +88,9 @@ commonpackages:
     - wezterm
     - bitwarden
   yay:
-    - fnm
-    - lazydocker
     - zsh-vi-mode
   yayGUI:
     - brave-bin
-    - spotify
   choco:
     - googlechrome
     - brave

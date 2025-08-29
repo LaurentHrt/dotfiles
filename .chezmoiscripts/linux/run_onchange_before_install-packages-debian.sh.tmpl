@@ -19,27 +19,20 @@ done
 sudo install -m 0755 -d /etc/apt/keyrings
 
 # Docker
-sudo rm -f /etc/apt/keyrings/docker.asc
-sudo curl -fsSL https://download.docker.com/linux/{{ .chezmoi.osRelease.id }}/gpg -o /etc/apt/keyrings/docker.asc > /dev/null
-sudo chmod a+r /etc/apt/keyrings/docker.asc
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/{{ .chezmoi.osRelease.id }} \
-  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+# sudo rm -f /etc/apt/keyrings/docker.asc
+# sudo curl -fsSL https://download.docker.com/linux/{{ .chezmoi.osRelease.id }}/gpg -o /etc/apt/keyrings/docker.asc > /dev/null
+# sudo chmod a+r /etc/apt/keyrings/docker.asc
+# echo \
+#   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/{{ .chezmoi.osRelease.id }} \
+#   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+#   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 # eza
-sudo rm -f /etc/apt/keyrings/gierens.gpg
-wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg > /dev/null
-echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | sudo tee /etc/apt/sources.list.d/gierens.list > /dev/null
-sudo chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
+# sudo rm -f /etc/apt/keyrings/gierens.gpg
+# wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg > /dev/null
+# echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | sudo tee /etc/apt/sources.list.d/gierens.list > /dev/null
+# sudo chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
 
-# brave-browser
-sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg > /dev/null
-echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list > /dev/null
-
-# wezterm
-curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg > /dev/null
-echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list > /dev/null
 
 # packages
 sudo apt-get update -qq
@@ -53,6 +46,15 @@ for pkg in {{ range .commonpackages.apts -}} {{ . }} {{ end -}}; do
 done
 
 {{- if eq .GUI "yes" }}
+
+# brave-browser
+sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg > /dev/null
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list > /dev/null
+
+# wezterm
+curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg > /dev/null
+echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list > /dev/null
+
 for pkg in {{ range .commonpackages.aptsGUI -}} {{ . }} {{ end -}}; do
   if apt-cache show "$pkg" >/dev/null 2>&1; then
     echo "Installing $pkg..."
@@ -85,65 +87,68 @@ for pkg in {{ range .workpackages.apts -}} {{ . }} {{ end -}}; do
 done
 {{- end }}
 
+# Mise installation
+curl https://mise.run | sh
+
 # bitwarden cli
-if type bw > /dev/null; then
-  echo 'info: bw is already installed'
-else
-  echo 'Installing bitwarden-cli...'
-  curl -sSL "https://vault.bitwarden.com/download/?app=cli&platform=linux" -o bw.zip > /dev/null
-  unzip bw.zip -d ~/.local/bin/ > /dev/null
-  rm bw.zip
-fi
+# if type bw > /dev/null; then
+#   echo 'info: bw is already installed'
+# else
+#   echo 'Installing bitwarden-cli...'
+#   curl -sSL "https://vault.bitwarden.com/download/?app=cli&platform=linux" -o bw.zip > /dev/null
+#   unzip bw.zip -d ~/.local/bin/ > /dev/null
+#   rm bw.zip
+# fi
 
 # starship
-if type starship > /dev/null; then
-  echo 'info: starship is already installed'
-else
-  echo 'Installing starship...'
-  curl -sS https://starship.rs/install.sh | sh -s -- -y > /dev/null
-fi
+# if type starship > /dev/null; then
+#   echo 'info: starship is already installed'
+# else
+#   echo 'Installing starship...'
+#   curl -sS https://starship.rs/install.sh | sh -s -- -y > /dev/null
+# fi
 
 # atuin
-if type atuin > /dev/null; then
-  echo 'info: atuin is already installed'
-else
-  echo 'Installing atuin...'
-  curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh | sh > /dev/null
-fi
+# if type atuin > /dev/null; then
+#   echo 'info: atuin is already installed'
+# else
+#   echo 'Installing atuin...'
+#   curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh | sh > /dev/null
+# fi
 
 # fnm
-if type fnm > /dev/null; then
-  echo 'info: fnm is already installed'
-else
-  echo 'Installing fnm...'
-  curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "$HOME/.local/bin" --skip-shell > /dev/null
-fi
+# if type fnm > /dev/null; then
+#   echo 'info: fnm is already installed'
+# else
+#   echo 'Installing fnm...'
+#   curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "$HOME/.local/bin" --skip-shell > /dev/null
+# fi
 
 # neovim
-if type nvim > /dev/null; then
-  echo 'info: nvim is already installed'
-else
-  echo 'Installing neovim...'
-  curl -sSLO https://github.com/neovim/neovim/releases/latest/download/{{.nvimrelease}}.tar.gz > /dev/null
-  sudo rm -rf /opt/nvim
-  sudo tar -C /opt -xzf {{.nvimrelease}}.tar.gz > /dev/null
-  rm {{.nvimrelease}}.tar.gz
-fi
+# if type nvim > /dev/null; then
+#   echo 'info: nvim is already installed'
+# else
+#   echo 'Installing neovim...'
+#   curl -sSLO https://github.com/neovim/neovim/releases/latest/download/{{.nvimrelease}}.tar.gz > /dev/null
+#   sudo rm -rf /opt/nvim
+#   sudo tar -C /opt -xzf {{.nvimrelease}}.tar.gz > /dev/null
+#   rm {{.nvimrelease}}.tar.gz
+# fi
 
 # lazydocker
-if type lazydocker > /dev/null; then
-  echo 'info: lazydocker is already installed'
-else
-  echo 'Installing lazydocker...'
-  curl -sS https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash > /dev/null
-fi
+# if type lazydocker > /dev/null; then
+#   echo 'info: lazydocker is already installed'
+# else
+#   echo 'Installing lazydocker...'
+#   curl -sS https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash > /dev/null
+# fi
 
 # Docker postinstall
-sudo groupadd docker > /dev/null
-sudo usermod -aG docker $USER > /dev/null
+# sudo groupadd docker > /dev/null
+# sudo usermod -aG docker $USER > /dev/null
 
 # fd postinsall
-ln -s $(which fdfind) ~/.local/bin/fd
+# ln -s $(which fdfind) ~/.local/bin/fd
 
 # zsh by default
 if type zsh > /dev/null; then
