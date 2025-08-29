@@ -22,3 +22,8 @@ starship = "latest"
 tmux = "latest"
 viddy = "latest"
 yq = "latest"
+
+{{- if eq .chezmoi.os "linux" }}
+btop = "latest"
+eza = "latest"
+{{ end -}}

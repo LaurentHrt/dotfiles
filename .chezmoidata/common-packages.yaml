@@ -14,6 +14,7 @@ commonpackages:
     - git
     - mycli
     - btop
+    - eza
     - nmap
     - nss
     - zsh
