@@ -119,7 +119,7 @@ zmodload -i zsh/complist
 # fi
 
 if type mise > /dev/null; then
-  eval "$(mise activate zsh)"
+  eval "$(~/.local/bin/mise activate zsh)"
 else
   echo 'info: mise is not installed'
 fi
