@@ -150,6 +150,13 @@ fi
 # fd postinsall
 # ln -s $(which fdfind) ~/.local/bin/fd
 
+# Install dependencies
+if type ~/bin/mise > /dev/null; then
+  ~/bin/mise install
+else
+  echo 'info: mise is not installed, skip'
+fi
+
 # zsh by default
 if type zsh > /dev/null; then
   if [ -n "`$SHELL -c 'echo $ZSH_VERSION'`" ]; then

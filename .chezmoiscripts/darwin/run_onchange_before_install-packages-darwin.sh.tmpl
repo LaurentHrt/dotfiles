@@ -45,4 +45,11 @@ cask {{ . | quote }}
 EOF
 {{ end }}
 
+# Install dependencies
+if type mise >/dev/null; then
+  mise install
+else
+  echo 'info: mise is not installed, skip'
+fi
+
 {{- end }}
