@@ -59,6 +59,11 @@ commonpackages:
     - mycli
     - nmap
     - xclip
+    - docker-ce
+    - docker-ce-cli
+    - containerd.io
+    - docker-buildx-plugin
+    - docker-compose-plugin
     - zsh
     - zsh-autosuggestions
     - zsh-syntax-highlighting
@@ -80,6 +85,8 @@ commonpackages:
     - unzip
   pacman:
     - man-db
+    - docker
+    - docker-compose
     - tmux
     - nmap
     - xclip
