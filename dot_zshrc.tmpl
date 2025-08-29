@@ -118,4 +118,8 @@ zmodload -i zsh/complist
 #   echo 'info: atuin is not installed'
 # fi
 
-eval "$(mise activate zsh)"
+if type mise > /dev/null; then
+  eval "$(mise activate zsh)"
+else
+  echo 'info: mise is not installed'
+fi
