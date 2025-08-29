@@ -18,6 +18,7 @@ commonpackages:
     - nmap
     - nss
     - zsh
+    - tmux
     - zsh-autosuggestions
     - zsh-completions
     - zsh-syntax-highlighting
@@ -53,6 +54,7 @@ commonpackages:
     - unzip
   apts:
     - man-db
+    - tmux
     - gawk
     - mycli
     - nmap
@@ -78,6 +80,7 @@ commonpackages:
     - unzip
   pacman:
     - man-db
+    - tmux
     - nmap
     - xclip
     - ttf-nerd-fonts-symbols-mono

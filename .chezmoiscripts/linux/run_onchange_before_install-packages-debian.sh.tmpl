@@ -91,15 +91,15 @@ done
 export PATH="$HOME/.local/bin:$PATH"
 curl https://mise.run/zsh | MISE_QUIET=1 sh
 
-# bitwarden cli
-# if type bw > /dev/null; then
-#   echo 'info: bw is already installed'
-# else
-#   echo 'Installing bitwarden-cli...'
-#   curl -sSL "https://vault.bitwarden.com/download/?app=cli&platform=linux" -o bw.zip > /dev/null
-#   unzip bw.zip -d ~/.local/bin/ > /dev/null
-#   rm bw.zip
-# fi
+bitwarden cli
+if type bw > /dev/null; then
+  echo 'info: bw is already installed'
+else
+  echo 'Installing bitwarden-cli...'
+  curl -sSL "https://vault.bitwarden.com/download/?app=cli&platform=linux" -o bw.zip > /dev/null
+  unzip bw.zip -d ~/.local/bin/ > /dev/null
+  rm bw.zip
+fi
 
 # starship
 # if type starship > /dev/null; then
