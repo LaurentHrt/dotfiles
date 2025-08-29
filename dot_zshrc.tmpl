@@ -99,27 +99,28 @@ zmodload -i zsh/complist
 #   echo 'info: fnm is not installed'
 # fi
 
-# starship
-# if type starship > /dev/null; then
-#   eval "$(starship init zsh)"
-# else
-#   echo 'info: starship is not installed'
-# fi
-
-# ATUIN (must be after set vi mode)
-# if type atuin > /dev/null; then
-#   export ATUIN_NOBIND="true"
-#   eval "$(atuin init zsh)"
-#   bindkey '^r' _atuin_search_widget
-#   function zvm_after_init() {
-#      zvm_bindkey viins '^R' _atuin_search_widget
-#   }
-# else
-#   echo 'info: atuin is not installed'
-# fi
-
 if type mise > /dev/null; then
   eval "$(~/.local/bin/mise activate zsh --shims)"
 else
   echo 'info: mise is not installed'
 fi
+
+starship
+if type starship > /dev/null; then
+  eval "$(starship init zsh)"
+else
+  echo 'info: starship is not installed'
+fi
+
+ATUIN (must be after set vi mode)
+if type atuin > /dev/null; then
+  export ATUIN_NOBIND="true"
+  eval "$(atuin init zsh)"
+  bindkey '^r' _atuin_search_widget
+  function zvm_after_init() {
+     zvm_bindkey viins '^R' _atuin_search_widget
+  }
+else
+  echo 'info: atuin is not installed'
+fi
+

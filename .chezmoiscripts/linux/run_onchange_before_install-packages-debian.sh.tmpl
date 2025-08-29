@@ -87,10 +87,10 @@ for pkg in {{ range .workpackages.apts -}} {{ . }} {{ end -}}; do
 done
 {{- end }}
 
-# Mise installation
-curl https://mise.run/zsh | MISE_QUIET=1 sh
+# Mise installtion
+curl https://mise.run | sh
 
-bitwarden cli
+# bitwarden cli
 if type bw > /dev/null; then
   echo 'info: bw is already installed'
 else
