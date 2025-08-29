@@ -67,7 +67,6 @@ commonpackages:
     - zsh
     - zsh-autosuggestions
     - zsh-syntax-highlighting
-    - containerd.io
   aptsGUI:
     - brave-browser
     - wezterm
