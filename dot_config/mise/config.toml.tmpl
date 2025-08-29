@@ -2,7 +2,6 @@
 cosign = "latest"
 atuin = "latest"
 bat = "latest"
-bitwarden = "latest"
 chezmoi = "latest"
 delta = "latest"
 fd = "latest"
@@ -26,4 +25,8 @@ yq = "latest"
 {{- if eq .chezmoi.os "linux" }}
 btop = "latest"
 eza = "latest"
+{{ end -}}
+
+{{- if eq .chezmoi.os "darwin" }}
+bitwarden = "latest"
 {{ end -}}
