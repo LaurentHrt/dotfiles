@@ -1,13 +1,5 @@
 #!{{ lookPath "sh" }}
 
-# tldr update
-if type tldr > /dev/null; then
-  echo 'Updating tldr db...'
-  tldr --update > /dev/null
-else
-  echo 'info: tldr is not installed'
-fi
-
 # Atuin login
 {{ if eq .bwActivated "yes" }}
 if type atuin > /dev/null; then
@@ -18,6 +10,13 @@ else
   echo 'info: atuin is not installed, login skipped'
 fi
 {{ end }}
+
+# Install dependencies
+if type mise > /dev/null; then
+  mise install
+else
+  echo 'info: misz is not installed, skip'
+fi
 
 # create directory
 if [ ! -d ~/workspace ]; then
