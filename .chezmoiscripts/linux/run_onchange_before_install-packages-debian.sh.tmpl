@@ -88,7 +88,8 @@ done
 {{- end }}
 
 # Mise installation
-curl https://mise.run/zsh | MISE_INSTALL_PATH=/usr/local/bin/mise sh
+export PATH="$HOME/.local/bin:$PATH"
+curl https://mise.run/zsh | MISE_QUIET=1 sh
 
 # bitwarden cli
 # if type bw > /dev/null; then
