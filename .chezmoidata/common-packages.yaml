@@ -61,7 +61,6 @@ commonpackages:
     - spotify
     - wezterm
     - figma
-    - gimp
     - obsidian
     - visual-studio-code
   aptsUtils:
