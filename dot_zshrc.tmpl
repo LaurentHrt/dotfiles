@@ -99,13 +99,13 @@ zmodload -i zsh/complist
 #   echo 'info: fnm is not installed'
 # fi
 
-# if type mise > /dev/null; then
-  eval "$(~/.local/bin/mise activate zsh --shims)"
-# else
-#   echo 'info: mise is not installed'
-# fi
+if type ~/bin/mise > /dev/null; then
+  eval "$(~/bin/mise activate zsh --shims)"
+else
+  echo 'info: mise is not installed'
+fi
 
-starship
+# starship
 if type starship > /dev/null; then
   eval "$(starship init zsh)"
 else

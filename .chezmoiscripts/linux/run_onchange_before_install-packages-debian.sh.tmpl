@@ -88,7 +88,7 @@ done
 {{- end }}
 
 # Mise installtion
-curl https://mise.run | MISE_QUIET=1 sh
+curl https://mise.run | MISE_INSTALL_PATH=~/bin/mise MISE_QUIET=1 sh
 
 # bitwarden cli
 if type bw > /dev/null; then
