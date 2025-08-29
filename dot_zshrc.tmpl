@@ -99,20 +99,21 @@ zmodload -i zsh/complist
 #   echo 'info: fnm is not installed'
 # fi
 
+# Mise-en-place
 if type ~/bin/mise > /dev/null; then
   eval "$(~/bin/mise activate zsh --shims)"
 else
   echo 'info: mise is not installed'
 fi
 
-# starship
+# Starship
 if type starship > /dev/null; then
   eval "$(starship init zsh)"
 else
   echo 'info: starship is not installed'
 fi
 
-ATUIN (must be after set vi mode)
+# ATUIN (must be after set vi mode)
 if type atuin > /dev/null; then
   export ATUIN_NOBIND="true"
   eval "$(atuin init zsh)"
