@@ -7,11 +7,6 @@ alias q="exit"
 alias ws="webstorm"
 alias edit="open -e"
 alias cat='bat'
-{{- if eq .chezmoi.os "linux" }}
-{{ if or (eq .chezmoi.osRelease.id "debian") (eq .chezmoi.osRelease.id "ubuntu") -}}
-alias cat='batcat'
-{{- end }}
-{{- end }}
 alias als='alias | rg'
 alias aliasedit='chezmoi edit ~/.config/aliases/aliases.zsh'
 alias editalias='aliasedit'
