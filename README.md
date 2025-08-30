@@ -96,6 +96,7 @@ echo "{\"organizationId\":null,\"folderId\":null,\"type\":2,\"name\":\"sshkey\",
 
 ## Todo
 
+- Auto forward the arguments from windows to the wsl (with .chezmoi.args)
 - set mac internal setting with script
 - set windows internal settings with script
 - automatize brew installation
