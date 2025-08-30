@@ -1,8 +1,5 @@
 #!{{ lookPath "sh" }}
 
-# MACOS ------------------------------
-{{ if eq .chezmoi.os "darwin" -}}
-
 echo "Install packages"
 
 brew bundle --file=/dev/stdin <<EOF
@@ -44,12 +41,3 @@ cask {{ . | quote }}
 {{ end -}}
 EOF
 {{ end }}
-
-# Install dependencies
-if type mise >/dev/null; then
-  mise install
-else
-  echo 'info: mise is not installed, skip'
-fi
-
-{{- end }}

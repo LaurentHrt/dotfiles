@@ -107,7 +107,6 @@ commonpackages:
     - git
     - wezterm
     - bitwarden
-    - bitwarden-cli
     - powertoys
     - bruno
     - vscode

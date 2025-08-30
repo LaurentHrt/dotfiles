@@ -1,5 +1,16 @@
 **/.git/
 README.md
+ 
+# Ignoring scripts in folder according to os
+{{- if ne .chezmoi.os "darwin" }}
+.chezmoiscripts/darwin/**
+{{- end }}
+{{- if ne .chezmoi.os "linux" }}
+.chezmoiscripts/linux/**
+{{- end }}
+{{- if ne .chezmoi.os "windows" }}
+.chezmoiscripts/windows/**
+{{- end }}
 
 # what I dont't want in my work config
 {{- if ne .where "home" }}

@@ -1,7 +1,6 @@
 #!{{ lookPath "sh" }}
 
 # ARCH ------------------------------
-{{ if eq .chezmoi.os "linux" -}}
 {{ if or (eq .chezmoi.osRelease.id "arch") -}}
 
 echo "Remove packages"
@@ -92,5 +91,4 @@ if [ -n "$BLOATWARE_INSTALLED" ]; then
     sudo pacman -Rnsc --noconfirm $BLOATWARE_INSTALLED
 fi
 
-{{ end -}}
 {{ end }}

@@ -1,7 +1,5 @@
 #!{{ lookPath "sh" }}
 
-# DEBIAN ------------------------------
-{{ if eq .chezmoi.os "linux" -}}
 case "$XDG_CURRENT_DESKTOP" in
 GNOME)
   # Info: Run gsettings list-recursively | fzf to find things
@@ -34,5 +32,3 @@ GNOME)
   ;;
 *) ;;
 esac
-
-{{ end }}
