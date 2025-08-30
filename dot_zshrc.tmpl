@@ -100,8 +100,8 @@ zmodload -i zsh/complist
 # fi
 
 # Mise-en-place
-if type ~/bin/mise > /dev/null; then
-  eval "$(~/bin/mise activate zsh --shims)"
+if type mise > /dev/null; then
+  eval "$(mise activate zsh --shims)"
 else
   echo 'info: mise is not installed'
 fi
