@@ -38,10 +38,6 @@ sudo pacman --noconfirm --needed -S {{ range .workpackages.pacman -}} {{ . }} {{
 # Mise installation
 curl https://mise.run | sh
 
-# Docker postinstall
-# sudo groupadd docker
-# sudo usermod -aG docker $USER
-
 # zsh by default
 if type zsh > /dev/null; then
   if [ -n "`$SHELL -c 'echo $ZSH_VERSION'`" ]; then

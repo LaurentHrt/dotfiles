@@ -82,7 +82,12 @@ done
 {{- end }}
 
 # Mise installtion
-curl https://mise.run | MISE_INSTALL_PATH=~/bin/mise MISE_QUIET=1 sh
+if type ~/bin/mise > /dev/null; then
+  echo 'info: mise is already installed'
+else
+  echo 'Installing mise...'
+  curl https://mise.run | MISE_INSTALL_PATH=~/bin/mise MISE_QUIET=1 sh > /dev/null
+fi
 
 # bitwarden cli
 if type ~/.local/bin/bw > /dev/null; then
@@ -93,56 +98,6 @@ else
   unzip bw.zip -d ~/.local/bin/ > /dev/null
   rm bw.zip
 fi
-
-# starship
-# if type starship > /dev/null; then
-#   echo 'info: starship is already installed'
-# else
-#   echo 'Installing starship...'
-#   curl -sS https://starship.rs/install.sh | sh -s -- -y > /dev/null
-# fi
-
-# atuin
-# if type atuin > /dev/null; then
-#   echo 'info: atuin is already installed'
-# else
-#   echo 'Installing atuin...'
-#   curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh | sh > /dev/null
-# fi
-
-# fnm
-# if type fnm > /dev/null; then
-#   echo 'info: fnm is already installed'
-# else
-#   echo 'Installing fnm...'
-#   curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "$HOME/.local/bin" --skip-shell > /dev/null
-# fi
-
-# neovim
-# if type nvim > /dev/null; then
-#   echo 'info: nvim is already installed'
-# else
-#   echo 'Installing neovim...'
-#   curl -sSLO https://github.com/neovim/neovim/releases/latest/download/{{.nvimrelease}}.tar.gz > /dev/null
-#   sudo rm -rf /opt/nvim
-#   sudo tar -C /opt -xzf {{.nvimrelease}}.tar.gz > /dev/null
-#   rm {{.nvimrelease}}.tar.gz
-# fi
-
-# lazydocker
-# if type lazydocker > /dev/null; then
-#   echo 'info: lazydocker is already installed'
-# else
-#   echo 'Installing lazydocker...'
-#   curl -sS https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash > /dev/null
-# fi
-
-# Docker postinstall
-sudo groupadd docker > /dev/null
-sudo usermod -aG docker $USER > /dev/null
-
-# fd postinsall
-# ln -s $(which fdfind) ~/.local/bin/fd
 
 # zsh by default
 if type zsh > /dev/null; then

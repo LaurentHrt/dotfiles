@@ -56,4 +56,5 @@ try {
 Stop-Process -Name explorer -Force
 Start-Process explorer.exe
 
+Write-Host "{{ .chezmoi.args }}"
 Write-Host "System preferences updated."
