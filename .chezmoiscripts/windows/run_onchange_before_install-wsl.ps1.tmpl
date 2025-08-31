@@ -10,7 +10,7 @@ if (-not $debianInstalled) {
     wsl --install -d Debian --no-launch
     wsl -d Debian -- sh -c "useradd -m -s /bin/bash laurent && echo 'laurent:root' | chpasswd"
     wsl -d Debian -- sh -c "adduser laurent sudo"
-    wsl -d Debian -- sh -c "echo -e '[user]\ndefault=laurent' > /etc/wsl.conf"
+    wsl -d Debian -- sh -c "echo -e '[user]\ndefault=laurent\n\n[network]\nhostname=debian-wsl' > /etc/wsl.conf"
     wsl --shutdown
 } else {
     echo "WSL Debian already installed, skip."
