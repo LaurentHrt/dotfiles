@@ -2,7 +2,7 @@ Set-StrictMode -Version 3.0
 $ErrorActionPreference = "Stop"
 
 # Check if Debian is already installed
-$debianInstalled = wsl --list --quiet | Select-String -Pattern "^Debian$"
+$debianInstalled = (@(wsl -l -q 2>$null | % { $_.Trim() }) -contains 'Debian')
 
 if (-not $debianInstalled) {
     echo "Installing WSL and Debian..."
