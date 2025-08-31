@@ -1,13 +1,21 @@
 Set-StrictMode -Version 3.0
 $ErrorActionPreference = "Stop"
 
-echo "Install wsl"
-wsl --set-default-version {{ .wsl_version }}
-wsl --install -d Debian --no-launch
-wsl -d Debian -- sh -c "useradd -m -s /bin/bash laurent && echo 'laurent:root' | chpasswd"
-wsl -d Debian -- sh -c "adduser laurent sudo"
-wsl -d Debian -- sh -c "echo -e '[user]\ndefault=laurent' > /etc/wsl.conf"
-wsl --shutdown
+# Check if Debian is already installed
+$debianInstalled = wsl --list --quiet | Select-String -Pattern "^Debian$"
+
+if (-not $debianInstalled) {
+    echo "Installing WSL and Debian..."
+    wsl --set-default-version {{ .wsl_version }}
+    wsl --install -d Debian --no-launch
+    wsl -d Debian -- sh -c "useradd -m -s /bin/bash laurent && echo 'laurent:root' | chpasswd"
+    wsl -d Debian -- sh -c "adduser laurent sudo"
+    wsl -d Debian -- sh -c "echo -e '[user]\ndefault=laurent' > /etc/wsl.conf"
+    wsl --shutdown
+else {
+    echo "WSL Debian already installed, skip."
+fi
+
 wsl -d Debian -- sh -c "echo Installing curl and git..."
 wsl -d Debian -- sh -c "sudo apt-get -qq update > /dev/null && sudo apt-get -qqy install curl git > /dev/null"
 wsl -d Debian -u laurent -- sh -c "cd /home/laurent && curl -fsSL get.chezmoi.io | sudo bash"
