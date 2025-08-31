@@ -86,7 +86,7 @@ if type ~/bin/mise > /dev/null; then
   echo 'info: mise is already installed'
 else
   echo 'Installing mise...'
-  curl https://mise.run | MISE_QUIET=1 sh > /dev/null
+  curl -s https://mise.run | MISE_QUIET=1 sh > /dev/null
 fi
 
 # bitwarden cli
