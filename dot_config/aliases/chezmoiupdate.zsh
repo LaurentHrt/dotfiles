@@ -2,7 +2,7 @@
 
 # Chezmoi alias to check if the bitwarden vault is unlocked before running apply
 chezmoiupdate() {
-  fnm use 20
+  mise use node@20
   BW_STATUS=$(bw status | jq -r '.status')
   if [[ "$BW_STATUS" == "unlocked" ]]; then
     echo "Bitwarden is already unlocked, applying changes..."
