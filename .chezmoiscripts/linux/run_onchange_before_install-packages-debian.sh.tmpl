@@ -82,32 +82,19 @@ done
 {{- end }}
 
 # Mise installtion
+echo 'Installing mise...'
 if type ~/bin/mise > /dev/null; then
-  echo 'info: mise is already installed'
+  echo 'Mise is already installed'
 else
-  echo 'Installing mise...'
   curl -sS https://mise.run | MISE_QUIET=1 sh > /dev/null
 fi
 
 # bitwarden cli
+echo 'Installing bitwarden-cli...'
 if type ~/.local/bin/bw > /dev/null; then
-  echo 'info: bw is already installed'
+  echo 'bitwarden-cli is already installed'
 else
-  echo 'Installing bitwarden-cli...'
   curl -sSL "https://vault.bitwarden.com/download/?app=cli&platform=linux" -o bw.zip > /dev/null
   unzip bw.zip -d ~/.local/bin/ > /dev/null
   rm bw.zip
 fi
-
-# zsh by default
-if type zsh > /dev/null; then
-  if [ -n "`$SHELL -c 'echo $ZSH_VERSION'`" ]; then
-    echo 'Shell is already zsh'
-  else
-    chsh -s $(which zsh)
-  fi
-else
-  echo 'info: zsh is not installed'
-fi
-
-{{ end }}

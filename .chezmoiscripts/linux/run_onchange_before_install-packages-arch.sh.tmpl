@@ -10,8 +10,9 @@ sudo pacman --noconfirm -Syu
 sudo pacman --noconfirm --needed -S {{ range .commonpackages.pacmanUtils -}} {{ . }} {{ end -}} ;
 
 # yay installation
+echo 'Installing yay...'
 if type yay > /dev/null; then
-  echo 'info: yay is already installed'
+  echo 'yay is already installed'
 else
   rm -rf yay
   git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm
@@ -36,18 +37,9 @@ sudo pacman --noconfirm --needed -S {{ range .workpackages.pacman -}} {{ . }} {{
 {{- end }}
 
 # Mise installation
-curl https://mise.run | sh
-
-# zsh by default
-if type zsh > /dev/null; then
-  if [ -n "`$SHELL -c 'echo $ZSH_VERSION'`" ]; then
-    echo 'Shell is already zsh'
-  else
-    chsh -s /usr/bin/zsh
-  fi
+echo 'Installing mise...'
+if type ~/bin/mise > /dev/null; then
+  echo 'Mise is already installed'
 else
-  echo 'info: zsh is not installed'
+  curl -sS https://mise.run | MISE_QUIET=1 sh > /dev/null
 fi
-
-{{ end }}
-

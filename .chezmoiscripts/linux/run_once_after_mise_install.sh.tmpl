@@ -1,5 +1,6 @@
 #!{{ lookPath "sh" }}
 
+echo "Installing mise dependencies..."
 if type ~/.local/bin/mise >/dev/null; then
   if ! ~/.local/bin/mise install; then
     echo "warn: mise install failed (maybe GitHub rate limit?), continuing..."
