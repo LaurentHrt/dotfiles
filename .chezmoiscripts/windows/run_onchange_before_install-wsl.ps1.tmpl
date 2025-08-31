@@ -11,6 +11,6 @@ wsl --shutdown
 wsl -d Debian -- sh -c "echo Installing curl and git..."
 wsl -d Debian -- sh -c "sudo apt-get -qq update > /dev/null && sudo apt-get -qqy install curl git > /dev/null"
 wsl -d Debian -u laurent -- sh -c "cd /home/laurent && curl -fsSL get.chezmoi.io | sudo bash"
-wsl -d Debian -u laurent -- sh -c "cd /home/laurent && ./bin/chezmoi {{ slice .chezmoi.args 1 | join \" \" }}"
+wsl -d Debian -u laurent -- sh -c 'cd /home/laurent && ./bin/chezmoi {{ slice .chezmoi.args 1 | join " " }}'
 wsl --shutdown
 
