@@ -72,12 +72,10 @@ zmodload -i zsh/complist
     source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" 
     # source "$(brew --prefix)/opt/fzf/shell/completion.zsh"
   fi
-  # export PATH="$PATH:$HOME/Library/Python/3.9/bin"
-  # export PATH="$HOME/.docker/bin:$PATH"
 {{- end }}
 
 {{- if eq .chezmoi.os "linux" }}
-  export PATH="$HOME/bin:/snap/bin:$PATH"
+  export PATH="$HOME/bin:$HOME/.local/bin:/snap/bin:$PATH"
 
   {{ if or (eq .chezmoi.osRelease.id "debian") (eq .chezmoi.osRelease.id "ubuntu") -}}
   # source $HOME/.atuin/bin/env 
