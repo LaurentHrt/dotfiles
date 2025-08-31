@@ -96,7 +96,8 @@ echo "{\"organizationId\":null,\"folderId\":null,\"type\":2,\"name\":\"sshkey\",
 
 ## Todo
 
-- Auto forward the arguments from windows to the wsl (with .chezmoi.args)
+- Add some usefull log message like 'starting chezmoi install on branch xxx'
+- Automatically skip GUI installation if there is no GUI
 - set mac internal setting with script
 - set windows internal settings with script
 - automatize brew installation
