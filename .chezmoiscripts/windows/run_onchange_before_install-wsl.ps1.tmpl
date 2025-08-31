@@ -1,7 +1,7 @@
 Set-StrictMode -Version 3.0
 $ErrorActionPreference = "Stop"
 
-echo "{{ slice .chezmoi.args 2 | join ' ' }}"
+echo '{{ slice .chezmoi.args 2 | join " " }}'
 
 # echo "Install wsl"
 # wsl --set-default-version {{ .wsl_version }}
