@@ -1,7 +1,7 @@
 #!{{ lookPath "sh" }}
 
-if type ~/bin/mise >/dev/null; then
-  if ! ~/bin/mise install; then
+if type ~/.local/bin/mise >/dev/null; then
+  if ! ~/.local/bin/mise install; then
     echo "warn: mise install failed (maybe GitHub rate limit?), continuing..."
   fi
 else
