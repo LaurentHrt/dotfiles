@@ -12,9 +12,9 @@ if (-not $debianInstalled) {
     wsl -d Debian -- sh -c "adduser laurent sudo"
     wsl -d Debian -- sh -c "echo -e '[user]\ndefault=laurent' > /etc/wsl.conf"
     wsl --shutdown
-else {
+} else {
     echo "WSL Debian already installed, skip."
-fi
+}
 
 wsl -d Debian -- sh -c "echo Installing curl and git..."
 wsl -d Debian -- sh -c "sudo apt-get -qq update > /dev/null && sudo apt-get -qqy install curl git > /dev/null"
