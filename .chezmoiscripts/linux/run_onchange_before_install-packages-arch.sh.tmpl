@@ -36,12 +36,4 @@ sudo pacman --noconfirm --needed -S {{ range .personalpackages.pacman -}} {{ . }
 sudo pacman --noconfirm --needed -S {{ range .workpackages.pacman -}} {{ . }} {{ end -}} ;
 {{- end }}
 
-# Mise installation
-echo 'Installing mise...'
-if type ~/bin/mise > /dev/null; then
-  echo 'Mise is already installed'
-else
-  curl -sS https://mise.run | MISE_QUIET=1 sh > /dev/null
-fi
-
 {{ end }}

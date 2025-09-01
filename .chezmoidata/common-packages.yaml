@@ -35,7 +35,6 @@ commonpackages:
     - raycast
     - bruno
     - wezterm
-    - figma
     - obsidian
     - visual-studio-code
   aptsUtils:
@@ -83,6 +82,7 @@ commonpackages:
     - base-devel
     - unzip
   pacman:
+    - mise
     - man-db
     - docker
     - docker-compose
@@ -111,4 +111,3 @@ commonpackages:
     - bruno
     - vscode
     - obsidian
-    - figma

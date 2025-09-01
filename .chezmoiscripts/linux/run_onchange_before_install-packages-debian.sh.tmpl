@@ -83,7 +83,7 @@ done
 
 # Mise installtion
 echo 'Installing mise...'
-if type ~/bin/mise > /dev/null; then
+if type ~/.local/bin/mise > /dev/null; then
   echo 'Mise is already installed'
 else
   curl -sS https://mise.run | MISE_QUIET=1 sh > /dev/null
