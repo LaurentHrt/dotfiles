@@ -1,13 +1,5 @@
 #!{{ lookPath "sh" }}
 
-# tldr update
-if type tldr > /dev/null; then
-  echo 'Updating tldr db...'
-  tldr --update > /dev/null
-else
-  echo 'info: tldr is not installed'
-fi
-
 # Atuin login
 {{ if eq .bwActivated "yes" }}
 if type atuin > /dev/null; then

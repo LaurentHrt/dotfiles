@@ -1,7 +1,6 @@
 #!{{ lookPath "sh" }}
 
 # ARCH ------------------------------
-{{ if eq .chezmoi.os "linux" -}}
 {{ if or (eq .chezmoi.osRelease.id "arch") -}}
 
 echo "Remove packages"
@@ -70,6 +69,8 @@ gnome-weather
 gnome-maps
 gnome-photos
 gnome-calendar
+gnome-nibbles
+gnome-robots
 evolution
 remmina
 hexchat
@@ -77,6 +78,28 @@ pidgin
 geary
 deja-dup
 gnome-music
+firefox-esr
+gnome-2048
+gnome-chess
+gnome-mimeapps
+gnome-klotski
+five-or-more
+four-in-a-row
+hitori
+aisleriot
+quadrapassel
+lightsoff
+iagno
+gnome-taquin
+gnome-tetravex
+lightsoff
+tali
+swell-foop
+synaptic
+gnome-sound-recorder
+yelp
+evolution
+malcontent
 "
 
 INSTALLED_PACKAGES=$(pacman -Qq)
@@ -92,5 +115,4 @@ if [ -n "$BLOATWARE_INSTALLED" ]; then
     sudo pacman -Rnsc --noconfirm $BLOATWARE_INSTALLED
 fi
 
-{{ end -}}
 {{ end }}

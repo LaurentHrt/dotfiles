@@ -1,8 +1,5 @@
 #!{{ lookPath "sh" }}
 
-# MACOS ------------------------------
-{{ if eq .chezmoi.os "darwin" -}}
-
 echo "Install packages"
 
 brew bundle --file=/dev/stdin <<EOF
@@ -44,5 +41,3 @@ cask {{ . | quote }}
 {{ end -}}
 EOF
 {{ end }}
-
-{{- end }}

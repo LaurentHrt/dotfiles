@@ -1,9 +1,6 @@
 #!{{ lookPath "sh" }}
 
-# MACOS ------------------------------
-{{ if eq .chezmoi.os "darwin" -}}
 if [ ! -e "/opt/homebrew/bin/mysql" ]; then
   echo "Create symlink for mycli"
   ln -s /opt/homebrew/bin/mycli /opt/homebrew/bin/mysql
 fi
-{{ end }}

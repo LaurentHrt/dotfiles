@@ -1,7 +1,6 @@
 #!{{ lookPath "sh" }}
 
 # DEBIAN ------------------------------
-{{ if eq .chezmoi.os "linux" -}}
 {{ if or (eq .chezmoi.osRelease.id "debian") (eq .chezmoi.osRelease.id "ubuntu") -}}
 
 echo "Remove packages"
@@ -117,11 +116,11 @@ done
 # Purge the bloatware packages
 if [ -n "$BLOATWARE_INSTALLED" ]; then
     for package in $BLOATWARE_INSTALLED; do
-        sudo apt-get purge -qqy $package
+        echo "Removing $package..."
+        sudo apt-get purge -qqy $package > /dev/null
     done
 fi
 
-sudo apt-get auto-remove -qqy
+sudo apt-get auto-remove -qqy > /dev/null
 
-{{ end -}}
 {{ end }}
