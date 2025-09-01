@@ -96,6 +96,7 @@ echo "{\"organizationId\":null,\"folderId\":null,\"type\":2,\"name\":\"sshkey\",
 
 ## Todo
 
+- use env variable bitwarden.unlock to automatically unlock bw
 - Check atuiin already logged in before logging in
 - Add some usefull log message like 'starting chezmoi install on branch xxx'
 - Automatically skip GUI installation if there is no GUI
