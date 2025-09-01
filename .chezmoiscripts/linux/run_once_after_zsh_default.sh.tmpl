@@ -4,6 +4,7 @@
 echo 'Setting zsh as default shell'
 if type zsh >/dev/null; then
   if [ -n "$($SHELL -c 'echo $ZSH_VERSION')" ]; then
+    ;
   else
     chsh -s $(which zsh)
   fi
