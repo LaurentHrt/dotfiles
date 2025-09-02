@@ -55,7 +55,6 @@ commonpackages:
     - tmux
     - gawk
     - mycli
-    - nmap
     - xclip
     - docker-ce
     - docker-ce-cli
@@ -86,7 +85,6 @@ commonpackages:
     - docker
     - docker-compose
     - tmux
-    - nmap
     - xclip
     - ttf-nerd-fonts-symbols-mono
     - zsh
