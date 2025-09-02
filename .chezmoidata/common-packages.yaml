@@ -55,7 +55,6 @@ commonpackages:
     - tmux
     - gawk
     - mycli
-    - xclip
     - docker-ce
     - docker-ce-cli
     - containerd.io
@@ -67,6 +66,7 @@ commonpackages:
   aptsGUI:
     - brave-browser
     - wezterm
+    - xclip
   pacmanUtils:
     - ca-certificates
     - curl
@@ -85,7 +85,6 @@ commonpackages:
     - docker
     - docker-compose
     - tmux
-    - xclip
     - ttf-nerd-fonts-symbols-mono
     - zsh
     - zsh-autosuggestions
@@ -94,6 +93,7 @@ commonpackages:
   pacmanGUI:
     - wezterm
     - bitwarden
+    - xclip
   yay:
     - zsh-vi-mode
   yayGUI:
