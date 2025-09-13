@@ -19,6 +19,7 @@ ripgrep = "latest"
 starship = "latest"
 viddy = "latest"
 yq = "latest"
+carapace = "latest"
 btop = { version = "latest", os = ["linux"] }
 eza = { version = "latest", os = ["linux"] }
 bitwarden = { version = "latest", os = ["macos"] }

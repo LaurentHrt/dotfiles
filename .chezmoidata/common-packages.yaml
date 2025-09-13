@@ -8,7 +8,6 @@ commonpackages:
     - mise
     - bash
     - bc
-    - carapace
     - coreutils
     - gawk
     - gsed
@@ -56,7 +55,6 @@ commonpackages:
     - tmux
     - gawk
     - mycli
-    - carapace-bin
     - docker-ce
     - docker-ce-cli
     - containerd.io
@@ -86,7 +84,6 @@ commonpackages:
     - man-db
     - docker
     - docker-compose
-    - carapace-bin
     - tmux
     - ttf-nerd-fonts-symbols-mono
     - zsh
