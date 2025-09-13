@@ -1,16 +1,10 @@
 commonpackages:
   taps:
-    - ellie/atuin
-    - homebrew/bundle
-    - homebrew/services
-    - koekeishiya/formulae
   brews:
     - mise
     - bash
     - bc
     - coreutils
-    - gawk
-    - gsed
     - git
     - mycli
     - btop
@@ -27,10 +21,7 @@ commonpackages:
     - bitwarden
     - google-chrome
     - brave-browser
-    - font-caskaydia-cove-nerd-font
-    - font-fira-code-nerd-font
     - font-jetbrains-mono-nerd-font
-    - font-noto-sans-symbols-2
     - raycast
     - bruno
     - wezterm
@@ -53,7 +44,6 @@ commonpackages:
   apts:
     - man-db
     - tmux
-    - gawk
     - mycli
     - docker-ce
     - docker-ce-cli
