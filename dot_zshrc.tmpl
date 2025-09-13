@@ -30,7 +30,6 @@ fi
 {{- if eq .chezmoi.os "darwin" }}
 zstyle ':completion:*' menu select
 if type brew &>/dev/null; then
-  zstyle ':completion:*:*:git:*' script $(brew --prefix)/etc/bash_completion.d/git-completion.bash
   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 fi
 {{- else }}
@@ -93,6 +92,16 @@ if type starship > /dev/null; then
   eval "$(starship init zsh)"
 else
   echo 'info: starship is not installed'
+fi
+
+# Carapace
+if type carapace > /dev/null; then
+  export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+  zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+  source <(carapace _carapace)
+  zstyle ':completion:*:git:*' group-order 'main commands' 'alias commands' 'external commands'
+else
+  echo 'info: carapace is not installed'
 fi
 
 # ATUIN (must be after set vi mode)

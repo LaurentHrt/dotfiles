@@ -107,3 +107,4 @@ echo "{\"organizationId\":null,\"folderId\":null,\"type\":2,\"name\":\"sshkey\",
 - automatize xcode installation
 - add appImageLauncher in linux
 - add bitwarden desktop in debian (need app image launcher)
+- add all deb package list in chezmoidata and run them in a script
