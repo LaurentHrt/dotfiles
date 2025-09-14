@@ -1,13 +1,13 @@
 {{ if or (eq .chezmoi.os "darwin") (eq .chezmoi.os "linux") }}
 [".config/nvim"]
     type = "git-repo"
-    url = "https://github.com/LaurentHrt/nvim-lazy.git"
+    url = "git@github.com:LaurentHrt/nvim-lazy.git"
     exact = true
     stripComponents = 1
     clone.args = ["--quiet"]
 [".config/nvim-kickstart"]
     type = "git-repo"
-    url = "https://github.com/LaurentHrt/nvim-kickstart.git"
+    url = "git@github.com:LaurentHrt/nvim-kickstart.git"
     exact = true
     stripComponents = 1
     clone.args = ["--quiet"]
