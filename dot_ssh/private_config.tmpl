@@ -1,7 +1,13 @@
+{{- if eq .where "home" }}
+
+{{- if eq .chezmoi.os "darwin" }}
 Include ~/.orbstack/ssh/config
+{{- end }}
 
 Host dietpi    #Added by lazyssh
     HostName dietpi
     User dietpi
     Port 22
     IdentityFile ~/.ssh/id_ed25519.dietpi
+
+{{- end }}

@@ -14,6 +14,10 @@ README.md
 
 # what I dont't want in my work config
 {{- if ne .where "home" }}
+.ssh/id_ed25519.dietpi
+.ssh/id_ed25519.githubPerso
+.ssh/id_ed25519.dietpi.pub
+.ssh/id_ed25519.githubPerso.pub
 {{- end }}
 
 # what I dont't want in my personal config
