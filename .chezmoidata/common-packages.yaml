@@ -13,6 +13,7 @@ commonpackages:
     - nss
     - zsh
     - tmux
+    - Adembc/homebrew-tap/lazyssh
     - zsh-autosuggestions
     - zsh-completions
     - zsh-syntax-highlighting
