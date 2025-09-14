@@ -22,7 +22,6 @@ README.md
 
 # what I dont't want in my personal config
 {{- if ne .where "work" }}
-.config/git/config-ouidou
 .config/aliases/work-aliases.zsh
 {{- end }}
 
