@@ -1,0 +1,3 @@
+[tools]
+bitwarden = { version = "latest", os = ["macos"] }
+node = "20"

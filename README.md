@@ -83,6 +83,14 @@ git pull
 
 ```
 
+## Usage
+
+Apply the dotfiles with the mise task `chezmoiupdate`. The task will make sure bitwarden is unlocked before applying the dotfiles.
+
+```
+mise chezmoiupdate
+```
+
 ## Troubleshooting
 
 ### ssh key in bitwarden
