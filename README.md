@@ -1,17 +1,5 @@
 # Dotfiles
 
-## Status
-
-- MacOS: Ok
-- Linux:
-  - Ubuntu: Ok
-  - Debian: Ok
-  - Arch: Ok
-- Windows: Ok
-- Windows WSL:
-  - Ubuntu: Ok
-  - Debian: WIP
-
 ## Prerequisites
 
 ### Mac & Linux
@@ -45,31 +33,36 @@ export BW_SESSION=$(bw unlock --raw)
 
 ### On Linux and Mac
 
+#### With git clone and custom installation script (recommended):
+```sh
+git clone https://github.com/LaurentHrt/dotfiles.git ~/.local/share/chezmoi
+cd ~/.local/share/chezmoi
+./install.sh
+```
+
+#### Directly from chezmoi installation script:
 ```sh
 REPO_URL=LaurentHrt
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $REPO_URL
+```
 
-# or if chezmoi is already installed:
-chezmoi update
+#### If chezmoi is already installed:
+```sh
 chezmoi init --apply $REPO_URL
 ```
 
 ### On windows
 
-#### Chezmoi installation
-
 ```ps1
+# Installation
 iex "&{$(irm 'https://get.chezmoi.io/ps1')}"
 
 # Fallback in case it does not work
 iex "&{$(irm 'https://raw.githubusercontent.com/twpayne/chezmoi/5b48fccda9e8962a92621edfc2395bb2bc3b298a/assets/scripts/install.ps1')}"
 # or
 choco install chezmoi
-```
 
-#### Chezmoi initialization
-
-```
+# Initialization
 .\bin\chezmoi.exe init --apply $GITHUB_USERNAME
 ```
 
