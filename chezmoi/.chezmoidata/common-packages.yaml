@@ -92,7 +92,6 @@ commonpackages:
   choco:
     - googlechrome
     - brave
-    - git
     - wezterm
     - bitwarden
     - powertoys
