@@ -3,8 +3,8 @@
 # Atuin login
 {{ if eq .bwActivated "yes" }}
 if type atuin > /dev/null; then
-  echo "Atuin login"
-  atuin login -u {{ (bitwarden "item" "atuin").login.username | quote }} -p {{ (bitwarden "item" "atuin").login.password | quote }} -k {{ (bitwardenFields "item" "atuin").key.value | quote }}
+  echo "Atuin syncing..."
+  atuin login -u {{ (bitwarden "item" "atuin").login.username | quote }} -p {{ (bitwarden "item" "atuin").login.password | quote }} -k {{ (bitwardenFields "item" "atuin").key.value | quote }} 2>/dev/null
   atuin sync -f
 else
   echo 'info: atuin is not installed, login skipped'
