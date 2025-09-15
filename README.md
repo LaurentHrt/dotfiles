@@ -17,7 +17,7 @@ sudo apt install -qqy git curl
 
 - Run `set-executionpolicy remotesigned` in a admin powershell
 - Run `set-executionpolicy unrestricted process` in a admin powershell
-- System up to date and having WSL already set-up (with no vm running)
+- System up to date and having WSL already set-up (with no vm running): `wsl --instal --no-distribution`
 
 ## Installation
 
