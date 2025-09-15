@@ -33,17 +33,20 @@ export BW_SESSION=$(bw unlock --raw)
 
 ### On Linux and Mac
 
-#### With git clone and custom installation script (recommended):
+#### With git clone and custom installation script (recommended)
+
 ```sh
 git clone https://github.com/LaurentHrt/dotfiles.git ~/.local/share/chezmoi && ~/.local/share/chezmoi/install.sh
 ```
 
-#### Directly from chezmoi installation script:
+#### Directly from chezmoi installation script
+
 ```sh
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply LaurentHrt
 ```
 
-#### If chezmoi is already installed:
+#### If chezmoi is already installed
+
 ```sh
 chezmoi init --apply LaurentHrt
 ```
@@ -92,13 +95,11 @@ echo "{\"organizationId\":null,\"folderId\":null,\"type\":2,\"name\":\"sshkey\",
 ## Todo
 
 - use env variable bitwarden.unlock to automatically unlock bw
-- Check atuiin already logged in before logging in
 - Add some usefull log message like 'starting chezmoi install on branch xxx'
 - Automatically skip GUI installation if there is no GUI
 - set mac internal setting with script
 - set windows internal settings with script
 - automatize brew installation
-- automatize xcode installation
 - add appImageLauncher in linux
 - add bitwarden desktop in debian (need app image launcher)
 - add all deb package list in chezmoidata and run them in a script
