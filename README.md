@@ -42,13 +42,12 @@ cd ~/.local/share/chezmoi
 
 #### Directly from chezmoi installation script:
 ```sh
-REPO_URL=LaurentHrt
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $REPO_URL
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply LaurentHrt
 ```
 
 #### If chezmoi is already installed:
 ```sh
-chezmoi init --apply $REPO_URL
+chezmoi init --apply LaurentHrt
 ```
 
 ### On windows
@@ -63,7 +62,7 @@ iex "&{$(irm 'https://raw.githubusercontent.com/twpayne/chezmoi/5b48fccda9e8962a
 choco install chezmoi
 
 # Initialization
-.\bin\chezmoi.exe init --apply $GITHUB_USERNAME
+.\bin\chezmoi.exe init --apply LaurentHrt
 ```
 
 #### If Chezmoi initialization does not work
