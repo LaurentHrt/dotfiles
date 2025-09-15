@@ -29,6 +29,7 @@ commonpackages:
     - obsidian
     - visual-studio-code
   aptsUtils:
+    - apt-utils
     - gpg
     - bash
     - bc
