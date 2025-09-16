@@ -1,8 +1,5 @@
 #!{{ lookPath "sh" }}
 
-# ARCH ------------------------------
-{{ if or (eq .chezmoi.osRelease.id "arch") -}}
-
 echo "Remove packages"
 
 BLOATWARE_PACKAGES="
@@ -87,10 +84,10 @@ hitori
 aisleriot
 quadrapassel
 lightsoff
-iagno
-gnome-taquin
-gnome-tetravex
-lightsoff
+iagno 
+gnome-taquin 
+gnome-tetravex 
+lightsoff 
 tali
 swell-foop
 synaptic
@@ -100,8 +97,10 @@ evolution
 malcontent
 "
 
-INSTALLED_PACKAGES=$(pacman -Qq)
+# Get the list of all installed packages
+INSTALLED_PACKAGES=$(apt list --installed 2>/dev/null | awk -F/ '{print $1}')
 
+# Filter the installed packages to find the ones that are also in the bloatware list
 BLOATWARE_INSTALLED=""
 for package in $BLOATWARE_PACKAGES; do
     if echo "$INSTALLED_PACKAGES" | grep -q "^$package$"; then
@@ -109,8 +108,13 @@ for package in $BLOATWARE_PACKAGES; do
     fi
 done
 
+# Purge the bloatware packages
 if [ -n "$BLOATWARE_INSTALLED" ]; then
-    sudo pacman -Rnsc --noconfirm $BLOATWARE_INSTALLED
+    for package in $BLOATWARE_INSTALLED; do
+        echo "Removing $package..."
+        sudo apt-get purge -qqy $package > /dev/null
+    done
 fi
 
-{{ end }}
+sudo apt-get auto-remove -qqy > /dev/null
+

@@ -1,8 +1,5 @@
 #!{{ lookPath "sh" }}
 
-# ARCH (btw) ------------------------------
-{{ if or (eq .chezmoi.osRelease.id "arch") -}}
-
 echo "Install packages"
 
 # need to install this before everything else
@@ -36,4 +33,3 @@ sudo pacman --noconfirm --needed -S {{ range .personalpackages.pacman -}} {{ . }
 sudo pacman --noconfirm --needed -S {{ range .workpackages.pacman -}} {{ . }} {{ end -}} ;
 {{- end }}
 
-{{ end }}

@@ -1,8 +1,5 @@
 #!{{ lookPath "sh" }}
 
-# DEBIAN ------------------------------
-{{ if or (eq .chezmoi.osRelease.id "debian") (eq .chezmoi.osRelease.id "ubuntu") -}}
-
 echo "Install packages"
 
 # need to install utils before everything else
@@ -99,4 +96,3 @@ else
   rm bw.zip
 fi
 
-{{ end }}
