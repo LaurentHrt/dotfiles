@@ -1,5 +1,8 @@
 #!{{ lookPath "sh" }}
 
-# Docker postinstall
+# Create group for docker
 sudo groupadd docker >/dev/null
 sudo usermod -aG docker $USER >/dev/null
+
+# Start docker service
+sudo service docker start
