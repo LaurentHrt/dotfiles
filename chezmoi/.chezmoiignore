@@ -14,11 +14,11 @@ README.md
 
 # Ignoring scripts in folder according to os and distribution
 {{- if eq .chezmoi.os "linux" }}
-{{- if or (eq .chezmoi.osRelease.id "debian") (eq .chezmoi.osRelease.id "ubuntu") -}}
-.chezmoiscripts/linux/arch/**
-{{- end }}
-{{ if or (eq .chezmoi.osRelease.id "arch") -}}
+{{- if and (ne .chezmoi.osRelease.id "debian") (ne .chezmoi.osRelease.id "ubuntu") -}}
 .chezmoiscripts/linux/debian/**
+{{- end }}
+{{ if ne .chezmoi.osRelease.id "arch" -}}
+.chezmoiscripts/linux/arch/**
 {{- end }}
 {{- end }}
 
