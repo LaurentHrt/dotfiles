@@ -17,7 +17,7 @@ sudo apt install -qqy git curl
 
 - Run `set-executionpolicy remotesigned` in a admin powershell
 - Run `set-executionpolicy unrestricted process` in a admin powershell
-- System up to date and having WSL already set-up (with no vm running): `wsl --install --no-distribution`
+- System up to date and having WSL already set-up, and rebooted (with no vm running): `wsl --install --no-distribution`
 
 ## Installation
 
@@ -99,7 +99,6 @@ echo "{\"organizationId\":null,\"folderId\":null,\"type\":2,\"name\":\"sshkey\",
 - Automatically skip GUI installation if there is no GUI
 - set mac internal setting with script
 - set windows internal settings with script
-- automatize brew installation
 - add appImageLauncher in linux
 - add bitwarden desktop in debian (need app image launcher)
 - add all deb package list in chezmoidata and run them in a script
