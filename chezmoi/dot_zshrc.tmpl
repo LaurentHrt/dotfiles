@@ -43,6 +43,8 @@ if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
 else
   compinit -C
 fi
+{{- else }}
+compinit
 {{- end }}
 zmodload -i zsh/complist
 
