@@ -1,8 +1,9 @@
 #!{{ lookPath "sh" }}
 
-echo "Install packages"
+echo "Installing packages..."
+brew=/opt/homebrew/bin/brew
 
-brew bundle --file=/dev/stdin <<EOF
+$brew bundle --file=/dev/stdin <<EOF
 {{ range .commonpackages.taps -}}
 tap {{ . | quote }}
 {{ end -}}
@@ -15,7 +16,7 @@ cask {{ . | quote }}
 EOF
 
 {{- if eq .where "home" }}
-brew bundle --file=/dev/stdin <<EOF
+$brew bundle --file=/dev/stdin <<EOF
 {{ range .personalpackages.taps -}}
 tap {{ . | quote }}
 {{ end -}}
@@ -29,7 +30,7 @@ EOF
 {{- end }}
 
 {{- if eq .where "work" }}
-brew bundle --file=/dev/stdin <<EOF
+$brew bundle --file=/dev/stdin <<EOF
 {{ range .workpackages.taps -}}
 tap {{ . | quote }}
 {{ end -}}
