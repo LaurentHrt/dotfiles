@@ -1,6 +1,11 @@
 #!/bin/zsh
 #MISE description="Script to apply chezmoi after unlocking bitwarden"
 
+if ! command -v bw >/dev/null 2>&1 || ! bw --version >/dev/null 2>&1; then
+  echo 'bitwarden-cli must be installed and runnable to run this script. Aborting.'
+  return
+fi
+
 BW_STATUS=$(bw status | jq -r '.status')
 if [[ "$BW_STATUS" == "unlocked" ]]; then
   echo "Bitwarden is already unlocked, applying changes..."
