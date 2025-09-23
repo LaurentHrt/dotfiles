@@ -42,6 +42,7 @@ commonpackages:
     - curl
     - build-essential
     - unzip
+    - apt-transport-https
   apts:
     - man-db
     - tmux

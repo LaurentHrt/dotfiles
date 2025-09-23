@@ -3,7 +3,9 @@ workpackages:
   brews:
     - podman
     - podman-compose
+    - gcloud-cli
   casks:
   apts:
+    - google-cloud-cli
   pacman:
   choco:
