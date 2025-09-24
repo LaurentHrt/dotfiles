@@ -4,6 +4,7 @@ commonpackages:
     - mise
     - bash
     - bc
+    - gzip
     - coreutils
     - git
     - mycli
@@ -32,6 +33,7 @@ commonpackages:
     - apt-utils
     - gpg
     - bash
+    - gzip
     - bc
     - coreutils
     - git
