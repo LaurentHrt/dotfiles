@@ -28,14 +28,6 @@ if [[ "$TERM" != "screen-256color" && "$TERM" != "tmux-256color" && "$TERM" != "
 fi
 
 # highlight tab suggestions 
-{{- if eq .chezmoi.os "darwin" }}
-zstyle ':completion:*' menu select
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-fi
-{{- else }}
-fpath=(/usr/local/share/zsh-completions $fpath)
-{{- end }}
 autoload -Uz compinit
 {{- if eq .chezmoi.os "darwin" }}
 if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
@@ -47,6 +39,14 @@ fi
 compinit
 {{- end }}
 zmodload -i zsh/complist
+{{- if eq .chezmoi.os "darwin" }}
+zstyle ':completion:*' menu select
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+fi
+{{- else }}
+fpath=(/usr/local/share/zsh-completions $fpath)
+{{- end }}
 
 {{ if eq .where "work" }}
   {{- if eq .chezmoi.os "darwin" }}
