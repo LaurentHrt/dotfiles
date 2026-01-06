@@ -1,0 +1,14 @@
+[user]
+email = laurent.hirth.68@icloud.com
+name = Laurent Hirth
+ 
+[github]
+user = "LaurentHrt"
+ 
+[core]
+{{- if eq .where "home" }}
+sshCommand = "ssh -i ~/.ssh/id_ed25519.githubPerso"
+{{- end }}
+{{- if eq .where "work" }}
+sshCommand = "ssh -i ~/.ssh/id_ed25519.githubPerso-for-work"
+{{- end }}
