@@ -46,6 +46,14 @@ alias -s ts="$EDITOR"
 alias -s yaml="bat"
 alias -s json="jless"
 
+# Global aliases
+alias -g NE="2>/dev/null"
+alias -g ND=">/dev/null"
+alias -g NUL=">/dev/null 2>1"
+alias -g JQ="| jq"
+alias -g C="| pbcopy"
+alias -g L="| less"
+
 # Create a Brewfile file backup
 alias brewBackup="(cd ~/.config && rm Brewfile && brew bundle dump)"
  
