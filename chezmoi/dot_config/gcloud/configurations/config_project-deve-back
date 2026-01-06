@@ -1,0 +1,11 @@
+[core]
+account = laurent.hirth@sidel.com
+project = deve-back
+
+[compute]
+region = europe-west2
+zone = europe-west2-a
+
+[functions]
+region = europe-west2
+

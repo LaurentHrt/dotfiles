@@ -5,12 +5,12 @@ alias editworlalias='nvim ~/.config/work-aliases.zsh'
 
 # === Sidel aliases === 
 # Database
-alias startsql='podman container start mysql-onprem'
-alias stopsql='podman container stop mysql-onprem'
-alias startinfluxdb='podman container start influxdb'
-alias createsql='(\cd ~/workspace/sidel/sidel-sql && podman run -d --name mysql-onprem -e MYSQL_ROOT_PASSWORD=root -p 3366:3306 --network sidel-sql --network-alias mysql biarms/mysql:5.7 --sql_mode="ONLY_FULL_GROUP_BY" --default-time-zone="+00:00")'
-alias runsqlmigration='(\cd ~/workspace/sidel/sidel-sql && podman start mysql-onprem && podman build -t sidel-migration-tool -f migration_tool/build/Dockerfile-macos . && podman run --rm -it -e MYSQL_USER=root -e MYSQL_PASSWORD=root -e MYSQL_HOST=mysql -e MYSQL_PORT=3306 -e API_BACK_PASSWORD=api_back -e DTM_LIVE_LOCAL_PASSWORD=dtm_live_local --name sidel-migration-tool --network sidel-sql sidel-migration-tool)'
-alias buildsql='(\cd ~/workspace/sidel/sidel-sql && podman build -t sidel-migration-tool -f migration_tool/build/Dockerfile-macos .)'
+alias startsql='docker container start mysql-onprem'
+alias stopsql='docker container stop mysql-onprem'
+alias startinfluxdb='docker container start influxdb'
+alias createsql='(\cd ~/workspace/sidel/sidel-sql && docker run -d --name mysql-onprem -e MYSQL_ROOT_PASSWORD=root -p 3366:3306 --network sidel-sql --network-alias mysql registry.hub.docker.com/library/mysql:8.0.44 --sql_mode="ONLY_FULL_GROUP_BY" --default-time-zone="+00:00")'
+alias runsqlmigration='(\cd ~/workspace/sidel/sidel-sql && docker start mysql-onprem && docker build -t sidel-migration-tool -f migration_tool/build/Dockerfile . && docker run --rm -it -e MYSQL_USER=root -e MYSQL_PASSWORD=root -e MYSQL_HOST=mysql -e MYSQL_PORT=3306 -e API_BACK_PASSWORD=api_back -e DTM_LIVE_LOCAL_PASSWORD=dtm_live_local --name sidel-migration-tool --network sidel-sql sidel-migration-tool)'
+alias buildsql='(\cd ~/workspace/sidel/sidel-sql && docker build -t sidel-migration-tool -f migration_tool/build/Dockerfile .)'
 alias connectsqllocal='mycli -u root -h localhost -P 3366 -p root'
 alias connectsqllocaleit='mycli -u root -h localhost -P 3366 eit_v7 -p root'
 alias checklocalmigration='mycli -u root -h localhost -P 3366 eit_v7 -p root -e "select * from _migrations order by id desc limit 5" | column -t'
@@ -36,11 +36,20 @@ setonpremenv() {
 	echo "On-premise env set"
 }
 
+setlocalenv() {
+	echo "Setting local env..."
+	cp ~/workspace/sidel/sidel-back/.env.local ~/workspace/sidel/sidel-back/.env
+	cp ~/workspace/sidel/sidel-front/src/environments/environment.env.ts ~/workspace/sidel/sidel-front/src/environments/environment.ts 
+	echo "Local env set"
+}
+
 # Process management
 alias openprosys='open -a Prosys\ OPC\ UA\ Simulation\ Server'
 alias closeprosys='osascript -e "quit app \"Prosys OPC UA Simulation Server\"" &'
 
-alias startevocloud="setcloudenv ; stopdtm ; stoprecovery ; stopscheduler ; startproxydev ; startsidelback ; startsidelfront"
+# alias startevocloud="setcloudenv ; stopdtm ; stoprecovery ; stopscheduler ; startproxydev ; startsidelback ; startsidelfront"
+alias startevocloud="setcloudenv ; startproxydev ; startsidelback ; startsidelfront"
+alias startevolocal="setlocalenv ; startsql ; startsidelback ; startsidelfront"
 alias startdtm="startdtmback ; startdtmfront ; openprosys"
 alias startevoonprem="setonpremenv ; stopproxydev ; startsql ; startsidelback ; startsidelfront"
 alias startfullevoonprem="openprosys ; startevoonprem ; startinfluxdb ; startdtm ; startscheduler ; startrecovery"
@@ -79,17 +88,37 @@ startsidelback() {
 startproxydev() {
 	if [[ -z $(pm2 pid proxy-dev) ]] then
 		echo "start proxy-dev"
-    (\cd ~/workspace/sidel/sidel-back > /dev/null && pm2 start "npm run proxy:dev-file" --name "proxy-dev" --error "~/.pm2/logs/proxy-dev.log" --output "~/.pm2/logs/proxy-dev.log" > /dev/null)
+    (pm2 start "cloud-sql-proxy -g data-244201:europe-west2:definition -p 3307" --name "proxy-dev" --error "~/.pm2/logs/proxy-dev.log" --output "~/.pm2/logs/proxy-dev.log" > /dev/null)
 	else
 		echo "restart proxy-dev"
     pm2 restart proxy-dev > /dev/null
 	fi
 }
 
+startproxytest() {
+	if [[ -z $(pm2 pid proxy-test) ]] then
+		echo "start proxy-test"
+    (pm2 start "cloud-sql-proxy -g data-244201:europe-west2:test -p 3309" --name "proxy-test" --error "~/.pm2/logs/proxy-test.log" --output "~/.pm2/logs/proxy-test.log" > /dev/null)
+	else
+		echo "restart proxy-test"
+    pm2 restart proxy-test > /dev/null
+	fi
+}
+
+startproxystaging() {
+	if [[ -z $(pm2 pid proxy-staging) ]] then
+		echo "start proxy-staging"
+    (pm2 start "cloud-sql-proxy -g data-244201:europe-west2:staging -p 3310" --name "proxy-staging" --error "~/.pm2/logs/proxy-staging.log" --output "~/.pm2/logs/proxy-staging.log" > /dev/null)
+	else
+		echo "restart proxy-staging"
+    pm2 restart proxy-staging > /dev/null
+	fi
+}
+
 startproxyprod() {
 	if [[ -z $(pm2 pid proxy-prod) ]] then
 		echo "start proxy-prod"
-    (\cd ~/workspace/sidel/sidel-back > /dev/null && pm2 start "npm run proxy:prod-file" --name "proxy-prod" --error "~/.pm2/logs/proxy-prod.log" --output "~/.pm2/logs/proxy-prod.log" > /dev/null)
+    (pm2 start "cloud-sql-proxy -g data-244201:europe-west2:production -p 3309" --name "proxy-prod" --error "~/.pm2/logs/proxy-prod.log" --output "~/.pm2/logs/proxy-prod.log" > /dev/null)
 	else
 		echo "restart proxy-prod"
     pm2 restart proxy-prod > /dev/null
@@ -137,8 +166,6 @@ startrecovery() {
 }
 
 # Aliases from bitwarden
-{{ if eq .bwActivated "yes" -}} {{ (bitwarden "item" "secure-work-aliases").notes }} {{- end }}
-
 
 # === Other aliases === 
 

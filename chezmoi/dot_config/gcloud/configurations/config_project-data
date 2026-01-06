@@ -1,0 +1,10 @@
+[core]
+account = laurent.hirth@sidel.com
+project = data-244201
+
+[compute]
+region = europe-west2
+
+[functions]
+region = europe-west2
+

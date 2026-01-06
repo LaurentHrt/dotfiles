@@ -21,11 +21,5 @@ no_prompt: false
 {{- if eq .where "work" }}
 {{- if eq .bwActivated "yes" }}
 hosts:
-    gitlab.tech.ouidou.fr:
-        token: {{ (bitwardenFields "item" "gitlab-ouidou").accesstoken.value }}
-        api_host: gitlab.tech.ouidou.fr
-        git_protocol: ssh
-        api_protocol: https
-        user: laurent.hirth
 {{- end }}
 {{- end }}

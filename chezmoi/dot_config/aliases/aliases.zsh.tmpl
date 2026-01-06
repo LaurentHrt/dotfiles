@@ -30,6 +30,8 @@ alias v=nvim
 alias rip='rip --graveyard ~/.Trash/'
 alias d="cd"
 alias ..="cd .."
+alias killport3000='lsof -i :3000 -t | xargs -r kill -9'
+alias portinuse='lsof -i -P -n'
 {{- if eq .chezmoi.os "linux" }}
 {{ if or (eq .chezmoi.osRelease.id "debian") (eq .chezmoi.osRelease.id "ubuntu") -}}
 alias pbcopy='xclip -selection clipboard'
