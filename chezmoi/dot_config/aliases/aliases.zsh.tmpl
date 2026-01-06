@@ -39,6 +39,13 @@ alias pbpaste='xclip -selection clipboard -o'
 {{- end }}
 {{- end }}
 
+# Suffix Aliases
+alias -s md="bat"
+alias -s js="$EDITOR"
+alias -s ts="$EDITOR"
+alias -s yaml="bat"
+alias -s json="jless"
+
 # Create a Brewfile file backup
 alias brewBackup="(cd ~/.config && rm Brewfile && brew bundle dump)"
  
