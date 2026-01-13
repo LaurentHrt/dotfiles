@@ -11,7 +11,9 @@ if [[ "$BW_STATUS" == "unlocked" ]]; then
   echo "Bitwarden is already unlocked, applying changes..."
 elif [[ "$BW_STATUS" == "locked" ]]; then
   echo "Bitwarden is locked."
-  bw sync
+  if ! bw sync; then
+    echo "Warning: Bitwarden sync failed (network or TLS issue). Continuing without sync."
+  fi
   export BW_SESSION=$(bw unlock --raw)
   # Check if bw unlock was successful
   if [[ $(bw status | jq -r '.status') != "unlocked" ]]; then
