@@ -136,5 +136,10 @@ alias gsbl="git branch | fzf | xargs git switch"
 
 alias sshdietpi="ssh dietpi@dietpi -i ~/.ssh/id_ed25519.dietpi"
 
+# Terraform
+alias tf="terraform"
+alias tfp="terraform plan"
+alias tfi="terraform init"
+
 # Aliases from bitwarden
 {{ if eq .bwActivated "yes" -}} {{ (bitwarden "item" "secure-personal-aliases").notes }} {{- end }}
