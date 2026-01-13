@@ -70,6 +70,9 @@ format = '[$symbol($version )]($style) '
 [java]
 format = '[$symbol($version )]($style) '
 
+[terraform]
+format = '[$symbol$workspace]($style)'
+
 [custom.giturl]
 # disabled = true
 description = "Display symbol for remote Git server"
