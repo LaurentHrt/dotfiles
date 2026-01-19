@@ -47,7 +47,10 @@ git worktree add "${GIT_OPTS[@]}" "$BRANCH_NAME" "$WT_DIR"
 cd "$WT_DIR"
 
 # Copy env files
-cp -a $SRC_ROOT/.env.worktree/. ./
+if [ -e "$SRC_ROOT/.env.worktree" ]; then
+  cp -a "$SRC_ROOT/.env.worktree/." ./
+  echo "env files copied"
+fi
 
 # Install dependencies
 npm install
