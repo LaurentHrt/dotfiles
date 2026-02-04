@@ -33,15 +33,8 @@ WT_DIR="../$PROJECT-$SAFE_BRANCH"
 # Ensure refs are up to date
 git fetch --all --prune
 
-# Decide whether the branch must be created
-GIT_OPTS=()
-if ! git show-ref --verify --quiet "refs/heads/$BRANCH_NAME" &&
-  ! git show-ref --verify --quiet "refs/remotes/origin/$BRANCH_NAME"; then
-  GIT_OPTS+=("-b")
-fi
-
 # Add worktree
-git worktree add "${GIT_OPTS[@]}" "$BRANCH_NAME" "$WT_DIR"
+git worktree add -B "$BRANCH_NAME" "$WT_DIR"
 
 # Enter worktree
 cd "$WT_DIR"
