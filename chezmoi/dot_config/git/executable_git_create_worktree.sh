@@ -44,6 +44,3 @@ if [ -e "$SRC_ROOT/.env.worktree" ]; then
   cp -a "$SRC_ROOT/.env.worktree/." ./
   echo "env files copied"
 fi
-
-# Install dependencies
-npm install
