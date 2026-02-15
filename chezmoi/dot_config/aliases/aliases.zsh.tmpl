@@ -141,5 +141,10 @@ alias tf="terraform"
 alias tfp="terraform plan"
 alias tfi="terraform init"
 
+# Docker
+alias dcu="docker compose up -d"
+alias dcuf="docker compose up -d --force-recreate"
+alias dcd="docker compose down"
+
 # Aliases from bitwarden
 {{ if eq .bwActivated "yes" -}} {{ (bitwarden "item" "secure-personal-aliases").notes }} {{- end }}
